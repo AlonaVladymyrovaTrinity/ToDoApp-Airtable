@@ -1,9 +1,9 @@
 import React from 'react';
 // Update TodoListItem component to use props
-let TodoListItem = function ({ todo }) { 
+let TodoListItem = function ({id, title}) { 
     return (
        <li> {/*Remove the key attribute*/}
-            <span>{`${todo.id} ${todo.title}`}</span>
+            <span>{`${id} ${title}`}</span>
        </li>
     )
 }
