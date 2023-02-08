@@ -1,18 +1,5 @@
 import React from 'react';
 import TodoListItem from './TodoListItem';
-//----remuved----//
-// const todoList = [
-//   {
-//     id: 1,
-//     title: "Reed the book",
-//   }, {
-//     id: 2,
-//     title: "Watch the videos",
-//   }, {
-//     id: 3,
-//     title: "Complete assignment"
-//   } ];
-//----------------//
 
 let TodoList = function({ todoList }) {
 return ( 
@@ -21,7 +8,6 @@ return (
           return <TodoListItem key={todo.id} id={todo.id} title={todo.title}/>; // Inside the map() method, use the TodoListItem component; Pass key as a prop equal to the id of the todo object; Pass todo as a prop
         })}
     </ul>
-
 );
 }
 

@@ -10,21 +10,12 @@ let AddTodoForm = function({ onAddTodo }) {
 
     let handleAddTodo = function (event) {
          event.preventDefault(); // prevent the default behavior of the form submit      
-         //----remuved----//
-         //const todoTitle = event.target.title.value;//retrieve the value of the title element from the event target and store it in a variable named todoTitle
-         //----------------//
 
-         /* nside handleAddTodo, update the onAddTodo callback prop to pass an Object instead of a String; Object should have the following properties:
-         title: equal to todoTitle
-         id: unique identifier */
          if (todoTitle==="") {
             alert ("Empty form submission! Please input title.");
             } else {
                 onAddTodo({title: todoTitle, id: Date.now()});
                 console.log(todoTitle);//Log the value of todoTitle in the console
-                //----remuved----//
-                //event.target.title.value = ""; //reset the form so the text input value is cleared
-                //----------------//
                 setTodoTitle(''); //Inside handleAddTodo, remove the reset() method and replace it with logic to reset the todoTitle state to an empty String
             }
         }
