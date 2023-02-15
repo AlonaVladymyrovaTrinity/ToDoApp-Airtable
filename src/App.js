@@ -1,32 +1,37 @@
-import React from 'react';
-import TodoList from './TodoList';
-import AddTodoForm from './AddTodoForm';
-//Above the App functional component, create a new function named useSemiPersistentState which will be a custom hook
-let useSemiPersistentState  = () => {
-  const [todoList, setTodoList] = React.useState(JSON.parse(localStorage.getItem('savedTodoList')) || []); // Update the default state for todoList to read your "savedTodoList" item from localStorage; Update your default state to parse the value of the "savedTodoList" item
-//Define a useEffect React hook with todoList as a dependency
-// Inside the side-effect handler function, save the todoList inside localStorage with the key "savedTodoList"
+import React from "react";
+import TodoList from "./TodoList";
+import AddTodoForm from "./AddTodoForm";
+let useSemiPersistentState = () => {
+  const [todoList, setTodoList] = React.useState(
+    JSON.parse(localStorage.getItem("savedTodoList")) || []
+  );
   React.useEffect(() => {
-    localStorage.setItem('savedTodoList', JSON.stringify(todoList)); // Update your side-effect function to convert todoList to a string before saving in localStorage
+    localStorage.setItem("savedTodoList", JSON.stringify(todoList));
   }, [todoList]);
-  return (
-    [todoList, setTodoList]  );
+  return [todoList, setTodoList];
 };
 
 function App() {
-//use the new custom hook
-const [todoList, setTodoList] = useSemiPersistentState("");
+  const [todoList, setTodoList] = useSemiPersistentState("");
+  // This code creates a new array called newTodoList by filtering the existing
+  // todoList array to remove the item with the given id. Then, it calls the
+  // setTodoList state setter and passes the new newTodoList array as its argument
+  // to update the state with the modified todoList.
+  let removeTodo = function (id) {
+    const newTodoList = todoList.filter((todo) => todo.id !== id); //The filter method creates a new array with all the elements that pass the conditions specified by a given function and returns the new array.
+    setTodoList(newTodoList);
+  };
 
-let addTodo = function(newTodo) {
-  setTodoList([...todoList, newTodo])
-}
+  let addTodo = function (newTodo) {
+    setTodoList([...todoList, newTodo]);
+  };
   return (
     <>
       <h1>Todo List</h1>
-        <AddTodoForm onAddTodo={addTodo}/>
-        <TodoList todoList={todoList}/>
+      <AddTodoForm onAddTodo={addTodo} />
+      <TodoList onRemoveTodo={removeTodo} todoList={todoList} />
     </>
-    );
+  );
 }
 
 export default App;

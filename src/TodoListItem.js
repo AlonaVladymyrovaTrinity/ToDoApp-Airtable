@@ -1,11 +1,13 @@
-import React from 'react';
-// Update TodoListItem component to use props
-let TodoListItem = function ({id, title}) { 
-    return (
-       <li> 
-            <span>{`${id} ${title}`}</span>
-       </li>
-    )
-}
+import React from "react";
+let TodoListItem = function ({ id, title, onRemoveTodo }) {
+  return (
+    <li>
+      <span>{title} </span>
+      <button onClick={() => onRemoveTodo(id)} type="button">
+        Remove
+      </button>
+    </li>
+  );
+};
 
 export default TodoListItem;
