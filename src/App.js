@@ -2,25 +2,24 @@ import React from "react";
 import TodoList from "./TodoList";
 import AddTodoForm from "./AddTodoForm";
 
+const API_ENDPOINT = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default/`;
+
 function App() {
   const [todoList, setTodoList] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
-    new Promise((resolve, reject) =>
-      setTimeout(
-        () =>
-          resolve({
-            data: {
-              todoList: JSON.parse(localStorage.getItem("savedTodoList")) || [],
-            },
-          }),
-        2000
-      )
-    ).then((result) => {
-      setTodoList(result.data.todoList);
-      setIsLoading(false);
-    });
+    fetch(`${API_ENDPOINT}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`, //Bearer YOUR_SECRET_API_TOKEN
+      },
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        setTodoList(result.records); //result.hits ??
+        setIsLoading(false);
+      });
   }, []);
 
   React.useEffect(() => {

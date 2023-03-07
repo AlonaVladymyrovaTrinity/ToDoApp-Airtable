@@ -10,7 +10,8 @@ let TodoList = function ({ todoList, onRemoveTodo }) {
             onRemoveTodo={onRemoveTodo}
             key={todo.id}
             id={todo.id}
-            title={todo.title}
+            // I updated the todo item title to reference the new object format here:
+            title={todo.fields.Title}
           />
         );
       })}
