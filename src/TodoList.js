@@ -1,17 +1,19 @@
 import React from "react";
 import TodoListItem from "./TodoListItem";
 
-let TodoList = function ({ todoList, onRemoveTodo }) {
+let TodoList = function ({ todoList, onRemoveTodo, onSaveTodo, editTitle }) {
   return (
     <ul>
       {todoList.map(function (todo) {
         return (
           <TodoListItem
+            editTitle={editTitle}
+            onSaveTodo={onSaveTodo}
             onRemoveTodo={onRemoveTodo}
             key={todo.id}
-            id={todo.id}
-            // I updated the todo item title to reference the new object format here:
-            title={todo.fields.Title}
+            //id={todo.id}
+            todo={todo} 
+            // title={todo.fields.Title}
           />
         );
       })}

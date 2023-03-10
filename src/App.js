@@ -9,6 +9,7 @@ function App() {
   const [todoList, setTodoList] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
+//GET Items  
   React.useEffect(() => {
     fetch(`${API_ENDPOINT}`, {
       method: "GET",
@@ -18,26 +19,100 @@ function App() {
     })
       .then((response) => response.json())
       .then((result) => {
-        setTodoList(result.records); //result.hits ??
+        setTodoList(result.records); 
         setIsLoading(false);
       })
       .catch((error) => console.error(error));
   }, []);
-
-  React.useEffect(() => {
-    if (!isLoading) {
-      localStorage.setItem("savedTodoList", JSON.stringify(todoList));
+      
+//UPDATE Items  
+const editTitle = (event, id) => {
+  const newTodoList = todoList.map((todo) => {
+    if (todo.id === id) {
+      const newFields = { ...todo.fields, Title: event.target.value };
+      updateAirtableRecord(todo.id, newFields); // update the record in Airtable
+      return { id: todo.id, fields: newFields };
+    } else {
+      return todo;
     }
-  }, [todoList, isLoading]);
+  });
 
+  setTodoList(newTodoList);
+};
+
+  const updateAirtableRecord = (id, fields) => {
+    fetch(`${API_ENDPOINT}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+      },
+      body: JSON.stringify({
+        records: [{ id, fields }],
+      }),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log("Success:", result);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
+//DELETE Items
   let removeTodo = function (id) {
-    const newTodoList = todoList.filter((todo) => todo.id !== id); //The filter method creates a new array with all the elements that pass the conditions specified by a given function and returns the new array.
-    setTodoList(newTodoList);
+    if (!isLoading) {
+      const newTodoList = todoList.filter((todo) => todo.id !== id);
+      setTodoList(newTodoList);
+  
+      fetch(`${API_ENDPOINT}${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("Success:", result);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
   };
+};
+//ADD Items
+let addTodo = function (newTodo) {
+  setIsLoading(true);
+  fetch(API_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+    },
+    body: JSON.stringify({
+      records: [
+        {
+          fields: {
+            Title: newTodo.title,
+            Completed: newTodo.completed,
+          },
+        },
+      ],
+    }),
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log("Success:", result);
+      setTodoList([...todoList, result.records[0]]);
+      setIsLoading(false);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      setIsLoading(false);
+    });
+};
 
-  let addTodo = function (newTodo) {
-    setTodoList([...todoList, newTodo]);
-  };
   return (
     <BrowserRouter>
       <nav>
@@ -46,8 +121,6 @@ function App() {
         </ul>
       </nav>
       <Routes>
-        {/* In version 6.8.2 of React Router, the "exact" prop is no longer used. 
-      Instead, the path prop is used to match the exact path or a partial path. */}
         <Route
           path="/"
           element={
@@ -57,7 +130,7 @@ function App() {
               {isLoading ? (
                 <p>Loading...</p>
               ) : (
-                <TodoList onRemoveTodo={removeTodo} todoList={todoList} />
+                <TodoList onRemoveTodo={removeTodo} todoList={todoList} editTitle={editTitle} onSaveTodo={updateAirtableRecord} />
               )}
             </>
           }
