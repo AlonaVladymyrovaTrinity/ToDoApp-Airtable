@@ -18,7 +18,7 @@ function App() {
     })
       .then((response) => response.json())
       .then((result) => {
-        setTodoList(result.records); //result.hits ??
+        setTodoList(result.records); 
         setIsLoading(false);
       })
       .catch((error) => console.error(error));
@@ -31,7 +31,7 @@ function App() {
   }, [todoList, isLoading]);
 
   let removeTodo = function (id) {
-    const newTodoList = todoList.filter((todo) => todo.id !== id); //The filter method creates a new array with all the elements that pass the conditions specified by a given function and returns the new array.
+    const newTodoList = todoList.filter((todo) => todo.id !== id); 
     setTodoList(newTodoList);
   };
 
