@@ -29,7 +29,7 @@ let AddTodoForm = function ({ onAddTodo }) {
           handleTitleChange={handleTitleChange}
           children
         >
-          <strong>Title: </strong>
+          <strong className={style.title}>Title: </strong>
         </InputWithLabel>
         <button type="submit" className={style["add-button"]}>Add</button>
       </div>

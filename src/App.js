@@ -57,7 +57,7 @@ function App() {
           element={
             <>
               <div className={style.container}>
-              <h1><FontAwesomeIcon icon={faClipboardList} /> Todo List</h1> {/*className={style.header}*/}
+              <h1 className={style.header}><FontAwesomeIcon icon={faClipboardList} /> Todo List</h1>
                 <AddTodoForm onAddTodo={addTodo} />
                   {isLoading ? (
                     <p>Loading...</p>
@@ -74,7 +74,7 @@ function App() {
             </>
           }
         />
-        <Route path="/new" element={<h1 className={style.container}>New Todo List</h1>} />
+        <Route path="/new" element={<div className={style.container}><h1 className={style.header}>New Todo List</h1></div>} />
       </Routes>
     </BrowserRouter>
     </>

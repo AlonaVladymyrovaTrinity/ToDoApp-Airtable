@@ -42,10 +42,14 @@ body {
 /* ::-webkit-scrollbar-thumb:hover {
   background: #aaa;
 } */
+.header {
+  font-size: 2rem;
+  color: #2f2f2f 
+}
 .navigation {
   /* border: 1px solid rgb(63, 92, 237); */
   width: 95%;
-  margin: auto;
+  margin: 25px auto 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,7 +70,7 @@ body {
   padding: 25px;
   margin: 85px auto 0;
   background-color: #fff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 10px #747474; 
 }
 .container .input-field {
   position: relative;
@@ -80,18 +84,31 @@ body {
   font-size: 18px;
   font-weight: 400;
   border-radius: 15px;
-  padding: 18px 45px 18px 15px;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  transition: all 0.30s ease-in-out;
+  padding: 15px;
   border: 1px solid #ccc;
   resize: none;
   margin: 0px 5px;
+
+
 }
 .input-field input:focus {
   border-color: #fb8ce2;
+  /* box-shadow: 1px 1px 2px #9f9f9f;  */
 }
 
 .input-with-button {
   display: flex;
   align-items: center
+}
+
+.title {
+  font-size: 20px;
+  color:#2f2f2f
 }
 .add-button {
     outline: none;
