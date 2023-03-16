@@ -1,0 +1,107 @@
+/* .gradient-custom {
+    background: radial-gradient(50% 123.47% at 50% 50%, #00ff94 0%, #720059 100%),
+      linear-gradient(121.28deg, #669600 0%, #ff0000 100%),
+      linear-gradient(360deg, #0029ff 0%, #8fff00 100%),
+      radial-gradient(100% 164.72% at 100% 100%, #6100ff 0%, #00ff57 100%),
+      radial-gradient(100% 148.07% at 0% 0%, #fff500 0%, #51d500 100%);
+    background-blend-mode: screen, color-dodge, overlay, difference, normal;
+  } */
+/* Reset default styles */
+html, body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, img, table, td, tr, th, form, input, button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+  
+  a {
+    color: #61cbfd
+  }
+  
+  /* box-sizing: border-box for easier sizing calculations */
+  html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  /* base font size and line-height */
+  body {
+    font-size: 18px;
+    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("5313770.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  
+  /* Style the header */
+  .header {
+    font-size: 18px;
+    background-color: #b0cad1;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Style the input and button */
+  .input-container {
+    display: inline-flex;
+    margin: 10px 0;
+    width: 90%;
+  }
+  
+  .todo-input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    font-size: 18px;
+    width: 100%;
+  }
+
+  .todo-button {
+  background-color: #fb8ce2;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 10px;
+  margin-left: 10px;
+}
+  
+  .todo-button:hover {
+    background-color: #fb8ce2;
+  }
+  
+
+/* Style for todo list */
+.ListItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+  }
+  
+  .ListItem span {
+    font-size: 18px;
+  }
+  /* Style the delete button */
+  .delete-button {
+    background-color: #61cbfd;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .delete-button:hover {
+    background-color: #61cbfd;
+  }

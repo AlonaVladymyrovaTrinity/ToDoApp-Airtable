@@ -1,16 +1,16 @@
 import React from "react";
 import TodoListItem from "./TodoListItem";
+import style from "./TodoListItem.module.css";
 
 let TodoList = function ({ todoList, onRemoveTodo }) {
   return (
-    <ul>
+    <ul className={style.ListItem}>
       {todoList.map(function (todo) {
         return (
           <TodoListItem
             onRemoveTodo={onRemoveTodo}
             key={todo.id}
             id={todo.id}
-            // I updated the todo item title to reference the new object format here:
             title={todo.fields.Title}
           />
         );
