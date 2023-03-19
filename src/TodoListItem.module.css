@@ -5,46 +5,38 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-  /* background-color: #e3f2fd; */
-  /* background-image: linear-gradient(to right, #f030cd, #ecf540); */
-  background-image: url("5313770.jpg");
+  background-image: linear-gradient(to right, #f030cd, #61cbfd);
+  /* background-image: url("5313770.jpg");
     background-size: cover;
-    background-position: center;
-    /* background-image: radial-gradient(50% 123.47% at 50% 50%, #00ff94 0%, #720059 100%),
-      linear-gradient(121.28deg, #669600 0%, #ff0000 100%),
-      linear-gradient(360deg, #0029ff 0%, #8fff00 100%),
-      radial-gradient(100% 164.72% at 100% 100%, #6100ff 0%, #00ff57 100%),
-      radial-gradient(100% 148.07% at 0% 0%, #fff500 0%, #51d500 100%);
-    background-blend-mode: screen, color-dodge, overlay, difference, normal; */
-    /* background-size: cover;
     background-position: center; */
 } 
 /* For Scrollbar */
 
 /* width */
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 6px;
-} */
+}
 /* Track */
-/* ::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: #f2f2f2;
-} */
+}
 /* Handle */
-/* ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   border-radius: 15px;
   background: #ccc;
-} */
+}
 /* Handle on hover */
-/* ::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
   background: #aaa;
-} */
+}
 .header {
   font-size: 2rem;
-  color: #2f2f2f 
+  color: #2f2f2f; 
+  padding: 0 10px;
 }
 .navigation {
   /* border: 1px solid rgb(63, 92, 237); */
@@ -57,20 +49,27 @@ body {
 }
 .navigation a {
   margin-left: 10px;
-  color:#ff65e3
+  color:#fdd4f6
 }
 .navigation a:hover {
   color:#a50087
 }
 .container {
-  position: relative;
   max-width: 600px;
   width: 100%;
   border-radius: 15px;
-  padding: 25px;
-  margin: 85px auto 0;
+  padding: 25px 15px;
+  margin: auto;
+  /* margin: 85px auto 0; */
+  position: absolute;
+  /* position: relative; */
+  top:50px;
+  bottom: 50px;
+  left: 0;
+  right: 0;
   background-color: #fff;
   box-shadow: 0 5px 10px #747474; 
+  overflow: hidden;
 }
 .container .input-field {
   position: relative;
@@ -91,24 +90,30 @@ body {
   transition: all 0.30s ease-in-out;
   padding: 15px;
   border: 1px solid #ccc;
+  background-color: #fff;
   resize: none;
   margin: 0px 5px;
-
-
 }
 .input-field input:focus {
   border-color: #fb8ce2;
-  /* box-shadow: 1px 1px 2px #9f9f9f;  */
+  box-shadow: 3.5px 3px 6px 1px #9f9f9f; 
+  border: 1px solid #fb8ce2
 }
 
 .input-with-button {
   display: flex;
-  align-items: center
+  align-items: center;
+  padding: 0 10px 10px;
 }
 
 .title {
   font-size: 20px;
   color:#2f2f2f
+}
+.title-checked {
+  font-size: 20px;
+  color:#2f2f2f;
+  text-decoration: line-through;
 }
 .add-button {
     outline: none;
@@ -118,96 +123,141 @@ body {
     font-size: 18px;
     border-radius: 10px;
     cursor: pointer;
-    /* pointer-events: none; */
-    padding: 10px;
-    white-space: normal;
+    /* padding: 10px; */
+    /* white-space: normal; */
+    box-shadow: 3.5px 3px 6px 1px #9f9f9f; 
+    transition: 0.2s all;
     margin: 0px 0px 0px 10px;
+    padding: 9px 16px;
+
   }
     .add-button:hover {
         background-color: #029ce4;
+        box-shadow: inset 0px 11px 8px -10px #CCC,
+        inset 0px -11px 8px -10px #CCC; 
     }
-/* .input-field .note-icon {
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-  pointer-events: none;
-  font-size: 24px;
-  color: #707070;
-} 
-.input-field input:focus ~ .note-icon {
-  color: #4070f4;
-}*/
+    .add-button:active {
+      /* Scaling button to 0.98 to its original size */
+      transform: scale(0.98);
+      /* Emphasize the shadow */
+      box-shadow: 3px 2px 12px 1px #444444; 
+  }
+
 .container .ListItem {
-  max-height: 380px;
-  overflow-y: auto;
-  padding-right: 10px;
+  /* max-height: 450px; */
+  overflow: scroll; 
+  height: calc(100% - 65px);
+  padding: 0 10px 10px 0;
+  /* overflow-y: auto; */
+  /* overflow-y: scroll; */
+  /* overflow: auto; */
+  
 }
-.ListItem {
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
+/* .ListItem {
+    -ms-overflow-style: none;  Internet Explorer 10+
+    scrollbar-width: none;  Firefox
 }
 .ListItem::-webkit-scrollbar { 
-    display: none;  /* Safari and Chrome */
-}
+    display: none;  Safari and Chrome
+} */
 
 .ListItem .list {
   display: flex;
   align-items: center;
   justify-content: space-between;
   list-style: none;
+  width: 100%;
+  /*height:auto; */
   background-color: #f2f2f2;
-  padding: 20px 15px;
+  padding: 15px 20px;
   border-radius: 15px;
-  margin-top: 10px;
+  color: #2f2f2f;
+  font-size: 1rem;
   position: relative;
-  cursor: pointer;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  transition: all 0.30s ease-in-out;
 }
-.ListItem .list input {
-  height: 16px;
-  min-width: 16px;
-  accent-color: #4070f4;
-  pointer-events: none;
+.ListItem .list:hover {
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.25);
 }
-.ListItem .list .task {
-  margin: 0 30px 0 15px;
-  word-break: break-all;
+.ListItem .list .title{
+  width: 100%;
+  white-space: normal;
 }
-.list input:checked ~ .task {
-  text-decoration: line-through;
+.list-with-button{
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  padding: 10px 10px 0 10px;
 }
-  /* Style the delete button */
   .delete-button {
     background-color: #f282dd;
     color: #fff;
     border: none;
-    padding: 8px 16px;
+    padding: 9px 16px;
     border-radius: 5px;
     cursor: pointer;
+    box-shadow: 3.5px 3px 6px 1px #9f9f9f; 
+    transition: 0.2s all;
+    font-size: 20px;
+    margin-left: 10px;
   }
   
   .delete-button:hover {
     background-color: #f030cd;
+    box-shadow: inset 0px 11px 8px -10px #CCC,
+    inset 0px -11px 8px -10px #CCC; 
   }
-/*-----------*/
-.ListItem .list i {
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-  font-size: 20px;
-  color: #707070;
-  padding: 5px;
+  .delete-button:active {
+    /* Scaling button to 0.98 to its original size */
+    transform: scale(0.98);
+    /* Emphasize the shadow */
+    box-shadow: 3px 2px 12px 1px #444444; 
+}
+
+.check-circle {
+  font-size: 15px;
+  color: #fff;
+  background-color: #777777;
+  border-radius: 50%;
+  height:22px;
+  width:27px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s all;
+  margin-right: 10px;
   opacity: 0.6;
-  display: none;
 }
-.ListItem .list:hover i {
-  display: inline-flex;
+.check-circle:hover {
+  opacity: 1;
+  color: #464646;
+  background-color: #fff;
+  box-shadow: inset 0px 11px 8px -10px #242424,
+  inset 0px -11px 8px -10px #242424; 
 }
-.ListItem .list i:hover {
+.check-circle:active {
+  /* Scaling button to 0.98 to its original size */
+  transform: scale(0.98);
+  /* Emphasize the shadow */
+  box-shadow: 3px 2px 12px 1px #444444; 
+}
+.check-circle-checked {
+  font-size: 15px;
+  color: #242424;
+  background-color: #777777;
+  border-radius: 50%;
+  height:22px;
+  width:27px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s all;
+  margin-right: 10px;
   opacity: 1;
 }
-/*-----------*/
+
 .container .pending-tasks {
   display: flex;
   align-items: center; 
@@ -222,3 +272,9 @@ body {
     padding: 25px 10px;
   }
 }
+/* @media(max-width:768px){
+  .navigation{
+    align-items:center;
+    flex-direction: column;
+  }
+} */
