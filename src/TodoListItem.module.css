@@ -146,7 +146,7 @@ body {
 .container .ListItem {
   /* max-height: 450px; */
   overflow: scroll; 
-  height: calc(100% - 65px);
+  height: calc(100% - 69px);
   padding: 0 10px 10px 0;
   /* overflow-y: auto; */
   /* overflow-y: scroll; */
