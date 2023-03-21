@@ -23,13 +23,18 @@ let AddTodoForm = function ({ onAddTodo }) {
   return (
     <form onSubmit={handleAddTodo}>
       <InputWithLabel
+        title={'todoTitle'}
+        placeholder={'Add todo Title'}
+        id={'todoTitle'}
+        name={'title'}
+        type={'text'}
         todoTitle={todoTitle}
-        handleTitleChange={handleTitleChange}
+        onChange={handleTitleChange}
         children
       >
         <strong>Title: </strong>
       </InputWithLabel>
-      <button type="submit">Add</button>
+      <button type={'submit'}>Add</button>
     </form>
   );
 };
