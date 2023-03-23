@@ -1,7 +1,7 @@
 import React from "react";
 import TodoListItem from "./TodoListItem";
 
-let TodoList = function ({ todoList, onRemoveTodo, onSaveTodo, editTitle }) {
+let TodoList = function ({ todoList, onRemoveTodo, onSaveTodo, editTitle, setTodoList, updateAirtableRecord, isLoading }) {
   return (
     <ul>
       {todoList.map(function (todo) {
@@ -9,10 +9,14 @@ let TodoList = function ({ todoList, onRemoveTodo, onSaveTodo, editTitle }) {
           <TodoListItem
             editTitle={editTitle}
             onSaveTodo={onSaveTodo}
-            onRemoveTodo={onRemoveTodo}
+            onRemoveTodo={(id) => onRemoveTodo(id, isLoading, todoList, setTodoList)}
             key={todo.id}
-            //id={todo.id}
+            // id={todo.id}
             todo={todo} 
+            todoList={todoList}
+            setTodoList={setTodoList}
+            isLoading={isLoading}
+            updateAirtableRecord={updateAirtableRecord}
             // title={todo.fields.Title}
           />
         );
