@@ -1,21 +1,20 @@
-import React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import React, { useState } from "react";import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 // import MainComponent from "./MainComponent";
 import TodoList from "./TodoList";
 import AddTodoForm from "./AddTodoForm";
-import { getTodoList, addTodo, removeTodo, editTitle, updateAirtableRecord } from "./TodoApi";
+import { getTodoList, addTodo, removeTodo, editTitle } from "./TodoApi";
 
 // import Search from './Search';
 
 function App() {
-  const [todoList, setTodoList] = React.useState([]);
-  const [isLoading, setIsLoading] = React.useState(true);
+  const [todoList, setTodoList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   React.useEffect(() => {
     getTodoList(setTodoList, setIsLoading);
   }, []);
 
-  const MainComponent = ({isLoading, todoList}) => {
+  const MainComponent = () => {
     return(
         <>
           <h1>Todo List</h1>
@@ -25,10 +24,15 @@ function App() {
           {isLoading ? (
             <p>Loading...</p>
           ) : (
-            <TodoList onRemoveTodo={removeTodo} todoList={todoList} editTitle={editTitle} setTodoList={setTodoList} isLoading={isLoading} updateAirtableRecord={updateAirtableRecord}/>
+            <TodoList 
+            onRemoveTodo={removeTodo} 
+            todoList={todoList} 
+            onSaveTodo={editTitle} 
+            setTodoList={setTodoList} 
+            isLoading={isLoading}/>
          )}
-        </>)
-}
+        </>);
+};
 
   return (
     <BrowserRouter>
@@ -38,12 +42,7 @@ function App() {
         </ul>
       </nav>
       <Routes>
-        <Route
-          path="/"
-          element={<MainComponent
-            isLoading={isLoading}
-            todoList={todoList}/>}
-        />
+        <Route path="/" element={<MainComponent/>}/>
         <Route path="/new" element={<h1>New Todo List</h1>} />
       </Routes>
     </BrowserRouter>

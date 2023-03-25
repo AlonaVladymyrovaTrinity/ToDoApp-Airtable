@@ -1,23 +1,20 @@
 import React from "react";
 import TodoListItem from "./TodoListItem";
 
-let TodoList = function ({ todoList, onRemoveTodo, onSaveTodo, editTitle, setTodoList, updateAirtableRecord, isLoading }) {
+let TodoList = function ({ onRemoveTodo, onSaveTodo, todoList, setTodoList, isLoading }) {
+
   return (
     <ul>
       {todoList.map(function (todo) {
         return (
           <TodoListItem
-            editTitle={editTitle}
-            onSaveTodo={onSaveTodo}
+            todo={todo}
             onRemoveTodo={(id) => onRemoveTodo(id, isLoading, todoList, setTodoList)}
+            onSaveTodo={onSaveTodo}
             key={todo.id}
-            // id={todo.id}
-            todo={todo} 
             todoList={todoList}
             setTodoList={setTodoList}
             isLoading={isLoading}
-            updateAirtableRecord={updateAirtableRecord}
-            // title={todo.fields.Title}
           />
         );
       })}

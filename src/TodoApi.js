@@ -2,22 +2,27 @@ const API_ENDPOINT = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTAB
 
 //GET Items  
 export const getTodoList = (setTodoList, setIsLoading) => {
-    fetch(`${API_ENDPOINT}`, {
+    fetch(`${API_ENDPOINT}?${Date.now()}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+        "Cache-Control": "no-cache",
       },
     })
       .then((response) => response.json())
       .then((result) => {
+        // console.log("Success:", result);
         setTodoList(result.records); 
         setIsLoading(false);
       })
-      .catch((error) => console.error(error));
+      .catch((error) =>  {
+        console.error("Error:", error);
+        throw error;
+      });
   }
       
-//UPDATE Items  
-export const editTitle = (id, value, todoList, setTodoList, updateAirtableRecord) => {
+//UPDATE Items 
+export const editTitle = (id, value, todoList, setTodoList) => {
   const newTodoList = todoList.map((todo) => {
     if (todo.id === id) {
       const newFields = { ...todo.fields, Title: value };
@@ -27,27 +32,35 @@ export const editTitle = (id, value, todoList, setTodoList, updateAirtableRecord
       return todo;
     }
   });
-
   setTodoList(newTodoList);
+  updateAirtableRecord(id, newTodoList.find(todo => todo.id === id).fields);
 };
 
 export const updateAirtableRecord = (id, fields) => {
-    fetch(`${API_ENDPOINT}`, {
+  if (typeof fields !== "object") {
+    console.error("Error: fields parameter must be an object");
+    return;
+  }
+    fetch(`${API_ENDPOINT}${id}?_=${Date.now()}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+        "Cache-Control": "no-cache",
       },
       body: JSON.stringify({
-        records: [{ id, fields }],
+        //records: [{ id, fields }],
+        fields,
       }),
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log("Success:", result);
+        // console.log("Success:", result);
+        return result;
       })
       .catch((error) => {
         console.error("Error:", error);
+        throw error;
       });
   };
 
@@ -64,9 +77,9 @@ export const removeTodo = (id, isLoading, todoList, setTodoList) => {
         },
       })
         .then((response) => response.json())
-        .then((result) => {
-          console.log("Success:", result);
-        })
+        // .then((result) => {
+        //   console.log("Success:", result);
+        // })
         .catch((error) => {
           console.error("Error:", error);
         });
@@ -86,7 +99,7 @@ export const addTodo = (newTodo, setIsLoading, todoList, setTodoList) => {
         {
           fields: {
             Title: newTodo.title,
-            Completed: newTodo.completed,
+            // Completed: newTodo.completed,
           },
         },
       ],
@@ -94,7 +107,7 @@ export const addTodo = (newTodo, setIsLoading, todoList, setTodoList) => {
   })
     .then((response) => response.json())
     .then((result) => {
-      console.log("Success:", result);
+      // console.log("Success:", result);
       setTodoList([...todoList, result.records[0]]);
       setIsLoading(false);
     })
