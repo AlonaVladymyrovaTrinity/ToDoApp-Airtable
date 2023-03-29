@@ -8,7 +8,7 @@ import Search from "./Search";
 const MainComponent = ({removeTodo, editTitle}) => {
     const [todoList, setTodoList] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [searchInput, setSearchInput] = useState("");
+    const [filteredTodoList, setFilteredTodoList] = useState([]);
 
     useEffect(() => {
       getTodoList(setTodoList, setIsLoading);
@@ -18,27 +18,21 @@ const MainComponent = ({removeTodo, editTitle}) => {
       addTodo(newTodo, setIsLoading, todoList, setTodoList);
     }
 
-    const handleSearch = (inputValue) => {
-      setSearchInput(inputValue);
-    };
-
-    const filterListTitles = (todoList, searchInput) => {
-    return todoList.filter(todo =>
-      todo.fields.Title.toLowerCase().includes(searchInput.toLowerCase())
-    )
+    const handleFilter = (filteredList) => {
+      setFilteredTodoList(filteredList);
     };
 
     return(
         <>
           <h1>Todo List</h1>
           <AddTodoForm onAddTodo={handleNewAddTodo} />
-          <Search onSearch={handleSearch} value={searchInput}/>
+          <Search todoList={todoList} onFilter={handleFilter}/>
           {isLoading ? (
             <p>Loading...</p>
           ) : (
             <TodoList 
             onRemoveTodo={removeTodo} 
-            todoList={filterListTitles(todoList, searchInput)} 
+            todoList={filteredTodoList.length > 0 ? filteredTodoList : todoList} 
             onSaveTodo={editTitle} 
             setTodoList={setTodoList} 
             isLoading={isLoading}/>
