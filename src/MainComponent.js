@@ -32,7 +32,7 @@ const MainComponent = ({removeTodo, editTitle}) => {
         <>
           <h1>Todo List</h1>
           <AddTodoForm onAddTodo={handleNewAddTodo} />
-          <Search onSearch={handleSearch} value={searchInput}/>
+          <Search onSearch={handleSearch} />
           {isLoading ? (
             <p>Loading...</p>
           ) : (
