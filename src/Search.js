@@ -1,21 +1,20 @@
-import React, {useState} from 'react';
-//import React from 'react';
+//import React, {useState} from 'react';
+import React from 'react';
 import InputWithLabel from "./InputWithLabel";
 
-const Search = ({todoList, onFilter}) => {
-    const [searchInput, setSearchInput] = useState("");
-//    const [filteredTodoList, setFilteredTodoList] = useState(todoList);
-
+const Search = ({value, onSearch}) => {
     const handleInputChange = (event) => {
         const inputValue = event.target.value;
-        setSearchInput(inputValue);
-  
-      const filteredList = todoList.filter((todo) =>
-        todo.fields.Title.toLowerCase().includes(inputValue.toLowerCase())
-      );
-     // setFilteredTodoList(filteredList);
-      onFilter(filteredList);
-      };
+        onSearch(inputValue);
+    //const [filteredTodoList, setFilteredTodoList] = useState([]);
+
+    // const handleSearch = (event) => {
+    // const searchInput = event.target.value.toLowerCase();
+    // const filteredList = todoList.filter((todo) =>
+    // todo.title && todo.title.toLowerCase().includes(searchInput));
+    // setFilteredTodoList(filteredList);
+    // onSearch(filteredList);
+    }
 // const [timer, setTimer] = useState(null);
 
 //    let handleSearch = function (event) {
@@ -42,7 +41,7 @@ const Search = ({todoList, onFilter}) => {
                 id={'search'}
                 name={'search'}
                 type={'text'}
-                value={searchInput}
+                value={value}
                 onChange={handleInputChange}
                 children
             >
