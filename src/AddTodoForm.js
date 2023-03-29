@@ -28,6 +28,7 @@ let AddTodoForm = function ({ onAddTodo }) {
         id={'todoTitle'}
         name={'title'}
         type={'text'}
+        value={todoTitle}
         todoTitle={todoTitle}
         onChange={handleTitleChange}
         children

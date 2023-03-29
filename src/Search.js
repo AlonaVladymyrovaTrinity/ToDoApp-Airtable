@@ -1,21 +1,37 @@
+//import React, {useState} from 'react';
 import React from 'react';
 import InputWithLabel from "./InputWithLabel";
 
-let Search = function ({onSearch}) {
-    const [timer, setTimer] = React.useState(null);
+const Search = ({value, onSearch}) => {
+    const handleInputChange = (event) => {
+        const inputValue = event.target.value;
+        onSearch(inputValue);
+    //const [filteredTodoList, setFilteredTodoList] = useState([]);
 
-   let onChange = function (event) {
-        if (timer) {
-            clearTimeout(timer);
-            setTimer(null);
-        }
-        setTimer(
-            setTimeout(() => {
-                const searchInput = event.target.value
-                onSearch(searchInput);
-            }, 500)
-        );
+    // const handleSearch = (event) => {
+    // const searchInput = event.target.value.toLowerCase();
+    // const filteredList = todoList.filter((todo) =>
+    // todo.title && todo.title.toLowerCase().includes(searchInput));
+    // setFilteredTodoList(filteredList);
+    // onSearch(filteredList);
     }
+// const [timer, setTimer] = useState(null);
+
+//    let handleSearch = function (event) {
+//         if (timer) {
+//             clearTimeout(timer);
+//             setTimer(null);
+//         }
+//         setTimer(
+//             setTimeout(() => {
+//                 const searchInput = event.target.value.toLowerCase();
+//                 const filteredTodoList = todoList.filter((todo) =>
+//                   todo.title && todo.title.toLowerCase().includes(searchInput)
+//                 );
+//                 onSearch(filteredTodoList);
+//               }, 1000)
+//         );
+//     }
 
     return (
         <form>
@@ -25,7 +41,8 @@ let Search = function ({onSearch}) {
                 id={'search'}
                 name={'search'}
                 type={'text'}
-                onChange={onChange}
+                value={value}
+                onChange={handleInputChange}
                 children
             >
             <strong>Search: </strong>

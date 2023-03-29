@@ -1,9 +1,9 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useRef } from "react";
 
-let InputWithLabel = function ({id, name, placeholder, title, type, todoTitle, onChange, children}) {
+let InputWithLabel = function ({id, name, placeholder, title, type, value, onChange, children}) {
   const inputRef = useRef(null);
-  React.useEffect(() => {
+  useEffect(() => {
     inputRef.current.focus();
   }, []);
   return (
@@ -16,7 +16,7 @@ let InputWithLabel = function ({id, name, placeholder, title, type, todoTitle, o
         placeholder={placeholder}
         title={title}
         type={type}
-        value={todoTitle}
+        value={value}
         onChange={onChange}
       ></input>
     </>

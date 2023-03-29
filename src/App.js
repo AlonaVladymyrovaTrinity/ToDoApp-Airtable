@@ -25,7 +25,10 @@ function App() {
         // isLoading={isLoading} 
         // setIsLoading={setIsLoading}
         />}/>
-        <Route path="/new" element={<h1>New Todo List</h1>} />
+        <Route path="/new" element={<MainComponent
+        removeTodo={removeTodo} 
+        editTitle={editTitle} 
+        />} />
       </Routes>
     </BrowserRouter>
   );
