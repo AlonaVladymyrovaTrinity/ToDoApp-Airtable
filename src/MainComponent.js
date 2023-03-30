@@ -1,48 +1,51 @@
-import React, { useState, useEffect } from "react";   
+import React, { useState, useEffect } from "react";
 import TodoList from "./TodoList";
 import AddTodoForm from "./AddTodoForm";
 import { addTodo, getTodoList } from "./TodoApi";
 import Search from "./Search";
 
-                     
-const MainComponent = ({removeTodo, editTitle}) => {
-    const [todoList, setTodoList] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [searchInput, setSearchInput] = useState("");
+const MainComponent = ({ removeTodo, editTitle }) => {
+  const [todoList, setTodoList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [searchInput, setSearchInput] = useState("");
 
-    useEffect(() => {
-      getTodoList(setTodoList, setIsLoading);
-    }, []);
+  useEffect(() => {
+    getTodoList(setTodoList, setIsLoading);
+  }, []);
 
-    const handleNewAddTodo = (newTodo) => {
-      addTodo(newTodo, setIsLoading, todoList, setTodoList);
-    }
+  const handleNewAddTodo = (newTodo) => {
+    addTodo(newTodo, setIsLoading, todoList, setTodoList);
+  };
 
-    const handleSearch = (inputValue) => {
-      setSearchInput(inputValue);
-    };
+  const handleSearch = (inputValue) => {
+    setSearchInput(inputValue);
+  };
 
-    const filterListTitles = (todoList, searchInput) => {
-    return todoList.filter(todo =>
+  const filterListTitles = (todoList, searchInput) => {
+    return todoList.filter((todo) =>
       todo.fields.Title.toLowerCase().includes(searchInput.toLowerCase())
-    )
-    };
+    );
+  };
 
-    return(
+  return (
+    <>
+      <h1>Todo List</h1>
+      <AddTodoForm onAddTodo={handleNewAddTodo} />
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
         <>
-          <h1>Todo List</h1>
-          <AddTodoForm onAddTodo={handleNewAddTodo} />
           <Search onSearch={handleSearch} />
-          {isLoading ? (
-            <p>Loading...</p>
-          ) : (
-            <TodoList 
-            onRemoveTodo={removeTodo} 
-            todoList={filterListTitles(todoList, searchInput)} 
-            onSaveTodo={editTitle} 
-            setTodoList={setTodoList} 
-            isLoading={isLoading}/>
-         )}
-        </>)
-}
+          <TodoList
+            onRemoveTodo={removeTodo}
+            todoList={filterListTitles(todoList, searchInput)}
+            onSaveTodo={editTitle}
+            setTodoList={setTodoList}
+            isLoading={isLoading}
+          />
+        </>
+      )}
+    </>
+  );
+};
 export default MainComponent;

@@ -8,7 +8,6 @@ import { removeTodo, editTitle } from "./TodoApi";
 // import Search from './Search';
 
 function App() {
-
   return (
     <BrowserRouter>
       <nav>
@@ -17,18 +16,25 @@ function App() {
         </ul>
       </nav>
       <Routes>
-        <Route path="/" element={<MainComponent
-        removeTodo={removeTodo} 
-        // todoList={todoList} 
-        editTitle={editTitle} 
-        // setTodoList={setTodoList} 
-        // isLoading={isLoading} 
-        // setIsLoading={setIsLoading}
-        />}/>
-        <Route path="/new" element={<MainComponent
-        removeTodo={removeTodo} 
-        editTitle={editTitle} 
-        />} />
+        <Route
+          path="/"
+          element={
+            <MainComponent
+              removeTodo={removeTodo}
+              // todoList={todoList}
+              editTitle={editTitle}
+              // setTodoList={setTodoList}
+              // isLoading={isLoading}
+              // setIsLoading={setIsLoading}
+            />
+          }
+        />
+        <Route
+          path="/new"
+          element={
+            <MainComponent removeTodo={removeTodo} editTitle={editTitle} />
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

@@ -1,7 +1,16 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { useRef } from "react";
 
-let InputWithLabel = function ({id, name, placeholder, title, type, value, onChange, children}) {
+let InputWithLabel = function ({
+  id,
+  name,
+  placeholder,
+  title,
+  type,
+  value,
+  onChange,
+  children,
+}) {
   const inputRef = useRef(null);
   useEffect(() => {
     inputRef.current.focus();

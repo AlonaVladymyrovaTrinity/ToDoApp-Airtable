@@ -16,18 +16,18 @@ let AddTodoForm = function ({ onAddTodo }) {
       alert("Empty form submission! Please input title.");
     } else {
       onAddTodo({ title: todoTitle, id: Date.now() });
-      console.log(todoTitle);
+      // console.log(todoTitle);
       setTodoTitle("");
     }
   };
   return (
     <form onSubmit={handleAddTodo}>
       <InputWithLabel
-        title={'todoTitle'}
-        placeholder={'Add todo Title'}
-        id={'todoTitle'}
-        name={'title'}
-        type={'text'}
+        title={"todoTitle"}
+        placeholder={"Add todo Title"}
+        id={"todoTitle"}
+        name={"title"}
+        type={"text"}
         value={todoTitle}
         todoTitle={todoTitle}
         onChange={handleTitleChange}
@@ -35,7 +35,7 @@ let AddTodoForm = function ({ onAddTodo }) {
       >
         <strong>Title: </strong>
       </InputWithLabel>
-      <button type={'submit'}>Add</button>
+      <button type={"submit"}>Add</button>
     </form>
   );
 };
