@@ -1,5 +1,7 @@
 import React from "react";
 import InputWithLabel from "./InputWithLabel";
+import style from "./TodoListItem.module.css";
+import { MdFormatListBulletedAdd } from "react-icons/md";
 
 let AddTodoForm = function ({ onAddTodo }) {
   const [todoTitle, setTodoTitle] = React.useState("");
@@ -22,20 +24,24 @@ let AddTodoForm = function ({ onAddTodo }) {
   };
   return (
     <form onSubmit={handleAddTodo}>
-      <InputWithLabel
-        title={"todoTitle"}
-        placeholder={"Add todo Title"}
-        id={"todoTitle"}
-        name={"title"}
-        type={"text"}
-        value={todoTitle}
-        todoTitle={todoTitle}
-        onChange={handleTitleChange}
-        children
-      >
-        <strong>Title: </strong>
-      </InputWithLabel>
-      <button type={"submit"}>Add</button>
+      <div className={style["input-with-button"]}>
+        <InputWithLabel
+          title={"todoTitle"}
+          placeholder={"Add todo Title"}
+          id={"todoTitle"}
+          name={"title"}
+          type={"text"}
+          value={todoTitle}
+          todoTitle={todoTitle}
+          onChange={handleTitleChange}
+          children
+        >
+          <strong className={style.title}>Title: </strong>
+        </InputWithLabel>
+        <button type={"submit"} className={style["add-button"]}>
+          <MdFormatListBulletedAdd />
+        </button>
+      </div>
     </form>
   );
 };

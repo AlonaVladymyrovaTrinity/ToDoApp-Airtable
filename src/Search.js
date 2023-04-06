@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import InputWithLabel from "./InputWithLabel";
+import style from "./TodoListItem.module.css";
 
 const Search = ({ onSearch }) => {
   const [timer, setTimer] = useState(null);
@@ -19,17 +20,21 @@ const Search = ({ onSearch }) => {
 
   return (
     <form>
-      <InputWithLabel
-        title={"Search"}
-        placeholder={"Search for titles"}
-        id={"search"}
-        name={"search"}
-        type={"text"}
-        onChange={handleInputChange}
-        children
-      >
-        <strong>Search: </strong>
-      </InputWithLabel>
+      <div className={style["search-input"]}>
+        <div className={style["input-with-button"]}>
+          <InputWithLabel
+            title={"Search"}
+            placeholder={"Search for titles"}
+            id={"search"}
+            name={"search"}
+            type={"search"}
+            onChange={handleInputChange}
+            children
+          >
+            <strong className={style.title}>Search: </strong>
+          </InputWithLabel>
+        </div>
+      </div>
     </form>
   );
 };

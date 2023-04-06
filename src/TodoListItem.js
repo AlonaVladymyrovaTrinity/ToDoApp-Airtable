@@ -1,5 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import style from "./TodoListItem.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
+import { faSave } from "@fortawesome/free-solid-svg-icons";
+import { RiCloseCircleLine } from "react-icons/ri";
 
 const TodoListItem = ({
   todo,
@@ -11,6 +17,25 @@ const TodoListItem = ({
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [title, setTitle] = useState(todo.fields.Title);
+  const [isChecked, setIsChecked] = useState(false);
+  const [isButtonChecked, setIsButtonChecked] = useState(false);
+  const textareaRef = useRef(null);
+
+  useEffect(() => {
+    if (isEditing) {
+      autoResize(textareaRef);
+      textareaRef.current.focus();
+      textareaRef.current.setSelectionRange(
+        textareaRef.current.value.length,
+        textareaRef.current.value.length
+      );
+    }
+  }, [isEditing]);
+
+  const handleCheckClick = () => {
+    setIsChecked(!isChecked);
+    setIsButtonChecked(!isButtonChecked);
+  };
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -31,35 +56,89 @@ const TodoListItem = ({
     setTitle(event.target.value);
   };
 
+  function autoResize(textareaRef) {
+    // console.log(textareaRef.current.value);
+    // Set textarea height to auto so that it adjusts to the content
+    textareaRef.current.style.height = "auto";
+    // Set new textarea height based on the scroll height of the content
+    textareaRef.current.style.height = textareaRef.current.scrollHeight + "px";
+  }
+
   return (
-    <li className={style.ListItem}>
-      {isEditing ? (
-        <>
-          <input type="text" value={title} onChange={handleTitleChange} />
-          <button onClick={handleSaveClick} type="button">
-            Save
-          </button>
-          <button onClick={handleCancelClick} type="button">
-            Cancel
-          </button>
-        </>
-      ) : (
-        <>
-          <span>{todo.fields.Title}</span>
-          <button onClick={handleEditClick} type="button">
-            Edit
-          </button>
+    <>
+      <div className={style["list-with-button"]}>
+        <button
+          onClick={handleCheckClick}
+          type="button"
+          className={`${style["check-circle"]} ${
+            isButtonChecked ? style["check-circle-checked"] : ""
+          }`}
+        >
+          <FontAwesomeIcon icon={faCheckCircle} />
+        </button>
+        <li className={style.list}>
+          {isEditing ? (
+            <>
+              <span className={style["edit-text-label"]}>Edit text</span>
+              <button
+                className={style["cancel-button"]}
+                onClick={handleCancelClick}
+                type="button"
+              >
+                <RiCloseCircleLine />
+              </button>
+              <textarea
+                type="text"
+                className={style["edit-input"]}
+                value={title}
+                ref={textareaRef}
+                rows={1}
+                onChange={handleTitleChange}
+              />
+            </>
+          ) : (
+            <>
+              <div
+                className={`${style.title} ${
+                  isChecked ? style["title-checked"] : ""
+                }`}
+              >
+                {todo.fields.Title}
+              </div>
+            </>
+          )}
+        </li>
+
+        {isEditing ? (
+          <>
+            <button
+              className={style["save-button"]}
+              onClick={handleSaveClick}
+              type="button"
+            >
+              <FontAwesomeIcon icon={faSave} />
+            </button>
+          </>
+        ) : (
           <button
-            onClick={() =>
-              onRemoveTodo(todo.id, isLoading, todoList, setTodoList)
-            }
+            className={style["edit-button"]}
+            onClick={handleEditClick}
             type="button"
           >
-            Delete
+            <FontAwesomeIcon icon={faPencilAlt} />
           </button>
-        </>
-      )}
-    </li>
+        )}
+        <button
+          className={style["delete-button"]}
+          onClick={() =>
+            onRemoveTodo(todo.id, isLoading, todoList, setTodoList)
+          }
+          type="button"
+        >
+          <FontAwesomeIcon icon={faTrashAlt} />
+        </button>
+      </div>
+    </>
   );
 };
 

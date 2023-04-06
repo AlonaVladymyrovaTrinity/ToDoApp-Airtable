@@ -1,5 +1,6 @@
 import React from "react";
 import TodoListItem from "./TodoListItem";
+import style from "./TodoListItem.module.css";
 
 let TodoList = function ({
   onRemoveTodo,
@@ -9,7 +10,7 @@ let TodoList = function ({
   isLoading,
 }) {
   return (
-    <ul>
+    <ul className={style.ListItem}>
       {todoList?.map(function (todo) {
         return (
           <TodoListItem
