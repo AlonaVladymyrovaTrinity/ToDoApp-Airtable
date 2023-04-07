@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboardList } from "@fortawesome/free-solid-svg-icons";
 import style from "./TodoListItem.module.css";
 
-const MainComponent = ({ removeTodo, editTitle }) => {
+const MainComponent = ({ removeTodo, editTitleAndData }) => {
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchInput, setSearchInput] = useState("");
@@ -53,7 +53,8 @@ const MainComponent = ({ removeTodo, editTitle }) => {
             <TodoList
               onRemoveTodo={removeTodo}
               todoList={filterListTitles(todoList, searchInput)}
-              onSaveTodo={editTitle}
+              onSaveTodo={editTitleAndData}
+              onIsDoneUpdateVal={editTitleAndData}
               setTodoList={setTodoList}
               isLoading={isLoading}
             />

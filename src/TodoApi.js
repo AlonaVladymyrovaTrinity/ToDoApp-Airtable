@@ -20,12 +20,12 @@ export const getTodoList = (setTodoList, setIsLoading) => {
       throw error;
     });
 };
-
 //UPDATE Items
-export const editTitle = (id, value, todoList, setTodoList) => {
+export const editTitleAndData = (id, title, done, todoList, setTodoList) => {
   const newTodoList = todoList.map((todo) => {
     if (todo.id === id) {
-      const newFields = { ...todo.fields, Title: value };
+      const newFields = { ...todo.fields, Title: title, done: done };
+      console.log(newFields);
       updateAirtableRecord(todo.id, newFields); // update the record in Airtable
       return { id: todo.id, fields: newFields };
     } else {
@@ -99,6 +99,7 @@ export const addTodo = (newTodo, setIsLoading, todoList, setTodoList) => {
         {
           fields: {
             Title: newTodo.title,
+            done: "false",
             // Completed: newTodo.completed,
           },
         },

@@ -5,6 +5,7 @@ import style from "./TodoListItem.module.css";
 let TodoList = function ({
   onRemoveTodo,
   onSaveTodo,
+  onIsDoneUpdateVal,
   todoList,
   setTodoList,
   isLoading,
@@ -19,6 +20,7 @@ let TodoList = function ({
               onRemoveTodo(id, isLoading, todoList, setTodoList)
             }
             onSaveTodo={onSaveTodo}
+            onIsDoneUpdateVal={onIsDoneUpdateVal}
             key={todo.id}
             todoList={todoList}
             setTodoList={setTodoList}

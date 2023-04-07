@@ -11,14 +11,16 @@ const TodoListItem = ({
   todo,
   onRemoveTodo,
   onSaveTodo,
+  onIsDoneUpdateVal,
   todoList,
   setTodoList,
   isLoading,
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [title, setTitle] = useState(todo.fields.Title);
-  const [isChecked, setIsChecked] = useState(false);
-  const [isButtonChecked, setIsButtonChecked] = useState(false);
+  const [isDone, setIsDone] = useState(
+    todo.fields.done.toLowerCase() === "true"
+  );
   const textareaRef = useRef(null);
 
   useEffect(() => {
@@ -33,8 +35,15 @@ const TodoListItem = ({
   }, [isEditing]);
 
   const handleCheckClick = () => {
-    setIsChecked(!isChecked);
-    setIsButtonChecked(!isButtonChecked);
+    const updatedIsDone = !isDone;
+    setIsDone(updatedIsDone);
+    onIsDoneUpdateVal(
+      todo.id,
+      title,
+      updatedIsDone.toString(),
+      todoList,
+      setTodoList
+    );
   };
 
   const handleEditClick = () => {
@@ -48,7 +57,7 @@ const TodoListItem = ({
 
   const handleSaveClick = () => {
     setIsEditing(false);
-    onSaveTodo(todo.id, title, todoList, setTodoList);
+    onSaveTodo(todo.id, title, isDone.toString(), todoList, setTodoList);
   };
 
   const handleTitleChange = (event) => {
@@ -70,8 +79,8 @@ const TodoListItem = ({
         <button
           onClick={handleCheckClick}
           type="button"
-          className={`${style["check-circle"]} ${
-            isButtonChecked ? style["check-circle-checked"] : ""
+          className={`${
+            isDone ? style["check-circle-checked"] : style["check-circle"]
           }`}
         >
           <FontAwesomeIcon icon={faCheckCircle} />
@@ -100,7 +109,7 @@ const TodoListItem = ({
             <>
               <div
                 className={`${style.title} ${
-                  isChecked ? style["title-checked"] : ""
+                  isDone ? style["title-checked"] : ""
                 }`}
               >
                 {todo.fields.Title}

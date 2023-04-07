@@ -371,7 +371,7 @@ button:active {
 }
 .check-circle:hover {
   opacity: 1;
-  color: #4e4e4e;
+  color: #4e4e4e !important;
   background-color: #dedede;
 }
 

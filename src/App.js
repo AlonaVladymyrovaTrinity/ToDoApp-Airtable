@@ -1,9 +1,8 @@
-//import React from "react";
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import MainComponent from "./MainComponent";
-import { removeTodo, editTitle } from "./TodoApi";
-//import { getTodoList, removeTodo, editTitle } from "./TodoApi";
+import { removeTodo, editTitleAndData } from "./TodoApi";
+//import { getTodoList, removeTodo, editTitleAndData } from "./TodoApi";
 import style from "./TodoListItem.module.css";
 import ResizeAnimationStopper from "./ResizeAnimationStopper";
 // import Search from './Search';
@@ -11,29 +10,12 @@ import ResizeAnimationStopper from "./ResizeAnimationStopper";
 function App() {
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
 
-  // const [isResizing, setIsResizing] = useState(false);
-
   const handleMenuClick = () => {
     setIsNavigationVisible(!isNavigationVisible);
   };
 
-  // useEffect(() => {
-  //   let resizeTimer;
-  //   const handleResize = () => {
-  //     setIsResizing(true);
-  //     clearTimeout(resizeTimer);
-  //     resizeTimer = setTimeout(() => {
-  //       setIsResizing(false);
-  //     }, 400);
-  //   };
-  //   window.addEventListener("resize", handleResize);
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, []);
   return (
     <>
-      {/* <div className={isResizing ? style["resize-animation-stopper"] : ""}> */}
       <ResizeAnimationStopper>
         <header className={`${style["primary-header"]} ${style.flex}`}>
           <div>
@@ -82,7 +64,7 @@ function App() {
                   <MainComponent
                     removeTodo={removeTodo}
                     // todoList={todoList}
-                    editTitle={editTitle}
+                    editTitleAndData={editTitleAndData}
                     // setTodoList={setTodoList}
                     // isLoading={isLoading}
                     // setIsLoading={setIsLoading}
@@ -94,14 +76,13 @@ function App() {
                 element={
                   <MainComponent
                     removeTodo={removeTodo}
-                    editTitle={editTitle}
+                    editTitleAndData={editTitleAndData}
                   />
                 }
               />
             </Routes>
           </BrowserRouter>
         </header>
-        {/* </div> */}
       </ResizeAnimationStopper>
     </>
   );
