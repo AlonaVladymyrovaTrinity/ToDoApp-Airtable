@@ -25,7 +25,7 @@ body {
 }
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #ffffff;
+  background: transparent;
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
@@ -149,7 +149,7 @@ body {
 
 input[type="search"] {
   background-image: url(../public/icon-search.svg);
-  background-position: 10px 10px;
+  background-position: 8px 8px;
   background-repeat: no-repeat;
   padding: 0 10px 0 37px;
 }
@@ -201,7 +201,7 @@ button:active {
 .add-button {
   background-color: #61cbfd;
   border-radius: 10px;
-  /* padding: 10px; */
+  padding-top: 7px !important;
   /* white-space: normal; */
   font-size: 25px;
   margin: 0px 0px 0px 20px;
@@ -420,7 +420,8 @@ while the window is being resized, reducing jank and improving performance.*/
 }
 /*390,393*/
 /*35em*/
-@media screen and (max-width: 375px) {
+/* @media screen and (max-width: 375px) { */
+@media screen and (max-width: 393px) {
   .primary-navigation {
     --gap: 2em;
 
@@ -486,12 +487,12 @@ while the window is being resized, reducing jank and improving performance.*/
   .add-button {
     font-size: 17px;
     margin: 0px 0px 0px 15px;
-    padding: 4.5px 8px 0 8px;
+    padding: 0px 8px 1px 8px;
   }
 
   .container .ListItem {
     overflow: scroll;
-    height: calc(100% - (69px + 72px));
+    height: calc(100% - (69px + 75px));
     padding: 0;
   }
   .ListItem .list {
@@ -584,14 +585,14 @@ while the window is being resized, reducing jank and improving performance.*/
   }
   .add-button {
     border-radius: 8px;
-    font-size: 15px;
+    font-size: 13px;
     margin: 0px 0px 0px 15px;
-    padding: 5px 8px 0 8px;
+    padding: 5px 8px 2px 8px;
   }
 
   .container .ListItem {
     overflow: scroll;
-    height: calc(100% - (69px + 49px));
+    height: calc(100% - (69px + 57px));
     padding: 0;
   }
 

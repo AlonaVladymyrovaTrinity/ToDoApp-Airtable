@@ -18,9 +18,12 @@ const TodoListItem = ({
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [title, setTitle] = useState(todo.fields.Title);
-  const [isDone, setIsDone] = useState(
-    todo.fields.done.toLowerCase() === "true"
-  );
+  //if type of data in db in field done is Checkbox:
+  const [isDone, setIsDone] = useState(todo.fields.done === true);
+  //if type of data in db in column done is string:
+  // const [isDone, setIsDone] = useState(
+  //   todo.fields.done.toLowerCase() === "true"
+  // );
   const textareaRef = useRef(null);
 
   useEffect(() => {
@@ -40,7 +43,10 @@ const TodoListItem = ({
     onIsDoneUpdateVal(
       todo.id,
       title,
-      updatedIsDone.toString(),
+      //if type of field in db is Checkbox:
+      updatedIsDone,
+      //if type of field in db is streeng:
+      //updatedIsDone.toString(),
       todoList,
       setTodoList
     );
@@ -57,7 +63,16 @@ const TodoListItem = ({
 
   const handleSaveClick = () => {
     setIsEditing(false);
-    onSaveTodo(todo.id, title, isDone.toString(), todoList, setTodoList);
+    onSaveTodo(
+      todo.id,
+      title,
+      //if type of field in db is Checkbox:
+      isDone,
+      //if type of field in db is streeng:
+      // isDone.toString(),
+      todoList,
+      setTodoList
+    );
   };
 
   const handleTitleChange = (event) => {
@@ -84,6 +99,7 @@ const TodoListItem = ({
           }`}
         >
           <FontAwesomeIcon icon={faCheckCircle} />
+          <span className={style["sr-only"]}>Done</span>
         </button>
         <li className={style.list}>
           {isEditing ? (
@@ -95,6 +111,7 @@ const TodoListItem = ({
                 type="button"
               >
                 <RiCloseCircleLine />
+                <span className={style["sr-only"]}>Cancel</span>
               </button>
               <textarea
                 type="text"
@@ -126,6 +143,7 @@ const TodoListItem = ({
               type="button"
             >
               <FontAwesomeIcon icon={faSave} />
+              <span className={style["sr-only"]}>Save</span>
             </button>
           </>
         ) : (
@@ -135,6 +153,7 @@ const TodoListItem = ({
             type="button"
           >
             <FontAwesomeIcon icon={faPencilAlt} />
+            <span className={style["sr-only"]}>Edit</span>
           </button>
         )}
         <button
@@ -145,6 +164,7 @@ const TodoListItem = ({
           type="button"
         >
           <FontAwesomeIcon icon={faTrashAlt} />
+          <span className={style["sr-only"]}>Delete</span>
         </button>
       </div>
     </>

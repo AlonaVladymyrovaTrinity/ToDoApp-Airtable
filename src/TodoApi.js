@@ -7,6 +7,8 @@ export const getTodoList = (setTodoList, setIsLoading) => {
     headers: {
       Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
       "Cache-Control": "no-cache",
+      SameSite: "None",
+      Secure: true,
     },
   })
     .then((response) => response.json())
@@ -24,8 +26,13 @@ export const getTodoList = (setTodoList, setIsLoading) => {
 export const editTitleAndData = (id, title, done, todoList, setTodoList) => {
   const newTodoList = todoList.map((todo) => {
     if (todo.id === id) {
-      const newFields = { ...todo.fields, Title: title, done: done };
-      console.log(newFields);
+      //if type of data in db in column done is string:
+      // const newFields = { ...todo.fields, Title: title, done: done };
+      //if type of data in db in field done is Checkbox:
+      const newFields = done
+        ? { ...todo.fields, Title: title, done: done }
+        : { ...todo.fields, Title: title, done: null };
+      // console.log(newFields);
       updateAirtableRecord(todo.id, newFields); // update the record in Airtable
       return { id: todo.id, fields: newFields };
     } else {
@@ -47,6 +54,8 @@ export const updateAirtableRecord = (id, fields) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
       "Cache-Control": "no-cache",
+      SameSite: "None",
+      Secure: true,
     },
     body: JSON.stringify({
       //records: [{ id, fields }],
@@ -99,7 +108,10 @@ export const addTodo = (newTodo, setIsLoading, todoList, setTodoList) => {
         {
           fields: {
             Title: newTodo.title,
-            done: "false",
+            //is type of data in db in column done is string:
+            //done: "false",
+            //if type of data in db in field done is Checkbox:
+            done: null,
             // Completed: newTodo.completed,
           },
         },
