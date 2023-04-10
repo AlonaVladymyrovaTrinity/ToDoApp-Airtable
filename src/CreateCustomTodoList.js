@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import InputWithLabel from "./InputWithLabel";
 import CustomTodoLists from "./CustomTodoLists";
-// import { getBaseSchema } from "./TodoApi";
+import { getBaseSchema } from "./TodoApi";
 import style from "./TodoListItem.module.css";
 
 const CreateCustomTodoList = ({ createNewTable }) => {
   const [newListName, setNewListName] = useState("");
+  const [customTodoLists, setCustomTodoLists] = useState([]);
+  const [isListsLoading, setIsListsLoading] = useState(true);
+
+  useEffect(() => {
+    getBaseSchema(setCustomTodoLists, setIsListsLoading);
+  }, []);
 
   const handleListNameChange = (event) => {
     let newTodoListName = event.target.value;
@@ -17,10 +23,13 @@ const CreateCustomTodoList = ({ createNewTable }) => {
     if (newListName === "") {
       alert("Empty form submission! Please input new todo list name.");
     } else {
-      createNewTable(newListName);
-      console.log(newListName);
+      createNewTable(
+        newListName,
+        setIsListsLoading,
+        setCustomTodoLists,
+        customTodoLists
+      );
       setNewListName("");
-      console.log(newListName);
     }
   };
 
@@ -46,10 +55,10 @@ const CreateCustomTodoList = ({ createNewTable }) => {
               <span className={style["sr-only"]}>Create New List</span>
             </button>
           </div>
-          <CustomTodoLists />
-          {/* <button onClick={getBaseSchema} className={style.createListButton}>
-            Get Base Schema
-          </button> */}
+          <CustomTodoLists
+            customTodoLists={customTodoLists}
+            isListsLoading={isListsLoading}
+          />
         </form>
       </div>
     </>

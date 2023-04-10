@@ -132,7 +132,13 @@ export const addTodo = (newTodo, setIsLoading, todoList, setTodoList) => {
     });
 };
 //CREATE new table
-export const createNewTable = (newListName) => {
+export const createNewTable = (
+  newListName,
+  setIsListsLoading,
+  setCustomTodoLists,
+  customTodoLists
+) => {
+  setIsListsLoading(true);
   fetch(`${API_ENDPOINT_TABLES}`, {
     method: "POST",
     headers: {
@@ -161,10 +167,13 @@ export const createNewTable = (newListName) => {
   })
     .then((response) => response.json())
     .then((result) => {
-      console.log("Success:", result);
+      // console.log("Success:", result);
+      setCustomTodoLists([...customTodoLists, result]);
+      setIsListsLoading(false);
     })
     .catch((error) => {
       console.error("Error:", error);
+      setIsListsLoading(false);
     });
 };
 //GET table names
@@ -180,7 +189,7 @@ export const getBaseSchema = (setCustomTodoLists, setIsListsLoading) => {
   })
     .then((response) => response.json())
     .then((result) => {
-      console.log("Success:", result);
+      // console.log("Success:", result);
       setCustomTodoLists(result.tables);
       setIsListsLoading(false);
     })

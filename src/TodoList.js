@@ -14,7 +14,7 @@ const TodoList = ({
     <ul className={style.ListItem}>
       {todoList?.map(function (todo) {
         return (
-          <>
+          <React.Fragment key={todo.id}>
             <TodoListItem
               todo={todo}
               onRemoveTodo={(id) =>
@@ -27,7 +27,7 @@ const TodoList = ({
               setTodoList={setTodoList}
               isLoading={isLoading}
             />
-          </>
+          </React.Fragment>
         );
       })}
     </ul>
