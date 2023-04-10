@@ -210,7 +210,9 @@ button:active {
 .add-button:hover {
   background-color: #029ce4;
 }
-
+.createListButton {
+  background-color: #000000;
+}
 .container .ListItem {
   /* max-height: 450px; */
   overflow: scroll;
@@ -387,10 +389,10 @@ button:active {
 }
 
 .container .pending-tasks {
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin: 25px 25px;
+  justify-content: space-between; */
+  margin: 5px 25px;
 }
 .pending-tasks span {
   color: #656a6b;

@@ -80,13 +80,13 @@ const TodoListItem = ({
     setTitle(event.target.value);
   };
 
-  function autoResize(textareaRef) {
+  const autoResize = (textareaRef) => {
     // console.log(textareaRef.current.value);
     // Set textarea height to auto so that it adjusts to the content
     textareaRef.current.style.height = "auto";
     // Set new textarea height based on the scroll height of the content
     textareaRef.current.style.height = textareaRef.current.scrollHeight + "px";
-  }
+  };
 
   return (
     <>

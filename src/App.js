@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import MainComponent from "./MainComponent";
-import { removeTodo, editTitleAndData } from "./TodoApi";
+import { removeTodo, editTitleAndData, createNewTable } from "./TodoApi";
 //import { getTodoList, removeTodo, editTitleAndData } from "./TodoApi";
 import style from "./TodoListItem.module.css";
 import ResizeAnimationStopper from "./ResizeAnimationStopper";
+import CreateCustomTodoList from "./CreateCustomTodoList";
 // import Search from './Search';
 
 function App() {
@@ -74,10 +75,7 @@ function App() {
               <Route
                 path="/new"
                 element={
-                  <MainComponent
-                    removeTodo={removeTodo}
-                    editTitleAndData={editTitleAndData}
-                  />
+                  <CreateCustomTodoList createNewTable={createNewTable} />
                 }
               />
             </Routes>

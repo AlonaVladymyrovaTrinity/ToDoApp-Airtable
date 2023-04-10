@@ -1,8 +1,9 @@
-const API_ENDPOINT = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default/`;
+const API_ENDPOINT = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}`;
+const API_ENDPOINT_TABLES = `https://api.airtable.com/v0/meta/bases/${process.env.REACT_APP_AIRTABLE_BASE_ID}/tables`;
 
 //GET Items
 export const getTodoList = (setTodoList, setIsLoading) => {
-  fetch(`${API_ENDPOINT}?${Date.now()}`, {
+  fetch(`${API_ENDPOINT}/Default/?${Date.now()}`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
@@ -19,6 +20,7 @@ export const getTodoList = (setTodoList, setIsLoading) => {
     })
     .catch((error) => {
       console.error("Error:", error);
+      setIsLoading(false);
       throw error;
     });
 };
@@ -48,7 +50,7 @@ export const updateAirtableRecord = (id, fields) => {
     console.error("Error: fields parameter must be an object");
     return;
   }
-  fetch(`${API_ENDPOINT}${id}?_=${Date.now()}`, {
+  fetch(`${API_ENDPOINT}/Default/${id}?_=${Date.now()}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -79,7 +81,7 @@ export const removeTodo = (id, isLoading, todoList, setTodoList) => {
     const newTodoList = todoList.filter((todo) => todo.id !== id);
     setTodoList(newTodoList);
 
-    fetch(`${API_ENDPOINT}${id}`, {
+    fetch(`${API_ENDPOINT}/Default/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
@@ -97,7 +99,7 @@ export const removeTodo = (id, isLoading, todoList, setTodoList) => {
 //ADD Items
 export const addTodo = (newTodo, setIsLoading, todoList, setTodoList) => {
   setIsLoading(true);
-  fetch(API_ENDPOINT, {
+  fetch(`${API_ENDPOINT}/Default/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -127,5 +129,64 @@ export const addTodo = (newTodo, setIsLoading, todoList, setTodoList) => {
     .catch((error) => {
       console.error("Error:", error);
       setIsLoading(false);
+    });
+};
+//CREATE new table
+export const createNewTable = (newListName) => {
+  fetch(`${API_ENDPOINT_TABLES}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_PERSONAL_ACCESS_TOKEN_CREATE_TABLE}`,
+    },
+    body: JSON.stringify({
+      description: "A new todo list",
+      fields: [
+        {
+          description: "Custom todo list",
+          name: "Title",
+          type: "multilineText",
+        },
+        {
+          name: "done",
+          options: {
+            color: "greenBright",
+            icon: "check",
+          },
+          type: "checkbox",
+        },
+      ],
+      name: newListName,
+    }),
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log("Success:", result);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+};
+//GET table names
+export const getBaseSchema = (setCustomTodoLists, setIsListsLoading) => {
+  fetch(`${API_ENDPOINT_TABLES}`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_PERSONAL_ACCESS_TOKEN_GET_DB_SCHEMA}`,
+      "Cache-Control": "no-cache",
+      SameSite: "None",
+      Secure: true,
+    },
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log("Success:", result);
+      setCustomTodoLists(result.tables);
+      setIsListsLoading(false);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      setIsListsLoading(false);
+      throw error;
     });
 };

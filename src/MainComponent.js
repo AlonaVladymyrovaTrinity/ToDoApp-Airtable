@@ -44,12 +44,22 @@ const MainComponent = ({ removeTodo, editTitleAndData }) => {
         ) : todoList.length === 0 ? (
           <div className={style["pending-tasks"]}>
             <span className={style["pending-num"]}>
-              You have no tasks pending.
+              You have no tasks pending in this todo list.
             </span>
           </div>
         ) : (
           <>
             <Search onSearch={handleSearch} />
+            <div className={style["pending-tasks"]}>
+              <span className={style["pending-num"]}>
+                You have {todoList.length} tasks in your list:
+              </span>
+              {/* <span className={style["pending-num"]}>
+                You have{" "}
+                {todoList.filter((record) => !("done" in record.fields)).length}{" "}
+                of {todoList.length} tasks pending:
+              </span> */}
+            </div>
             <TodoList
               onRemoveTodo={removeTodo}
               todoList={filterListTitles(todoList, searchInput)}
