@@ -3,21 +3,23 @@ import InputWithLabel from "./InputWithLabel";
 import style from "./TodoListItem.module.css";
 import { FaRegPlusSquare } from "react-icons/fa";
 
-let AddTodoForm = function ({ onAddTodo }) {
+const AddTodoForm = ({ onAddTodo }) => {
   const [todoTitle, setTodoTitle] = React.useState("");
 
-  let handleTitleChange = function (event) {
+  const handleTitleChange = (event) => {
     let newTodoTitle = event.target.value;
     setTodoTitle(newTodoTitle);
   };
 
-  let handleAddTodo = function (event) {
+  const handleAddTodo = (event) => {
     event.preventDefault();
 
     if (todoTitle === "") {
       alert("Empty form submission! Please input title.");
     } else {
-      onAddTodo({ title: todoTitle, id: Date.now() });
+      // onAddTodo({ title: todoTitle, id: Date.now() });
+      onAddTodo({ title: todoTitle });
+
       // console.log(todoTitle);
       setTodoTitle("");
     }

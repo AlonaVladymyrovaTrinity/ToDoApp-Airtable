@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import MainComponent from "./MainComponent";
-import { removeTodo, editTitleAndData, createNewTable } from "./TodoApi";
-//import { getTodoList, removeTodo, editTitleAndData } from "./TodoApi";
+import TodoContainer from "./TodoContainer";
 import style from "./TodoListItem.module.css";
 import ResizeAnimationStopper from "./ResizeAnimationStopper";
 import CreateCustomTodoList from "./CreateCustomTodoList";
-// import Search from './Search';
 
 function App() {
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
@@ -14,6 +11,7 @@ function App() {
   const handleMenuClick = () => {
     setIsNavigationVisible(!isNavigationVisible);
   };
+  const tableName = "Default";
 
   return (
     <>
@@ -48,35 +46,21 @@ function App() {
                   !isNavigationVisible ? style["primary-navigation-hidden"] : ""
                 }`}
               >
+                <li>
+                  <Link to="/">My Todo Lists</Link>
+                </li>
                 <li className={style.active}>
-                  <Link className={style["ff-sans-cond"]} to="/">
+                  <Link className={style["ff-sans-cond"]} to="/Default">
                     Todo List
                   </Link>
-                </li>
-                <li>
-                  <Link to="/new">New Todo List</Link>
                 </li>
               </ul>
             </nav>
             <Routes>
+              <Route path="/" element={<CreateCustomTodoList />} />
               <Route
-                path="/"
-                element={
-                  <MainComponent
-                    removeTodo={removeTodo}
-                    // todoList={todoList}
-                    editTitleAndData={editTitleAndData}
-                    // setTodoList={setTodoList}
-                    // isLoading={isLoading}
-                    // setIsLoading={setIsLoading}
-                  />
-                }
-              />
-              <Route
-                path="/new"
-                element={
-                  <CreateCustomTodoList createNewTable={createNewTable} />
-                }
+                path="/Default"
+                element={<TodoContainer tableName={tableName} />}
               />
             </Routes>
           </BrowserRouter>

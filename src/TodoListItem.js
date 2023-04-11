@@ -37,6 +37,10 @@ const TodoListItem = ({
     }
   }, [isEditing]);
 
+  const handleRemoveClick = () => {
+    onRemoveTodo(todo.id, isLoading, todoList, setTodoList);
+  };
+
   const handleCheckClick = () => {
     const updatedIsDone = !isDone;
     setIsDone(updatedIsDone);
@@ -158,13 +162,11 @@ const TodoListItem = ({
         )}
         <button
           className={style["delete-button"]}
-          onClick={() =>
-            onRemoveTodo(todo.id, isLoading, todoList, setTodoList)
-          }
+          onClick={handleRemoveClick}
           type="button"
         >
           <FontAwesomeIcon icon={faTrashAlt} />
-          <span className={style["sr-only"]}>Delete</span>
+          <span className={style["sr-only"]}>Remove</span>
         </button>
       </div>
     </>

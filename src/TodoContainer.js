@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import TodoList from "./TodoList";
 import AddTodoForm from "./AddTodoForm";
-import { addTodo, getTodoList } from "./TodoApi";
+import { editTitleAndData, removeTodo, addTodo, getTodoList } from "./TodoApi";
 import Search from "./Search";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboardList } from "@fortawesome/free-solid-svg-icons";
 import style from "./TodoListItem.module.css";
 
-const MainComponent = ({ removeTodo, editTitleAndData }) => {
+const TodoContainer = ({ tableName }) => {
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
     getTodoList(setTodoList, setIsLoading);
-  }, []);
+  }, [tableName]);
 
   const handleNewAddTodo = (newTodo) => {
     addTodo(newTodo, setIsLoading, todoList, setTodoList);
@@ -74,4 +74,4 @@ const MainComponent = ({ removeTodo, editTitleAndData }) => {
     </>
   );
 };
-export default MainComponent;
+export default TodoContainer;
