@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import InputWithLabel from "./InputWithLabel";
 import CustomTodoLists from "./CustomTodoLists";
 import { getBaseSchema, createNewTable } from "./TodoApi";
-import style from "./TodoListItem.module.css";
+import style from "../css/TodoListItem.module.css";
 
 const CreateCustomTodoList = () => {
   const [newListName, setNewListName] = useState("");

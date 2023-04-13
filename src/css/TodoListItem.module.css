@@ -159,7 +159,7 @@ body {
 }
 
 input[type="search"] {
-  background-image: url(./assets/icon-search.svg);
+  background-image: url(../assets/icon-search.svg);
   background-position: 8px 8px;
   background-repeat: no-repeat;
   padding: 0 10px 0 37px;
@@ -485,7 +485,7 @@ while the window is being resized, reducing jank and improving performance.*/
     position: absolute;
     z-index: 9999;
     background-color: transparent;
-    background-image: url("./assets/close.svg");
+    background-image: url("../assets/close.svg");
     background-repeat: no-repeat;
     width: 2rem;
     box-shadow: none;
@@ -506,7 +506,7 @@ while the window is being resized, reducing jank and improving performance.*/
     box-shadow: none;
   }
   .mobile-nav-toggle-close {
-    background-image: url("./assets/hamburger-menu.svg");
+    background-image: url("../assets/hamburger-menu.svg");
   }
 
   .header {

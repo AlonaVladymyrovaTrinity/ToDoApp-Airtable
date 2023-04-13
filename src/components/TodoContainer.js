@@ -5,7 +5,7 @@ import { editTitleAndData, removeTodo, addTodo, getTodoList } from "./TodoApi";
 import Search from "./Search";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboardList } from "@fortawesome/free-solid-svg-icons";
-import style from "./TodoListItem.module.css";
+import style from "../css/TodoListItem.module.css";
 import { useParams } from "react-router-dom";
 
 // const TodoContainer = ({ tableName }) => {

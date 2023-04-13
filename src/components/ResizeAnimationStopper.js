@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import style from "./TodoListItem.module.css";
+import style from "../css/TodoListItem.module.css";
 
 /*This will stop all transitions and animations on all elements 
 while the window is being resized, reducing jank and improving performance.*/

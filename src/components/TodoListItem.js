@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-import style from "./TodoListItem.module.css";
+import style from "../css/TodoListItem.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { faSave } from "@fortawesome/free-solid-svg-icons";
-import { RiCloseCircleLine } from "react-icons/ri";
+// import { RiCloseCircleLine } from "react-icons/ri";
 
 const TodoListItem = ({
   todo,
@@ -117,7 +117,7 @@ const TodoListItem = ({
                 onClick={handleCancelClick}
                 type="button"
               >
-                <RiCloseCircleLine />
+                {/* <RiCloseCircleLine /> */}
                 <span className={style["sr-only"]}>Cancel</span>
               </button>
               <textarea

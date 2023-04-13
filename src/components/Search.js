@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import InputWithLabel from "./InputWithLabel";
-import style from "./TodoListItem.module.css";
+import style from "../css/TodoListItem.module.css";
 
 const Search = ({ onSearch }) => {
   const [timer, setTimer] = useState(null);

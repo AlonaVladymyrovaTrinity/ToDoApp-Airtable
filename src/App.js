@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import TodoContainer from "./TodoContainer";
-import style from "./TodoListItem.module.css";
-import ResizeAnimationStopper from "./ResizeAnimationStopper";
-import CreateCustomTodoList from "./CreateCustomTodoList";
+import TodoContainer from "./components/TodoContainer";
+import style from "./css/TodoListItem.module.css";
+import ResizeAnimationStopper from "./components/ResizeAnimationStopper";
+import CreateCustomTodoList from "./components/CreateCustomTodoList";
 import logo from "./assets/task-list-white.svg";
-import CreateNotes from "./CreateNotes";
+import CreateNotes from "./components/CreateNotes";
 function App() {
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
 

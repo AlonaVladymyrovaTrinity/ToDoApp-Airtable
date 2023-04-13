@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./TodoListItem.module.css";
+import style from "../css/TodoListItem.module.css";
 
 const CreateNotes = () => {
   return (

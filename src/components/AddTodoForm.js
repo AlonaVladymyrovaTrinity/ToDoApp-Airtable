@@ -1,7 +1,7 @@
 import React from "react";
 import InputWithLabel from "./InputWithLabel";
-import style from "./TodoListItem.module.css";
-import { FaRegPlusSquare } from "react-icons/fa";
+import style from "../css/TodoListItem.module.css";
+// import { FaRegPlusSquare } from "react-icons/fa";
 
 const AddTodoForm = ({ onAddTodo }) => {
   const [todoTitle, setTodoTitle] = React.useState("");
@@ -41,7 +41,7 @@ const AddTodoForm = ({ onAddTodo }) => {
           <strong className={style.title}>Title: </strong>
         </InputWithLabel>
         <button type={"submit"} className={style["add-button"]}>
-          <FaRegPlusSquare />
+          {/* <FaRegPlusSquare /> */}
           <span className={style["sr-only"]}>Add</span>
         </button>
       </div>
