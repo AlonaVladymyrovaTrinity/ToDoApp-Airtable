@@ -1,10 +1,9 @@
 import React from "react";
 import InputWithLabel from "./InputWithLabel";
-import style from "./TodoListItem.module.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
-
-
+import style from "../css/TodoListItem.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
+import PropTypes from "prop-types";
 
 let AddTodoForm = function ({ onAddTodo }) {
   const [todoTitle, setTodoTitle] = React.useState("");
@@ -26,7 +25,7 @@ let AddTodoForm = function ({ onAddTodo }) {
     }
   };
   return (
-    <form onSubmit={handleAddTodo}> 
+    <form onSubmit={handleAddTodo}>
       <div className={style["input-with-button"]}>
         <InputWithLabel
           todoTitle={todoTitle}
@@ -35,10 +34,14 @@ let AddTodoForm = function ({ onAddTodo }) {
         >
           <strong className={style.title}>Title: </strong>
         </InputWithLabel>
-        <button type="submit" className={style["add-button"]}><FontAwesomeIcon icon={faPencilAlt} /></button>
+        <button type="submit" className={style["add-button"]}>
+          <FontAwesomeIcon icon={faPencilAlt} />
+        </button>
       </div>
     </form>
   );
 };
+
+AddTodoForm.propTypes = { onAddTodo: PropTypes.func };
 
 export default AddTodoForm;
