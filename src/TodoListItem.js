@@ -15,6 +15,7 @@ const TodoListItem = ({
   todoList,
   setTodoList,
   isLoading,
+  tableName,
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [title, setTitle] = useState(todo.fields.Title);
@@ -38,7 +39,7 @@ const TodoListItem = ({
   }, [isEditing]);
 
   const handleRemoveClick = () => {
-    onRemoveTodo(todo.id, isLoading, todoList, setTodoList);
+    onRemoveTodo(todo.id, isLoading, todoList, setTodoList, tableName);
   };
 
   const handleCheckClick = () => {
@@ -52,7 +53,8 @@ const TodoListItem = ({
       //if type of field in db is streeng:
       //updatedIsDone.toString(),
       todoList,
-      setTodoList
+      setTodoList,
+      tableName
     );
   };
 
@@ -75,12 +77,13 @@ const TodoListItem = ({
       //if type of field in db is streeng:
       // isDone.toString(),
       todoList,
-      setTodoList
+      setTodoList,
+      tableName
     );
   };
 
   const handleTitleChange = (event) => {
-    event.persist(); //to ensure that the event object isn't nullified before it's passed to the editTitle function
+    event.persist(); //to ensure that the event object isn't nullified
     setTitle(event.target.value);
   };
 

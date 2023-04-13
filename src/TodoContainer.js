@@ -6,18 +6,22 @@ import Search from "./Search";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboardList } from "@fortawesome/free-solid-svg-icons";
 import style from "./TodoListItem.module.css";
+import { useParams } from "react-router-dom";
 
-const TodoContainer = ({ tableName }) => {
+// const TodoContainer = ({ tableName }) => {
+const TodoContainer = () => {
+  const { tableName } = useParams();
+
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
-    getTodoList(setTodoList, setIsLoading);
+    getTodoList(setTodoList, setIsLoading, tableName);
   }, [tableName]);
 
   const handleNewAddTodo = (newTodo) => {
-    addTodo(newTodo, setIsLoading, todoList, setTodoList);
+    addTodo(newTodo, setIsLoading, todoList, setTodoList, tableName);
   };
 
   const handleSearch = (inputValue) => {
@@ -36,30 +40,28 @@ const TodoContainer = ({ tableName }) => {
     <>
       <div className={style.container}>
         <h1 className={style.header}>
-          <FontAwesomeIcon icon={faClipboardList} /> Todo List
+          <FontAwesomeIcon icon={faClipboardList} /> Todo List: {tableName}
         </h1>
         <AddTodoForm onAddTodo={handleNewAddTodo} />
         {isLoading ? (
           <p>Loading...</p>
         ) : todoList.length === 0 ? (
-          <div className={style["pending-tasks"]}>
-            <span className={style["pending-num"]}>
-              You have no tasks pending in this todo list.
-            </span>
-          </div>
+          <span className={style["pending-tasks"]}>
+            You have no tasks pending in your "{tableName}" todo list.
+          </span>
         ) : (
           <>
             <Search onSearch={handleSearch} />
-            <div className={style["pending-tasks"]}>
-              <span className={style["pending-num"]}>
-                You have {todoList.length} tasks in your list:
-              </span>
-              {/* <span className={style["pending-num"]}>
+            <span className={style["pending-tasks"]}>
+              You have{" "}
+              <span className={style["pending-num"]}>{todoList.length}</span>{" "}
+              task{todoList.length === 1 ? "" : "s"} in your list:
+            </span>
+            {/* <span className={style["pending-num"]}>
                 You have{" "}
                 {todoList.filter((record) => !("done" in record.fields)).length}{" "}
                 of {todoList.length} tasks pending:
               </span> */}
-            </div>
             <TodoList
               onRemoveTodo={removeTodo}
               todoList={filterListTitles(todoList, searchInput)}
@@ -67,6 +69,7 @@ const TodoContainer = ({ tableName }) => {
               onIsDoneUpdateVal={editTitleAndData}
               setTodoList={setTodoList}
               isLoading={isLoading}
+              tableName={tableName}
             />
           </>
         )}

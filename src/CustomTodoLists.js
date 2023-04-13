@@ -1,5 +1,7 @@
 import React from "react";
 import style from "./TodoListItem.module.css";
+// import { Link } from "react-router-dom";
+import CustomTodoListsItems from "./CustomTodoListsItems";
 
 const CustomTodoLists = ({ customTodoLists, isListsLoading }) => {
   return (
@@ -12,9 +14,16 @@ const CustomTodoLists = ({ customTodoLists, isListsLoading }) => {
             return (
               <React.Fragment key={customTodo.id}>
                 <div className={style["list-with-button"]}>
-                  <li className={style.list}>
-                    <div className={style.title}>{customTodo.name}</div>
-                  </li>
+                  <CustomTodoListsItems customTodo={customTodo} />
+                  {/* <li className={style.list}>
+                     <Link
+                       to={`/todolist/${customTodo.name}`}
+                       // className={style.link}
+                     >
+                       {customTodo.name}
+                     </Link>
+                   </li>
+                   <span></span> */}
                 </div>
               </React.Fragment>
             );

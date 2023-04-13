@@ -4,25 +4,28 @@ import TodoContainer from "./TodoContainer";
 import style from "./TodoListItem.module.css";
 import ResizeAnimationStopper from "./ResizeAnimationStopper";
 import CreateCustomTodoList from "./CreateCustomTodoList";
-
+import logo from "./assets/task-list-white.svg";
+import CreateNotes from "./CreateNotes";
 function App() {
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
 
   const handleMenuClick = () => {
     setIsNavigationVisible(!isNavigationVisible);
   };
-  const tableName = "Default";
 
   return (
-    <>
+    <BrowserRouter>
       <ResizeAnimationStopper>
         <header className={`${style["primary-header"]} ${style.flex}`}>
           <div>
-            <img
-              className={style.logo}
-              src="./task-list-white.svg"
-              alt="Notebook and pen | todo list logo"
-            />
+            <Link to="/" className={style.appNameWrapper}>
+              <img
+                className={style.logo}
+                src={logo}
+                alt="To-Do List App Logo"
+              />
+              <span className={style.appName}>To-Do List App</span>
+            </Link>
           </div>
           <button
             className={`${style["mobile-nav-toggle"]} ${
@@ -38,35 +41,39 @@ function App() {
 
             <span className={style["sr-only"]}>Menu</span>
           </button>
-          <BrowserRouter>
-            <nav className={style.navigation}>
-              <ul
-                id="primary-navigation"
-                className={`${style["primary-navigation"]} ${style.flex} ${
-                  !isNavigationVisible ? style["primary-navigation-hidden"] : ""
-                }`}
-              >
-                <li>
-                  <Link to="/">My Todo Lists</Link>
-                </li>
-                <li className={style.active}>
-                  <Link className={style["ff-sans-cond"]} to="/Default">
+          <nav className={style.navigation}>
+            <ul
+              id="primary-navigation"
+              className={`${style["primary-navigation"]} ${style.flex} ${
+                !isNavigationVisible ? style["primary-navigation-hidden"] : ""
+              }`}
+            >
+              <li>
+                <Link to="/">My Todo Lists</Link>
+              </li>
+              <li className={style.active}>
+                <Link className={style["ff-sans-cond"]} to="/notes">
+                  Notes
+                </Link>
+              </li>
+              {/* <li>  <Link className={style["ff-sans-cond"]} to={`/${tableName}`}>
                     Todo List
                   </Link>
-                </li>
-              </ul>
-            </nav>
-            <Routes>
-              <Route path="/" element={<CreateCustomTodoList />} />
-              <Route
-                path="/Default"
-                element={<TodoContainer tableName={tableName} />}
-              />
-            </Routes>
-          </BrowserRouter>
+                </li> */}
+            </ul>
+          </nav>
+          <Routes>
+            <Route path="/" element={<CreateCustomTodoList />} />
+            <Route
+              // path={`/${tableName}`}
+              path="/todolist/:tableName"
+              element={<TodoContainer />}
+            />
+            <Route path="/notes" element={<CreateNotes />} />
+          </Routes>
         </header>
       </ResizeAnimationStopper>
-    </>
+    </BrowserRouter>
   );
 }
 

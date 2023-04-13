@@ -9,6 +9,7 @@ const TodoList = ({
   todoList,
   setTodoList,
   isLoading,
+  tableName,
 }) => {
   return (
     <ul className={style.ListItem}>
@@ -17,15 +18,17 @@ const TodoList = ({
           <React.Fragment key={todo.id}>
             <TodoListItem
               todo={todo}
-              onRemoveTodo={(id) =>
-                onRemoveTodo(id, isLoading, todoList, setTodoList)
-              }
+              onRemoveTodo={onRemoveTodo}
+              // onRemoveTodo={(id) =>
+              //   onRemoveTodo(id, isLoading, todoList, setTodoList, tableName)
+              // }
               onSaveTodo={onSaveTodo}
               onIsDoneUpdateVal={onIsDoneUpdateVal}
               key={todo.id}
               todoList={todoList}
               setTodoList={setTodoList}
               isLoading={isLoading}
+              tableName={tableName}
             />
           </React.Fragment>
         );

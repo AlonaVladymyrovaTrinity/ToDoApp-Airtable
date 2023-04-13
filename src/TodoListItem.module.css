@@ -43,6 +43,16 @@ body {
   width: 44px;
   height: 44px;
 }
+.appNameWrapper {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: x-large;
+}
+.appName {
+  color: #ffffff;
+}
 .primary-header {
   align-items: center;
   justify-content: space-between;
@@ -149,7 +159,7 @@ body {
 }
 
 input[type="search"] {
-  background-image: url(../public/icon-search.svg);
+  background-image: url(./assets/icon-search.svg);
   background-position: 8px 8px;
   background-repeat: no-repeat;
   padding: 0 10px 0 37px;
@@ -212,7 +222,16 @@ button:active {
   background-color: #029ce4;
 }
 .createListButton {
-  background-color: #000000;
+  background-color: #61cbfd;
+  border-radius: 50%;
+  font-size: 15px;
+  font-weight: bold;
+  max-height: 50px;
+  max-width: 50px;
+  margin: 0px 0px 0px 20px;
+}
+.createListButton:hover {
+  background-color: #029ce4;
 }
 .container .ListItem {
   /* max-height: 450px; */
@@ -320,8 +339,12 @@ button:active {
   background-color: #30e6f0;
 }
 .cancel-button {
-  background-color: #af43fc;
-  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+  color: #af43fc;
+  font-size: 20px;
+  /* background-color: #af43fc; */
+  /* border-radius: 50%; */
   position: absolute;
   margin: 8px 10px 0 0;
   top: 0px;
@@ -332,19 +355,22 @@ button:active {
   width: fit-content;
   padding: 0px 1.5px 0px 1.5px;
   margin-right: 10px;
-  opacity: 0.6;
+  /* opacity: 0.6; */
   box-shadow: none;
 }
 
-/* .cancel-button:hover {
-  background-color: #9500ff;
-  opacity: 1;
-  color: #eeeeee;
-} */
+.cancel-button:hover {
+  /* background-color: #9500ff; */
+  /* opacity: 1; */
+  color: #d296fd;
+  box-shadow: none;
+}
 .cancel-button:active {
-  background-color: #9500ff;
-  opacity: 1;
-  color: #eeeeee;
+  /* background-color: #c067ff; */
+  /* opacity: 1; */
+  color: #d296fd;
+  box-shadow: none;
+  /* color: #eeeeee; */
 }
 
 .edit-button {
@@ -389,14 +415,19 @@ button:active {
   opacity: 1;
 }
 
-.container .pending-tasks {
+.container .pending-tasks,
+p {
   /* display: flex;
   align-items: center;
   justify-content: space-between; */
   margin: 5px 25px;
 }
-.pending-tasks span {
+.pending-tasks,
+p {
   color: #656a6b;
+}
+.pending-num {
+  color: #000000;
 }
 /*The CSS class "sr-only" is used to hide element visually from
 sighted users while still making them accessible to assistive
@@ -421,10 +452,18 @@ while the window is being resized, reducing jank and improving performance.*/
   animation: none !important;
   transition: none !important;
 }
+@media screen and (max-width: 540px) {
+  .appName {
+    display: none;
+  }
+}
 /*390,393*/
 /*35em*/
 /* @media screen and (max-width: 375px) { */
 @media screen and (max-width: 393px) {
+  .appName {
+    display: none;
+  }
   .primary-navigation {
     --gap: 2em;
 
@@ -446,7 +485,7 @@ while the window is being resized, reducing jank and improving performance.*/
     position: absolute;
     z-index: 9999;
     background-color: transparent;
-    background-image: url("../public/close.svg");
+    background-image: url("./assets/close.svg");
     background-repeat: no-repeat;
     width: 2rem;
     box-shadow: none;
@@ -467,7 +506,7 @@ while the window is being resized, reducing jank and improving performance.*/
     box-shadow: none;
   }
   .mobile-nav-toggle-close {
-    background-image: url("../public/hamburger-menu.svg");
+    background-image: url("./assets/hamburger-menu.svg");
   }
 
   .header {

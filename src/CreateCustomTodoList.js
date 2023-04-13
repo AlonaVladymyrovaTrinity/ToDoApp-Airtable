@@ -36,6 +36,9 @@ const CreateCustomTodoList = () => {
   return (
     <>
       <div className={style.container}>
+        <h1 className={style.header}>
+          {/*<FontAwesomeIcon icon={faClipboardList} /> */}Create new List:
+        </h1>
         <form onSubmit={handleAddNewTodoList}>
           <div className={style["input-with-button"]}>
             <InputWithLabel
@@ -51,10 +54,16 @@ const CreateCustomTodoList = () => {
               <strong className={style.title}>Todo list name: </strong>
             </InputWithLabel>
             <button type={"submit"} className={style.createListButton}>
-              Create New List
-              <span className={style["sr-only"]}>Create New List</span>
+              +<span className={style["sr-only"]}>Add New List</span>
             </button>
           </div>
+          <span className={style["pending-tasks"]}>
+            You have{" "}
+            <span className={style["pending-num"]}>
+              {customTodoLists.length}
+            </span>{" "}
+            to-do list{customTodoLists.length === 1 ? "" : "s"}:
+          </span>
           <CustomTodoLists
             customTodoLists={customTodoLists}
             isListsLoading={isListsLoading}

@@ -2,8 +2,9 @@ const API_ENDPOINT = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTAB
 const API_ENDPOINT_TABLES = `https://api.airtable.com/v0/meta/bases/${process.env.REACT_APP_AIRTABLE_BASE_ID}/tables`;
 
 //GET Items
-export const getTodoList = (setTodoList, setIsLoading) => {
-  fetch(`${API_ENDPOINT}/Default/?${Date.now()}`, {
+export const getTodoList = (setTodoList, setIsLoading, tableName) => {
+  // ?${Date.now()}
+  fetch(`${API_ENDPOINT}/${tableName}/`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
@@ -25,7 +26,14 @@ export const getTodoList = (setTodoList, setIsLoading) => {
     });
 };
 //UPDATE Items
-export const editTitleAndData = (id, title, done, todoList, setTodoList) => {
+export const editTitleAndData = (
+  id,
+  title,
+  done,
+  todoList,
+  setTodoList,
+  tableName
+) => {
   const newTodoList = todoList.map((todo) => {
     if (todo.id === id) {
       //if type of data in db in column done is string:
@@ -35,22 +43,23 @@ export const editTitleAndData = (id, title, done, todoList, setTodoList) => {
         ? { ...todo.fields, Title: title, done: done }
         : { ...todo.fields, Title: title, done: null };
       // console.log(newFields);
-      updateAirtableRecord(todo.id, newFields); // update the record in Airtable
+      updateAirtableRecord(todo.id, newFields, tableName); // update the record in Airtable
       return { id: todo.id, fields: newFields };
     } else {
       return todo;
     }
   });
   setTodoList(newTodoList);
-  updateAirtableRecord(id, newTodoList.find((todo) => todo.id === id).fields);
+  // updateAirtableRecord(id, newTodoList.find((todo) => todo.id === id).fields);
 };
 
-export const updateAirtableRecord = (id, fields) => {
+export const updateAirtableRecord = (id, fields, tableName) => {
   if (typeof fields !== "object") {
     console.error("Error: fields parameter must be an object");
     return;
   }
-  fetch(`${API_ENDPOINT}/Default/${id}?_=${Date.now()}`, {
+  // ?_=${Date.now()}
+  fetch(`${API_ENDPOINT}/${tableName}/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -76,12 +85,12 @@ export const updateAirtableRecord = (id, fields) => {
 };
 
 //DELETE Items
-export const removeTodo = (id, isLoading, todoList, setTodoList) => {
+export const removeTodo = (id, isLoading, todoList, setTodoList, tableName) => {
   if (!isLoading) {
     const newTodoList = todoList.filter((todo) => todo.id !== id);
     setTodoList(newTodoList);
 
-    fetch(`${API_ENDPOINT}/Default/${id}`, {
+    fetch(`${API_ENDPOINT}/${tableName}/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
@@ -97,9 +106,15 @@ export const removeTodo = (id, isLoading, todoList, setTodoList) => {
   }
 };
 //ADD Items
-export const addTodo = (newTodo, setIsLoading, todoList, setTodoList) => {
+export const addTodo = (
+  newTodo,
+  setIsLoading,
+  todoList,
+  setTodoList,
+  tableName
+) => {
   setIsLoading(true);
-  fetch(`${API_ENDPOINT}/Default/`, {
+  fetch(`${API_ENDPOINT}/${tableName}/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
