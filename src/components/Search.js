@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import InputWithLabel from "./InputWithLabel";
 import style from "../css/TodoListItem.module.css";
+import PropTypes from "prop-types";
 
 const Search = ({ onSearch }) => {
   const [timer, setTimer] = useState(null);
@@ -37,6 +38,10 @@ const Search = ({ onSearch }) => {
       </div>
     </form>
   );
+};
+
+Search.propTypes = {
+  onSearch: PropTypes.func,
 };
 
 export default Search;

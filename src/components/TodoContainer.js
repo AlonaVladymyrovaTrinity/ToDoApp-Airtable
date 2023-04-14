@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboardList } from "@fortawesome/free-solid-svg-icons";
 import style from "../css/TodoListItem.module.css";
 import { useParams } from "react-router-dom";
+// import PropTypes from "prop-types";
 
 // const TodoContainer = ({ tableName }) => {
 const TodoContainer = () => {
@@ -77,4 +78,9 @@ const TodoContainer = () => {
     </>
   );
 };
+
+// TodoContainer.propTypes = {
+//   tableName: PropTypes.string,
+// };
+
 export default TodoContainer;

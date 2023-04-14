@@ -5,7 +5,8 @@ import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { faSave } from "@fortawesome/free-solid-svg-icons";
-// import { RiCloseCircleLine } from "react-icons/ri";
+import { RiCloseCircleLine } from "react-icons/ri";
+import PropTypes from "prop-types";
 
 const TodoListItem = ({
   todo,
@@ -117,7 +118,7 @@ const TodoListItem = ({
                 onClick={handleCancelClick}
                 type="button"
               >
-                {/* <RiCloseCircleLine /> */}
+                <RiCloseCircleLine />
                 <span className={style["sr-only"]}>Cancel</span>
               </button>
               <textarea
@@ -174,6 +175,17 @@ const TodoListItem = ({
       </div>
     </>
   );
+};
+
+TodoListItem.propTypes = {
+  todo: PropTypes.object,
+  onRemoveTodo: PropTypes.func,
+  onSaveTodo: PropTypes.func,
+  onIsDoneUpdateVal: PropTypes.func,
+  todoList: PropTypes.array,
+  setTodoList: PropTypes.func,
+  isLoading: PropTypes.bool,
+  tableName: PropTypes.string,
 };
 
 export default TodoListItem;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import style from "../css/TodoListItem.module.css";
+import PropTypes from "prop-types";
 
 /*This will stop all transitions and animations on all elements 
 while the window is being resized, reducing jank and improving performance.*/
@@ -28,5 +29,13 @@ function ResizeAnimationStopper({ children }) {
     </div>
   );
 }
+
+ResizeAnimationStopper.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+    PropTypes.elementType,
+  ]).isRequired,
+};
 
 export default ResizeAnimationStopper;

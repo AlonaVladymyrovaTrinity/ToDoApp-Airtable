@@ -189,8 +189,8 @@ button {
   outline: none;
   color: #fff;
   border: none;
-  padding: 9px 15px;
-  border-radius: 5px;
+  padding: 9px 14px;
+  border-radius: 50%;
   cursor: pointer;
   box-shadow: 2px 2px 6px 2px #20212447;
   /* box-shadow: 3.5px 3px 6px 1px #9f9f9f; */
@@ -211,10 +211,9 @@ button:active {
 
 .add-button {
   background-color: #61cbfd;
-  border-radius: 10px;
   padding-top: 7px !important;
   /* white-space: normal; */
-  font-size: 25px;
+  font-size: 22px;
   margin: 0px 0px 0px 20px;
   padding: 5px 10px 0 10px;
 }
@@ -223,7 +222,7 @@ button:active {
 }
 .createListButton {
   background-color: #61cbfd;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   font-size: 15px;
   font-weight: bold;
   max-height: 50px;

@@ -1,9 +1,10 @@
+import PropTypes from "prop-types";
+
 const API_ENDPOINT = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}`;
 const API_ENDPOINT_TABLES = `https://api.airtable.com/v0/meta/bases/${process.env.REACT_APP_AIRTABLE_BASE_ID}/tables`;
 
 //GET Items
 export const getTodoList = (setTodoList, setIsLoading, tableName) => {
-  // ?${Date.now()}
   fetch(`${API_ENDPOINT}/${tableName}/`, {
     method: "GET",
     headers: {
@@ -25,6 +26,13 @@ export const getTodoList = (setTodoList, setIsLoading, tableName) => {
       throw error;
     });
 };
+
+getTodoList.propTypes = {
+  setTodoList: PropTypes.func,
+  setIsLoading: PropTypes.func,
+  tableName: PropTypes.string,
+};
+
 //UPDATE Items
 export const editTitleAndData = (
   id,
@@ -53,12 +61,21 @@ export const editTitleAndData = (
   // updateAirtableRecord(id, newTodoList.find((todo) => todo.id === id).fields);
 };
 
+editTitleAndData.propTypes = {
+  id: PropTypes.string,
+  title: PropTypes.string,
+  done: PropTypes.bool,
+  todoList: PropTypes.object,
+  setTodoList: PropTypes.func,
+  tableName: PropTypes.string,
+};
+
 export const updateAirtableRecord = (id, fields, tableName) => {
   if (typeof fields !== "object") {
     console.error("Error: fields parameter must be an object");
     return;
   }
-  // ?_=${Date.now()}
+
   fetch(`${API_ENDPOINT}/${tableName}/${id}`, {
     method: "PATCH",
     headers: {
@@ -83,7 +100,11 @@ export const updateAirtableRecord = (id, fields, tableName) => {
       throw error;
     });
 };
-
+updateAirtableRecord.propTypes = {
+  id: PropTypes.string,
+  fields: PropTypes.object,
+  tableName: PropTypes.string,
+};
 //DELETE Items
 export const removeTodo = (id, isLoading, todoList, setTodoList, tableName) => {
   if (!isLoading) {
@@ -104,6 +125,13 @@ export const removeTodo = (id, isLoading, todoList, setTodoList, tableName) => {
         console.error("Error:", error);
       });
   }
+};
+removeTodo.propTypes = {
+  id: PropTypes.string,
+  isLoading: PropTypes.bool,
+  todoList: PropTypes.object,
+  setTodoList: PropTypes.func,
+  tableName: PropTypes.string,
 };
 //ADD Items
 export const addTodo = (
@@ -145,6 +173,13 @@ export const addTodo = (
       console.error("Error:", error);
       setIsLoading(false);
     });
+};
+addTodo.propTypes = {
+  newTodo: PropTypes.object,
+  setIsLoading: PropTypes.func,
+  todoList: PropTypes.object,
+  setTodoList: PropTypes.func,
+  tableName: PropTypes.string,
 };
 //CREATE new table
 export const createNewTable = (
@@ -191,6 +226,14 @@ export const createNewTable = (
       setIsListsLoading(false);
     });
 };
+
+createNewTable.propTypes = {
+  newListName: PropTypes.string,
+  setIsListsLoading: PropTypes.func,
+  setCustomTodoLists: PropTypes.func,
+  customTodoLists: PropTypes.array,
+};
+
 //GET table names
 export const getBaseSchema = (setCustomTodoLists, setIsListsLoading) => {
   fetch(`${API_ENDPOINT_TABLES}`, {
@@ -213,4 +256,9 @@ export const getBaseSchema = (setCustomTodoLists, setIsListsLoading) => {
       setIsListsLoading(false);
       throw error;
     });
+};
+
+getBaseSchema.propTypes = {
+  setCustomTodoLists: PropTypes.func,
+  setIsListsLoading: PropTypes.func,
 };
