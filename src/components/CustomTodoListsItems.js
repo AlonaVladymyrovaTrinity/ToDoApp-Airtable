@@ -3,6 +3,7 @@ import style from "../css/TodoListItem.module.css";
 import { Link } from "react-router-dom";
 import { getTodoList } from "./TodoApi";
 import PropTypes from "prop-types";
+import arrow from "../assets/arrow-forward.svg";
 
 const CustomTodoListsItems = ({ customTodo }) => {
   const [todoList, setTodoList] = useState([]);
@@ -18,14 +19,19 @@ const CustomTodoListsItems = ({ customTodo }) => {
         <>
           {todoList ? (
             <>
-              <li className={style.list}>
-                <Link
-                  to={`/todolist/${customTodo.name}`}
-                  // className={style.link}
-                >
+              <Link
+                to={`/todolist/${customTodo.name}`}
+                className={`${style.list} ${style["table-names-list"]}`}
+              >
+                <li className={`${style["table-list-element"]}`}>
                   {customTodo.name}
-                </Link>
-              </li>
+                  <img
+                    className={style.arrow}
+                    src={arrow}
+                    alt="arrow forward"
+                  />
+                </li>
+              </Link>
               <span className={style["pending-tasks"]}>
                 <span className={style["pending-num"]}>{todoList.length}</span>{" "}
                 task
@@ -37,7 +43,7 @@ const CustomTodoListsItems = ({ customTodo }) => {
               <li className={style.list}>
                 <Link
                   to={`/todolist/${customTodo.name}`}
-                  // className={style.link}
+                  className={style["table-names-list"]}
                 >
                   {customTodo.name}
                 </Link>

@@ -5,6 +5,7 @@ import style from "./css/TodoListItem.module.css";
 import ResizeAnimationStopper from "./components/ResizeAnimationStopper";
 import CreateCustomTodoList from "./components/CreateCustomTodoList";
 import logo from "./assets/task-list-white.svg";
+
 import CreateNotes from "./components/CreateNotes";
 function App() {
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
