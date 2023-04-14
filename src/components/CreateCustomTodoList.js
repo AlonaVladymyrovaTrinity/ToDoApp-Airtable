@@ -3,6 +3,7 @@ import InputWithLabel from "./InputWithLabel";
 import CustomTodoLists from "./CustomTodoLists";
 import { getBaseSchema, createNewTable } from "./TodoApi";
 import style from "../css/TodoListItem.module.css";
+import { FaRegPlusSquare } from "react-icons/fa";
 
 const CreateCustomTodoList = () => {
   const [newListName, setNewListName] = useState("");
@@ -53,22 +54,21 @@ const CreateCustomTodoList = () => {
             >
               <strong className={style.title}>Todo list name: </strong>
             </InputWithLabel>
-            <button type={"submit"} className={style.createListButton}>
-              +<span className={style["sr-only"]}>Add New List</span>
+            <button type={"submit"} className={style["create-list-button"]}>
+              <FaRegPlusSquare />
+              <span className={style["sr-only"]}>Add New List</span>
             </button>
           </div>
-          <span className={style["pending-tasks"]}>
-            You have{" "}
-            <span className={style["pending-num"]}>
-              {customTodoLists.length}
-            </span>{" "}
-            to-do list{customTodoLists.length === 1 ? "" : "s"}:
-          </span>
-          <CustomTodoLists
-            customTodoLists={customTodoLists}
-            isListsLoading={isListsLoading}
-          />
         </form>
+        <span className={style["pending-tasks"]}>
+          You have{" "}
+          <span className={style["pending-num"]}>{customTodoLists.length}</span>{" "}
+          to-do list{customTodoLists.length === 1 ? "" : "s"}:
+        </span>
+        <CustomTodoLists
+          customTodoLists={customTodoLists}
+          isListsLoading={isListsLoading}
+        />
       </div>
     </>
   );

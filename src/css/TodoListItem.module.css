@@ -227,22 +227,20 @@ button:active {
 .add-button:hover {
   background-color: #029ce4;
 }
-.createListButton {
+.create-list-button {
   background-color: #61cbfd;
-  /* border-radius: 50%; */
-  font-size: 15px;
-  font-weight: bold;
-  max-height: 50px;
-  max-width: 50px;
+  padding-top: 7px !important;
+  font-size: 22px;
   margin: 0px 0px 0px 20px;
+  padding: 5px 10px 0 10px;
 }
-.createListButton:hover {
+.create-list-button:hover {
   background-color: #029ce4;
 }
 .container .ListItem {
   /* max-height: 450px; */
   overflow: scroll;
-  height: calc(100% - (69px + 90px));
+  height: calc(100% - (69px + 107px));
   padding: 0 5px 10px 0;
   /* overflow-y: auto; */
   /* overflow-y: scroll; */
@@ -439,10 +437,13 @@ p {
 .table-names-list {
   text-decoration: none;
   margin-left: 10px;
-  font-weight: bold;
+  /* font-weight: bold; */
   letter-spacing: 0.1rem;
+  opacity: 1;
 }
-
+.table-names-list:hover {
+  opacity: 0.6;
+}
 .table-list-element {
   padding: 10px 20px 10px 20px;
 }
