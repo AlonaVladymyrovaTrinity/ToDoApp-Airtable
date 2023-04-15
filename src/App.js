@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import TodoContainer from "./components/TodoContainer";
-import style from "./css/base.module.css";
+import style from "./css/App.module.css";
+import baseStyles from "./css/base.module.css";
 import ResizeAnimationStopper from "./components/ResizeAnimationStopper";
 import CreateCustomTodoList from "./components/CreateCustomTodoList";
 import logo from "./assets/task-list-white.svg";
@@ -20,13 +21,13 @@ function App() {
       <ResizeAnimationStopper>
         <header className={`${style["primary-header"]} ${style.flex}`}>
           <div>
-            <Link to="/" className={style.appNameWrapper}>
+            <Link to="/" className={style["app-name-wrapper"]}>
               <img
                 className={style.logo}
                 src={logo}
                 alt="To-Do List App Logo"
               />
-              <span className={style.appName}>To-Do List App</span>
+              <span className={style["app-name"]}>To-Do List App</span>
             </Link>
           </div>
           <button
@@ -41,7 +42,7 @@ function App() {
             more inclusive for all users. That's why the name of the class is 
             "sr-only", which means "for Screen Readers only".  */}
 
-            <span className={style["sr-only"]}>Menu</span>
+            <span className={baseStyles["sr-only"]}>Menu</span>
           </button>
           <nav className={style.navigation}>
             <ul
@@ -58,7 +59,6 @@ function App() {
               </li>
               <li className={style.active}>
                 {/* <Link to={`/${tableName}`}> */}
-                {/* className={`${style.active} ${style.link}`} */}
                 <Link to="/about">About</Link>
               </li>
             </ul>

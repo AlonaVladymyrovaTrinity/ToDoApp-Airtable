@@ -55,78 +55,6 @@ inclusive for all users. That's why the name of the class is
   background: #aaa;
 }
 
-.logo {
-  margin: 1rem;
-  width: 44px;
-  height: 44px;
-}
-
-.appNameWrapper {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: x-large;
-}
-.appName {
-  color: #ffffff;
-}
-.primary-header {
-  align-items: center;
-  justify-content: space-between;
-}
-.mobile-nav-toggle {
-  display: none;
-}
-/* .navigation {
-  border: 1px solid rgb(63, 92, 237);
-  width: fit-content;
-  margin: 10px auto 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-} */
-.primary-navigation {
-  list-style: none;
-  color: #fff;
-  padding: 0;
-  margin: 0;
-  letter-spacing: 0.2rem;
-  background: hsla(0, 0%, 11%, 0.954);
-  padding: 1rem;
-  --gap: 3rem; /*clamp(1.5rem, 5vw, 3rem)*/
-  padding-inline: clamp(3rem, 10vw, 10rem);
-}
-.primary-navigation li a {
-  text-decoration: none;
-  color: #ffffff;
-}
-.primary-navigation li a:hover {
-  color: #7f7f7f;
-}
-
-@supports (backdrop-filter: blur(3rem)) {
-  .primary-navigation {
-    background: hsla(0, 0%, 100%, 0.1);
-    backdrop-filter: blur(3rem);
-  }
-  .primary-navigation li a {
-    text-decoration: none;
-    color: #ffffff;
-  }
-  .primary-navigation li a:hover {
-    color: #360152;
-  }
-}
-
-.flex {
-  display: flex;
-  gap: var(--gap, 1rem);
-}
-.active {
-  text-transform: uppercase;
-}
 .header {
   font-size: 2rem;
   color: #2f2f2f;
@@ -257,78 +185,10 @@ p {
   color: #000000;
 }
 
-@media screen and (max-width: 540px) {
-  .appName {
-    display: none;
-  }
-  @supports (backdrop-filter: blur(3rem)) {
-    .primary-navigation {
-      background: hsla(0, 0%, 100%, 0.625);
-      backdrop-filter: blur(3rem);
-    }
-    .primary-navigation li a {
-      text-decoration: none;
-      color: #660d55;
-    }
-    .primary-navigation li a:hover {
-      color: #c41ca5;
-    }
-  }
-
-  .primary-navigation {
-    --gap: 2em;
-
-    position: fixed;
-    z-index: 1000;
-    inset: 0 0 0 30%;
-
-    flex-direction: column;
-    padding: min(15vh, 6rem) 2em;
-    transition: transform 350ms ease-out;
-    transform: translateX(0%);
-  }
-  .primary-navigation-hidden {
-    transform: translateX(100%);
-  }
-
-  .mobile-nav-toggle {
-    display: block;
-    position: absolute;
-    z-index: 9999;
-    background-color: transparent;
-    color: #660d55;
-    background-image: url("../assets/close.svg");
-    background-repeat: no-repeat;
-    width: 2rem;
-    box-shadow: none;
-    margin-left: none;
-    padding: none;
-    border-radius: none;
-    transition: none;
-    aspect-ratio: 1;
-    top: 2rem;
-    right: 2rem;
-  }
-
-  .mobile-nav-toggle:hover {
-    box-shadow: none;
-  }
-  .mobile-nav-toggle:active {
-    transform: none;
-    box-shadow: none;
-  }
-  .mobile-nav-toggle-close {
-    background-image: url("../assets/hamburger-menu.svg");
-  }
-}
 /*390,393*/
 /*35em*/
 /* @media screen and (max-width: 375px) { */
 @media screen and (max-width: 393px) {
-  .navigation {
-    align-items: center;
-    flex-direction: column;
-  }
   /* base! */
   .header {
     font-size: 1.5rem;
@@ -371,10 +231,6 @@ p {
   }
 }
 @media (max-width: 280px) {
-  .navigation {
-    align-items: center;
-    flex-direction: column;
-  }
   .container {
     padding: 5px 2px 0 0;
   }
@@ -410,7 +266,7 @@ p {
 
   .ListItem {
     overflow: scroll;
-    height: calc(100% - (69px + 115px));
+    height: calc(100% - (69px + 94px));
     padding: 0;
   }
 
