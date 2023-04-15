@@ -1,0 +1,23 @@
+.table-names-list {
+  text-decoration: none;
+  margin-left: 10px;
+  /* font-weight: bold; */
+  letter-spacing: 0.1rem;
+  opacity: 1;
+}
+
+.table-names-list:hover {
+  opacity: 0.6;
+}
+
+.table-list-element {
+  padding: 10px 20px 10px 20px;
+}
+
+.arrow {
+  padding: 1px;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 16px;
+}

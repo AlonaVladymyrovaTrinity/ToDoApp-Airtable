@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import InputWithLabel from "./InputWithLabel";
-import style from "../css/TodoListItem.module.css";
+import style from "../css/Search.module.css";
+import baseStyles from "../css/base.module.css";
 import PropTypes from "prop-types";
 
 const Search = ({ onSearch }) => {
@@ -22,7 +23,7 @@ const Search = ({ onSearch }) => {
   return (
     <form>
       <div className={style["search-input"]}>
-        <div className={style["input-with-button"]}>
+        <div className={baseStyles["input-with-button"]}>
           <InputWithLabel
             title={"Search"}
             placeholder={"Search for titles"}
@@ -32,7 +33,7 @@ const Search = ({ onSearch }) => {
             onChange={handleInputChange}
             children
           >
-            <strong className={style.title}>Search: </strong>
+            <strong className={baseStyles.title}>Search: </strong>
           </InputWithLabel>
         </div>
       </div>

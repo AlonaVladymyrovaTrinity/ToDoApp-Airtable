@@ -1,0 +1,27 @@
+.header {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.ListItem {
+  height: calc(100% - 60px);
+  padding-left: 2rem;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+/* 
+ul {
+  list-style: disc;
+  margin-left: 20px;
+  margin-bottom: 20px;
+} */
+
+p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}

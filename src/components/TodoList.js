@@ -1,6 +1,6 @@
 import React from "react";
 import TodoListItem from "./TodoListItem";
-import style from "../css/TodoListItem.module.css";
+import baseStyles from "../css/base.module.css";
 import PropTypes from "prop-types";
 
 const TodoList = ({
@@ -13,7 +13,7 @@ const TodoList = ({
   tableName,
 }) => {
   return (
-    <ul className={style.ListItem}>
+    <ul className={baseStyles.ListItem}>
       {todoList?.map(function (todo) {
         return (
           <React.Fragment key={todo.id}>

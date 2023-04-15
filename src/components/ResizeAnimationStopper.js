@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import style from "../css/TodoListItem.module.css";
+import style from "../css/ResizeAnimationStopper.module.css";
 import PropTypes from "prop-types";
 
 /*This will stop all transitions and animations on all elements 

@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import style from "../css/TodoListItem.module.css";
+import baseStyles from "../css/base.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
@@ -98,7 +99,7 @@ const TodoListItem = ({
 
   return (
     <>
-      <div className={style["list-with-button"]}>
+      <div className={baseStyles["list-with-button"]}>
         <button
           onClick={handleCheckClick}
           type="button"
@@ -107,9 +108,9 @@ const TodoListItem = ({
           }`}
         >
           <FontAwesomeIcon icon={faCheckCircle} />
-          <span className={style["sr-only"]}>Done</span>
+          <span className={baseStyles["sr-only"]}>Done</span>
         </button>
-        <li className={style.list}>
+        <li className={baseStyles.list}>
           {isEditing ? (
             <>
               <span className={style["edit-text-label"]}>Edit text</span>
@@ -119,7 +120,7 @@ const TodoListItem = ({
                 type="button"
               >
                 <RiCloseCircleLine />
-                <span className={style["sr-only"]}>Cancel</span>
+                <span className={baseStyles["sr-only"]}>Cancel</span>
               </button>
               <textarea
                 type="text"
@@ -133,7 +134,7 @@ const TodoListItem = ({
           ) : (
             <>
               <div
-                className={`${style.title} ${
+                className={`${baseStyles.title} ${
                   isDone ? style["title-checked"] : ""
                 }`}
               >
@@ -151,7 +152,7 @@ const TodoListItem = ({
               type="button"
             >
               <FontAwesomeIcon icon={faSave} />
-              <span className={style["sr-only"]}>Save</span>
+              <span className={baseStyles["sr-only"]}>Save</span>
             </button>
           </>
         ) : (
@@ -161,7 +162,7 @@ const TodoListItem = ({
             type="button"
           >
             <FontAwesomeIcon icon={faPencilAlt} />
-            <span className={style["sr-only"]}>Edit</span>
+            <span className={baseStyles["sr-only"]}>Edit</span>
           </button>
         )}
         <button
@@ -170,7 +171,7 @@ const TodoListItem = ({
           type="button"
         >
           <FontAwesomeIcon icon={faTrashAlt} />
-          <span className={style["sr-only"]}>Remove</span>
+          <span className={baseStyles["sr-only"]}>Remove</span>
         </button>
       </div>
     </>

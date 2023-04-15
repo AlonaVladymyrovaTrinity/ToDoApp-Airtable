@@ -1,0 +1,6 @@
+/*This will stop all transitions and animations on all elements 
+while the window is being resized, reducing jank and improving performance.*/
+.resize-animation-stopper * {
+  animation: none !important;
+  transition: none !important;
+}

@@ -1,294 +1,71 @@
-/* Google Fonts - Poppins */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-body {
-  /* background-color: black; */
-  background-image: linear-gradient(to right, #f030cd, #61cbfd);
-  overflow-x: hidden;
-  /* background-image: url("5313770.jpg");
-    background-size: cover;
-    background-position: center; */
-}
-/* For Scrollbar */
-
-/* width */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-/* Track */
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-/* Handle */
-::-webkit-scrollbar-thumb {
-  border-radius: 15px;
-  background: #ccc;
-}
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #aaa;
-}
-
-/*Navigation*/
-.logo {
-  margin: 1rem;
-  width: 44px;
-  height: 44px;
-}
-.arrow {
-  padding: 1px;
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  right: 16px;
-}
-.appNameWrapper {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: x-large;
-}
-.appName {
-  color: #ffffff;
-}
-.primary-header {
-  align-items: center;
-  justify-content: space-between;
-}
-.mobile-nav-toggle {
-  display: none;
-}
-/* .navigation {
-  border: 1px solid rgb(63, 92, 237);
-  width: fit-content;
-  margin: 10px auto 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-} */
-.primary-navigation {
-  list-style: none;
-  color: #fff;
-  padding: 0;
-  margin: 0;
-  letter-spacing: 0.2rem;
-  background: hsla(0, 0%, 11%, 0.55);
-  padding: 1rem;
-  --gap: 3rem; /*clamp(1.5rem, 5vw, 3rem)*/
-  padding-inline: clamp(3rem, 10vw, 10rem);
-}
-@supports (backdrop-filter: blur(3rem)) {
-  .primary-navigation {
-    background: hsla(0, 0%, 100%, 0.1);
-    backdrop-filter: blur(3rem);
-  }
-}
-
-.primary-navigation a {
-  text-decoration: none;
-  margin-left: 10px;
-  color: #ffffff;
-}
-.primary-navigation a:hover {
-  color: #a50087;
-}
-.flex {
-  display: flex;
-  gap: var(--gap, 1rem);
-}
-.active {
-  text-transform: uppercase;
-}
-
-.header {
-  font-size: 2rem;
-  color: #2f2f2f;
-  font-weight: bold;
-  padding: 0 10px 10px 25px;
-}
-.container {
-  max-width: 600px;
-  width: 100%;
-  border-radius: 15px;
-  padding: 20px 10px 0 0;
-  /* margin: auto; */
-  margin: 50px auto 0;
-  position: absolute;
-  /* position: relative; */
-  top: 50px;
-  bottom: 50px;
-  left: 0;
-  right: 0;
-  background-color: #fff;
-  box-shadow: 0 5px 10px #747474;
-  overflow: hidden;
-}
-.container .input-field {
-  position: relative;
-  height: 40px;
-  width: 100%;
-}
-.input-field input {
-  height: 100%;
-  width: 100%;
-  outline: none;
-  font-size: 15px;
-  font-weight: 400;
-  border-radius: 15px;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  padding: 15px;
-  /* border: 1px solid #ccc; */
-  box-shadow: 0 1px 6px 0 #20212447;
-  border: none;
-  background-color: #fff;
-  resize: none;
-  margin: 0px 10px;
-}
-.input-field input:focus {
-  /* border-color: #fb8ce2; */
-  /* box-shadow: 3.5px 3px 6px 1px #9f9f9f; */
-  box-shadow: 0 1px 6px 0 #20212447;
-  border: 1px solid #ccc;
-}
-
-input[type="search"] {
-  background-image: url(../assets/icon-search.svg);
-  background-position: 8px 8px;
-  background-repeat: no-repeat;
-  padding: 0 10px 0 37px;
-}
-
-.search-input {
-  padding-right: 65px;
-}
-
-.input-with-button {
-  display: flex;
-  align-items: center;
-  padding: 0 10px 10px 25px;
-}
-
-.title {
-  font-size: 15px;
-  color: #2f2f2f;
-}
-.title-checked {
-  font-size: 15px;
-  color: #2f2f2f;
-  text-decoration: line-through;
-}
-
-button {
-  outline: none;
-  color: #fff;
-  border: none;
-  padding: 9px 14px;
+.check-circle-checked {
+  color: #242424;
+  background-color: #777777;
   border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 2px 2px 6px 2px #20212447;
-  /* box-shadow: 3.5px 3px 6px 1px #9f9f9f; */
-  transition: 0.2s all;
-  font-size: 15px;
-  margin-left: 10px;
-}
-button:hover {
-  box-shadow: inset 0px 11px 8px -10px #ccc, inset 0px -11px 8px -10px #ccc;
-}
-button:active {
-  /* Scaling button to 0.98 to its original size */
-  transform: scale(0.98);
-  /* Emphasize the shadow */
-  /* box-shadow: 3px 2px 12px 1px #444444; */
-  box-shadow: 2px 2px 6px 2px #20212447;
+  height: fit-content;
+  width: fit-content;
+  padding: 1px 4px 0px 4px;
+  margin-right: 10px;
+  opacity: 1;
 }
 
-.add-button {
-  background-color: #61cbfd;
-  padding-top: 7px !important;
-  /* white-space: normal; */
-  font-size: 22px;
-  margin: 0px 0px 0px 20px;
-  padding: 5px 10px 0 10px;
+.check-circle {
+  background-color: #777777;
+  border-radius: 50%;
+  height: fit-content;
+  width: fit-content;
+  padding: 1px 4px 0px 4px;
+  margin-right: 10px;
+  opacity: 0.6;
 }
-.add-button:hover {
-  background-color: #029ce4;
+.check-circle:hover {
+  opacity: 1;
+  color: #4e4e4e !important;
+  background-color: #dedede;
 }
-.create-list-button {
-  background-color: #61cbfd;
-  padding-top: 7px !important;
-  font-size: 22px;
-  margin: 0px 0px 0px 20px;
-  padding: 5px 10px 0 10px;
-}
-.create-list-button:hover {
-  background-color: #029ce4;
-}
-.container .ListItem {
-  /* max-height: 450px; */
-  overflow: scroll;
-  height: calc(100% - (69px + 107px));
-  padding: 0 5px 10px 0;
-  /* overflow-y: auto; */
-  /* overflow-y: scroll; */
-  /* overflow: auto; */
-}
-/* .ListItem {
-    -ms-overflow-style: none;  Internet Explorer 10+
-    scrollbar-width: none;  Firefox
-}
-.ListItem::-webkit-scrollbar { 
-    display: none;  Safari and Chrome
-} */
 
-.ListItem .list {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  list-style: none;
-  width: 100%;
-  /*height:auto; */
-  background-color: #f2f2f2;
-  padding: 10px 15px 15px 15px;
-  border-radius: 15px;
-  color: #2f2f2f;
-  font-size: 1rem;
-  position: relative;
-  max-width: 411px;
-  white-space: normal;
-  overflow: hidden;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+.edit-text-label {
+  padding: 10px;
+  /* float: left; */
+  font-size: 12px;
+  color: #9500ff;
+  position: absolute;
+  top: 0px;
 }
-/* .ListItem .list:hover { */
-/* box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.25); */
-/* box-shadow: 0 1px 6px 0 #20212447; */
-/* } */
-.ListItem .list .title {
-  width: 100%;
-  white-space: normal;
+
+.cancel-button {
+  background-color: transparent;
+  border: none;
+  color: #af43fc;
+  font-size: 20px;
+  /* background-color: #af43fc; */
+  /* border-radius: 50%; */
+  position: absolute;
+  margin: 8px 10px 0 0;
+  top: 0px;
+  right: 0px;
+  max-height: 18px;
+  max-width: 18px;
+  height: fit-content;
+  width: fit-content;
+  padding: 0px 1.5px 0px 1.5px;
+  margin-right: 10px;
+  /* opacity: 0.6; */
+  box-shadow: none;
 }
-.list-with-button {
-  display: flex;
-  align-items: center;
-  /* justify-content: space-between; */
-  padding: 10px 10px 0 10px;
+
+.cancel-button:hover {
+  /* background-color: #9500ff; */
+  /* opacity: 1; */
+  color: #d296fd;
+  box-shadow: none;
+}
+.cancel-button:active {
+  /* background-color: #c067ff; */
+  /* opacity: 1; */
+  color: #d296fd;
+  box-shadow: none;
+  /* color: #eeeeee; */
 }
 .edit-input {
   border: none;
@@ -326,15 +103,12 @@ button:active {
   border-radius: 15px;
   outline: none;
 }
-
-.edit-text-label {
-  padding: 10px;
-  /* float: left; */
-  font-size: 12px;
-  color: #9500ff;
-  position: absolute;
-  top: 0px;
+.title-checked {
+  font-size: 15px;
+  color: #2f2f2f;
+  text-decoration: line-through;
 }
+
 .save-button {
   background-color: #82f0f2;
 }
@@ -342,41 +116,6 @@ button:active {
 .save-button:hover {
   background-color: #30e6f0;
 }
-.cancel-button {
-  background-color: transparent;
-  border: none;
-  color: #af43fc;
-  font-size: 20px;
-  /* background-color: #af43fc; */
-  /* border-radius: 50%; */
-  position: absolute;
-  margin: 8px 10px 0 0;
-  top: 0px;
-  right: 0px;
-  max-height: 18px;
-  max-width: 18px;
-  height: fit-content;
-  width: fit-content;
-  padding: 0px 1.5px 0px 1.5px;
-  margin-right: 10px;
-  /* opacity: 0.6; */
-  box-shadow: none;
-}
-
-.cancel-button:hover {
-  /* background-color: #9500ff; */
-  /* opacity: 1; */
-  color: #d296fd;
-  box-shadow: none;
-}
-.cancel-button:active {
-  /* background-color: #c067ff; */
-  /* opacity: 1; */
-  color: #d296fd;
-  box-shadow: none;
-  /* color: #eeeeee; */
-}
-
 .edit-button {
   background-color: #cd82f2;
 }
@@ -384,7 +123,6 @@ button:active {
 .edit-button:hover {
   background-color: #aa30f0;
 }
-
 .delete-button {
   background-color: #f282dd;
 }
@@ -393,182 +131,12 @@ button:active {
   background-color: #f030cd;
 }
 
-.check-circle {
-  background-color: #777777;
-  border-radius: 50%;
-  height: fit-content;
-  width: fit-content;
-  padding: 1px 4px 0px 4px;
-  margin-right: 10px;
-  opacity: 0.6;
-}
-.check-circle:hover {
-  opacity: 1;
-  color: #4e4e4e !important;
-  background-color: #dedede;
-}
-
-.check-circle-checked {
-  color: #242424;
-  background-color: #777777;
-  border-radius: 50%;
-  height: fit-content;
-  width: fit-content;
-  padding: 1px 4px 0px 4px;
-  margin-right: 10px;
-  opacity: 1;
-}
-
-.container .pending-tasks,
-p {
-  /* display: flex;
-  align-items: center;
-  justify-content: space-between; */
-  margin: 5px 25px;
-}
-.pending-tasks,
-p {
-  color: #656a6b;
-}
-.pending-num {
-  color: #000000;
-}
-
-.table-names-list {
-  text-decoration: none;
-  margin-left: 10px;
-  /* font-weight: bold; */
-  letter-spacing: 0.1rem;
-  opacity: 1;
-}
-.table-names-list:hover {
-  opacity: 0.6;
-}
-.table-list-element {
-  padding: 10px 20px 10px 20px;
-}
-
-/*The CSS class "sr-only" is used to hide element visually from
-sighted users while still making them accessible to assistive
-technologies such as screen readers (SR), making website more 
-inclusive for all users. That's why the name of the class is 
-"sr-only", which means "for Screen Readers only". 
-*/
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-/*This will stop all transitions and animations on all elements 
-while the window is being resized, reducing jank and improving performance.*/
-.resize-animation-stopper * {
-  animation: none !important;
-  transition: none !important;
-}
-@media screen and (max-width: 540px) {
-  .appName {
-    display: none;
-  }
-}
-/*390,393*/
-/*35em*/
-/* @media screen and (max-width: 375px) { */
 @media screen and (max-width: 393px) {
-  .appName {
-    display: none;
+  .check-circle-checked {
+    margin-right: 5px;
   }
-  .primary-navigation {
-    --gap: 2em;
-
-    position: fixed;
-    z-index: 1000;
-    inset: 0 0 0 30%;
-
-    flex-direction: column;
-    padding: min(15vh, 6rem) 3em;
-    transition: transform 350ms ease-out;
-    transform: translateX(0%);
-  }
-  .primary-navigation-hidden {
-    transform: translateX(100%);
-  }
-
-  .mobile-nav-toggle {
-    display: block;
-    position: absolute;
-    z-index: 9999;
-    background-color: transparent;
-    background-image: url("../assets/close.svg");
-    background-repeat: no-repeat;
-    width: 2rem;
-    box-shadow: none;
-    margin-left: none;
-    padding: none;
-    border-radius: none;
-    transition: none;
-    aspect-ratio: 1;
-    top: 2rem;
-    right: 2rem;
-  }
-
-  .mobile-nav-toggle:hover {
-    box-shadow: none;
-  }
-  .mobile-nav-toggle:active {
-    transform: none;
-    box-shadow: none;
-  }
-  .mobile-nav-toggle-close {
-    background-image: url("../assets/hamburger-menu.svg");
-  }
-
-  .header {
-    font-size: 1.5rem;
-    padding: 0px 0px 8px 20px;
-  }
-  .search-input {
-    padding-right: 10px;
-  }
-  button {
-    padding: 4.5px 9px;
-    box-shadow: 1.5px 1.5px 4px 1.5px #20212447;
-    font-size: 14px;
-    margin-left: 5px;
-  }
-
-  button:active {
-    box-shadow: 1.5px 1.5px 4px 1.5px #20212447;
-  }
-  .add-button {
-    font-size: 17px;
-    margin: 0px 0px 0px 15px;
-    padding: 0px 8px 1px 8px;
-  }
-
-  .container .ListItem {
-    overflow: scroll;
-    height: calc(100% - (69px + 107px));
-    padding: 0;
-  }
-  .ListItem .list {
-    padding: 10px 12px 10px 12px;
-    font-size: 1rem;
-    max-width: 235px;
-  }
-
-  .list-with-button {
-    padding: 10px 10px 0 10px;
-  }
-  .edit-input {
-    padding: 10px 10px;
-    font-size: 0.8rem;
-    margin-top: 15px;
+  .check-circle {
+    margin-right: 5px;
   }
   .edit-text-label {
     padding: 5px;
@@ -582,94 +150,21 @@ while the window is being resized, reducing jank and improving performance.*/
     padding: 0px 1px 1px 1px;
     margin-right: 10px;
   }
-  .check-circle {
-    margin-right: 5px;
-  }
-
-  .check-circle-checked {
-    margin-right: 5px;
-  }
-  .container .pending-tasks {
-    margin: 0 20px;
-  }
-}
-@media (max-width: 280px) {
-  .navigation {
-    align-items: center;
-    flex-direction: column;
-  }
-  .container {
-    padding: 5px 2px 0 0;
-  }
-  .header {
-    font-size: 1.5rem;
-    padding: 8px 0px 8px 20px;
-  }
-  .container .input-field {
-    height: 25px;
-  }
-  .input-field input {
-    font-size: 13px;
-    padding: 10px;
-    margin: 0px 8px;
-  }
-
-  input[type="search"] {
-    background-position: 3px 1px;
-    padding: 0 10px 0 28px;
-  }
-
-  .search-input {
-    padding-right: 10px;
-  }
-
-  .input-with-button {
-    padding: 0 10px 10px 15px;
-  }
-
-  .title {
-    font-size: 13px;
-  }
-  .title-checked {
-    font-size: 13px;
-  }
-
-  button {
-    padding: 4.5px 8px;
-    box-shadow: 1px 1px 3px 1px #20212447;
-    font-size: 10px;
-    margin-left: 3px;
-  }
-
-  button:active {
-    box-shadow: 1px 1px 3px 1px #20212447;
-  }
-  .add-button {
-    border-radius: 50%;
-    font-size: 13px;
-    margin: 0px 0px 0px 15px;
-    padding: 5px 8px 2px 8px;
-  }
-
-  .container .ListItem {
-    overflow: scroll;
-    height: calc(100% - (69px + 115px));
-    padding: 0;
-  }
-
-  .ListItem .list {
-    padding: 8px 12px 8px 12px;
-    font-size: 1rem;
-    max-width: 170px;
-  }
-
-  .list-with-button {
-    padding: 5px 5px 0 5px;
-  }
   .edit-input {
     padding: 10px 10px;
     font-size: 0.8rem;
     margin-top: 15px;
+  }
+}
+@media (max-width: 280px) {
+  .check-circle-checked {
+    padding: 1px 3px 0px 3px;
+    margin-right: 3px;
+  }
+
+  .check-circle {
+    padding: 1px 3px 0px 3px;
+    margin-right: 3px;
   }
 
   .edit-text-label {
@@ -684,18 +179,12 @@ while the window is being resized, reducing jank and improving performance.*/
     padding: 0px 1px 0px 1px;
     margin-right: 8px;
   }
-
-  .check-circle {
-    padding: 1px 3px 0px 3px;
-    margin-right: 3px;
+  .edit-input {
+    padding: 10px 10px;
+    font-size: 0.8rem;
+    margin-top: 15px;
   }
-
-  .check-circle-checked {
-    padding: 1px 3px 0px 3px;
-    margin-right: 3px;
-  }
-
-  .container .pending-tasks {
-    margin: 0 10px;
+  .title-checked {
+    font-size: 13px;
   }
 }

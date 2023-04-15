@@ -1,0 +1,25 @@
+.search-input {
+  padding-right: 65px;
+}
+
+input[type="search"] {
+  background-image: url(../assets/icon-search.svg);
+  background-position: 8px 8px;
+  background-repeat: no-repeat;
+  padding: 0 10px 0 37px;
+}
+@media screen and (max-width: 393px) {
+  .search-input {
+    padding-right: 10px;
+  }
+}
+@media (max-width: 280px) {
+  input[type="search"] {
+    background-position: 3px 1px;
+    padding: 0 10px 0 28px;
+  }
+
+  /* .search-input {
+  padding-right: 10px;
+} */
+}

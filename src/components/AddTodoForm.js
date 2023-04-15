@@ -1,6 +1,8 @@
 import React from "react";
 import InputWithLabel from "./InputWithLabel";
-import style from "../css/TodoListItem.module.css";
+import style from "../css/AddTodoForm.module.css";
+import baseStyles from "../css/base.module.css";
+
 import { FaRegPlusSquare } from "react-icons/fa";
 import PropTypes from "prop-types";
 
@@ -27,7 +29,7 @@ const AddTodoForm = ({ onAddTodo }) => {
   };
   return (
     <form onSubmit={handleAddTodo}>
-      <div className={style["input-with-button"]}>
+      <div className={baseStyles["input-with-button"]}>
         <InputWithLabel
           title={"todoTitle"}
           placeholder={"Add todo Title"}
@@ -39,11 +41,11 @@ const AddTodoForm = ({ onAddTodo }) => {
           onChange={handleTitleChange}
           children
         >
-          <strong className={style.title}>Title: </strong>
+          <strong className={baseStyles.title}>Title: </strong>
         </InputWithLabel>
         <button type={"submit"} className={style["add-button"]}>
           <FaRegPlusSquare />
-          <span className={style["sr-only"]}>Add</span>
+          <span className={baseStyles["sr-only"]}>Add</span>
         </button>
       </div>
     </form>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import style from "../css/TodoListItem.module.css";
+import style from "../css/CustomTodoListsItems.module.css";
+import baseStyles from "../css/base.module.css";
 import { Link } from "react-router-dom";
 import { getTodoList } from "./TodoApi";
 import PropTypes from "prop-types";
@@ -22,7 +23,7 @@ const CustomTodoListsItems = ({ customTodo }) => {
             <>
               <Link
                 to={`/todolist/${customTodo.name}`}
-                className={`${style.list} ${style["table-names-list"]}`}
+                className={`${baseStyles.list} ${style["table-names-list"]}`}
               >
                 <li className={`${style["table-list-element"]}`}>
                   {customTodo.name}
@@ -33,15 +34,17 @@ const CustomTodoListsItems = ({ customTodo }) => {
                   />
                 </li>
               </Link>
-              <span className={style["pending-tasks"]}>
-                <span className={style["pending-num"]}>{todoList.length}</span>{" "}
+              <span className={baseStyles["pending-tasks"]}>
+                <span className={baseStyles["pending-num"]}>
+                  {todoList.length}
+                </span>{" "}
                 task
                 {todoList.length === 1 ? "" : "s"}
               </span>
             </>
           ) : (
             <>
-              <li className={style.list}>
+              <li className={baseStyles.list}>
                 <Link
                   to={`/todolist/${customTodo.name}`}
                   className={style["table-names-list"]}
@@ -49,7 +52,7 @@ const CustomTodoListsItems = ({ customTodo }) => {
                   {customTodo.name}
                 </Link>
               </li>
-              <span className={style["pending-tasks"]}>
+              <span className={baseStyles["pending-tasks"]}>
                 No tasks to display
               </span>
             </>

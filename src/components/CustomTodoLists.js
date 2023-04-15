@@ -1,6 +1,6 @@
 import React from "react";
-import style from "../css/TodoListItem.module.css";
-// import { Link } from "react-router-dom";
+import style from "../css/CustomTodoLists.module.css";
+import baseStyles from "../css/base.module.css";
 import CustomTodoListsItems from "./CustomTodoListsItems";
 import Spinner from "./Spinner";
 import PropTypes from "prop-types";
@@ -13,21 +13,12 @@ const CustomTodoLists = ({ customTodoLists, isListsLoading }) => {
           <p>Loading...</p> <Spinner />
         </>
       ) : (
-        <ul className={style.ListItem}>
+        <ul className={`${baseStyles.ListItem} ${style.ListItem}`}>
           {customTodoLists?.map(function (customTodo) {
             return (
               <React.Fragment key={customTodo.id}>
-                <div className={style["list-with-button"]}>
+                <div className={baseStyles["list-with-button"]}>
                   <CustomTodoListsItems customTodo={customTodo} />
-                  {/* <li className={style.list}>
-                     <Link
-                       to={`/todolist/${customTodo.name}`}
-                       // className={style.link}
-                     >
-                       {customTodo.name}
-                     </Link>
-                   </li>
-                   <span></span> */}
                 </div>
               </React.Fragment>
             );

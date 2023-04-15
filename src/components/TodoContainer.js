@@ -5,7 +5,8 @@ import { editTitleAndData, removeTodo, addTodo, getTodoList } from "./TodoApi";
 import Search from "./Search";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboardList } from "@fortawesome/free-solid-svg-icons";
-import style from "../css/TodoListItem.module.css";
+// import style from "../css/TodoContainer.module.css";
+import baseStyles from "../css/base.module.css";
 import { useParams } from "react-router-dom";
 import Spinner from "./Spinner";
 // import PropTypes from "prop-types";
@@ -40,8 +41,8 @@ const TodoContainer = () => {
 
   return (
     <>
-      <div className={style.container}>
-        <h1 className={style.header}>
+      <div className={baseStyles.container}>
+        <h1 className={baseStyles.header}>
           <FontAwesomeIcon icon={faClipboardList} /> Todo List: {tableName}
         </h1>
         <AddTodoForm onAddTodo={handleNewAddTodo} />
@@ -51,18 +52,20 @@ const TodoContainer = () => {
             <Spinner />
           </>
         ) : todoList.length === 0 ? (
-          <span className={style["pending-tasks"]}>
+          <span className={baseStyles["pending-tasks"]}>
             You have no tasks pending in your "{tableName}" todo list.
           </span>
         ) : (
           <>
             <Search onSearch={handleSearch} />
-            <span className={style["pending-tasks"]}>
+            <span className={baseStyles["pending-tasks"]}>
               You have{" "}
-              <span className={style["pending-num"]}>{todoList.length}</span>{" "}
+              <span className={baseStyles["pending-num"]}>
+                {todoList.length}
+              </span>{" "}
               task{todoList.length === 1 ? "" : "s"} in your list:
             </span>
-            {/* <span className={style["pending-num"]}>
+            {/* <span className={baseStyles["pending-num"]}>
                 You have{" "}
                 {todoList.filter((record) => !("done" in record.fields)).length}{" "}
                 of {todoList.length} tasks pending:

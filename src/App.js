@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import TodoContainer from "./components/TodoContainer";
-import style from "./css/TodoListItem.module.css";
+import style from "./css/base.module.css";
 import ResizeAnimationStopper from "./components/ResizeAnimationStopper";
 import CreateCustomTodoList from "./components/CreateCustomTodoList";
 import logo from "./assets/task-list-white.svg";
-
+import About from "./components/About";
 import CreateNotes from "./components/CreateNotes";
+
 function App() {
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
 
@@ -49,16 +50,17 @@ function App() {
                 !isNavigationVisible ? style["primary-navigation-hidden"] : ""
               }`}
             >
-              <li>
+              <li className={style.active}>
                 <Link to="/">My Todo Lists</Link>
               </li>
               <li className={style.active}>
                 <Link to="/notes">Notes</Link>
               </li>
-              {/* <li>  <Link to={`/${tableName}`}>
-                    Todo List
-                  </Link>
-                </li> */}
+              <li className={style.active}>
+                {/* <Link to={`/${tableName}`}> */}
+                {/* className={`${style.active} ${style.link}`} */}
+                <Link to="/about">About</Link>
+              </li>
             </ul>
           </nav>
           <Routes>
@@ -69,6 +71,7 @@ function App() {
               element={<TodoContainer />}
             />
             <Route path="/notes" element={<CreateNotes />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </header>
       </ResizeAnimationStopper>
