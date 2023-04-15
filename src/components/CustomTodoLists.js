@@ -2,13 +2,16 @@ import React from "react";
 import style from "../css/TodoListItem.module.css";
 // import { Link } from "react-router-dom";
 import CustomTodoListsItems from "./CustomTodoListsItems";
+import Spinner from "./Spinner";
 import PropTypes from "prop-types";
 
 const CustomTodoLists = ({ customTodoLists, isListsLoading }) => {
   return (
     <>
       {isListsLoading ? (
-        <p>Loading...</p>
+        <>
+          <p>Loading...</p> <Spinner />
+        </>
       ) : (
         <ul className={style.ListItem}>
           {customTodoLists?.map(function (customTodo) {

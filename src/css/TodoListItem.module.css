@@ -553,7 +553,7 @@ while the window is being resized, reducing jank and improving performance.*/
 
   .container .ListItem {
     overflow: scroll;
-    height: calc(100% - (69px + 75px));
+    height: calc(100% - (69px + 107px));
     padding: 0;
   }
   .ListItem .list {
@@ -590,7 +590,7 @@ while the window is being resized, reducing jank and improving performance.*/
     margin-right: 5px;
   }
   .container .pending-tasks {
-    margin: 20px 20px;
+    margin: 0 20px;
   }
 }
 @media (max-width: 280px) {
@@ -645,7 +645,7 @@ while the window is being resized, reducing jank and improving performance.*/
     box-shadow: 1px 1px 3px 1px #20212447;
   }
   .add-button {
-    border-radius: 8px;
+    border-radius: 50%;
     font-size: 13px;
     margin: 0px 0px 0px 15px;
     padding: 5px 8px 2px 8px;
@@ -653,7 +653,7 @@ while the window is being resized, reducing jank and improving performance.*/
 
   .container .ListItem {
     overflow: scroll;
-    height: calc(100% - (69px + 57px));
+    height: calc(100% - (69px + 115px));
     padding: 0;
   }
 
@@ -696,6 +696,6 @@ while the window is being resized, reducing jank and improving performance.*/
   }
 
   .container .pending-tasks {
-    margin: 10px 10px;
+    margin: 0 10px;
   }
 }

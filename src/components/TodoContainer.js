@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboardList } from "@fortawesome/free-solid-svg-icons";
 import style from "../css/TodoListItem.module.css";
 import { useParams } from "react-router-dom";
+import Spinner from "./Spinner";
 // import PropTypes from "prop-types";
 
 // const TodoContainer = ({ tableName }) => {
@@ -45,7 +46,10 @@ const TodoContainer = () => {
         </h1>
         <AddTodoForm onAddTodo={handleNewAddTodo} />
         {isLoading ? (
-          <p>Loading...</p>
+          <>
+            <p>Loading...</p>
+            <Spinner />
+          </>
         ) : todoList.length === 0 ? (
           <span className={style["pending-tasks"]}>
             You have no tasks pending in your "{tableName}" todo list.

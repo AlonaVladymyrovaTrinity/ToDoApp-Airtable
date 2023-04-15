@@ -53,11 +53,9 @@ function App() {
                 <Link to="/">My Todo Lists</Link>
               </li>
               <li className={style.active}>
-                <Link className={style["ff-sans-cond"]} to="/notes">
-                  Notes
-                </Link>
+                <Link to="/notes">Notes</Link>
               </li>
-              {/* <li>  <Link className={style["ff-sans-cond"]} to={`/${tableName}`}>
+              {/* <li>  <Link to={`/${tableName}`}>
                     Todo List
                   </Link>
                 </li> */}
