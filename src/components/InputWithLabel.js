@@ -32,7 +32,7 @@ let InputWithLabel = function ({
           type={type}
           value={value}
           onChange={onChange}
-        ></input>
+        />
       </div>
       {/* </div> */}
     </>

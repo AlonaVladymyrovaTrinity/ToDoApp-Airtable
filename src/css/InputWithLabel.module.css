@@ -1,11 +1,13 @@
 /* .label-input {
-  display: grid;
-  max-width: 400px;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 1rem;
+  width: auto;
 } */
 .input-field {
   position: relative;
-  height: 40px;
   width: 100%;
+  height: 40px;
 }
 .input-field input {
   height: 100%;
@@ -37,6 +39,7 @@
 @media (max-width: 280px) {
   .input-field {
     height: 25px;
+    max-width: 80%;
   }
   .input-field input {
     font-size: 13px;
@@ -44,9 +47,11 @@
     margin: 0px 8px;
   }
   /* .label-input {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 2fr;
-    align-items: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 1rem;
+    width: 100%;
   } */
 }

@@ -80,6 +80,7 @@ inclusive for all users. That's why the name of the class is
 }
 
 .input-with-button {
+  /* flex-wrap: nowrap; */
   display: flex;
   align-items: center;
   padding: 0 10px 10px 25px;
@@ -119,7 +120,7 @@ button:active {
 .ListItem {
   /* max-height: 450px; */
   overflow: scroll;
-  height: calc(100% - (69px + 155px));
+  height: calc(100% - (69px + 163px));
   padding: 0 5px 10px 0;
   /* overflow-y: auto; */
   /* overflow-y: scroll; */
@@ -187,7 +188,6 @@ p {
 
 /*35em*/
 @media screen and (max-width: 393px) {
-  /* base! */
   .header {
     font-size: 1.5rem;
     padding: 0px 0px 8px 20px;
@@ -203,15 +203,10 @@ p {
   button:active {
     box-shadow: 1.5px 1.5px 4px 1.5px #20212447;
   }
-  .add-button {
-    font-size: 17px;
-    margin: 0px 0px 0px 15px;
-    padding: 0px 8px 1px 8px;
-  }
 
   .ListItem {
     overflow: scroll;
-    height: calc(100% - (69px + 145px));
+    height: calc(100% - (69px + 150px));
     padding: 0;
   }
   .ListItem .list {
@@ -238,10 +233,20 @@ p {
   }
 
   .input-with-button {
-    padding: 0 10px 10px 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 0 10px 10px 10px;
   }
 
   .title {
+    font-size: 13px;
+  }
+
+  .pending-tasks,
+  p {
     font-size: 13px;
   }
 
@@ -255,16 +260,10 @@ p {
   button:active {
     box-shadow: 1px 1px 3px 1px #20212447;
   }
-  .add-button {
-    border-radius: 50%;
-    font-size: 13px;
-    margin: 0px 0px 0px 15px;
-    padding: 5px 8px 2px 8px;
-  }
 
   .ListItem {
     overflow: scroll;
-    height: calc(100% - (69px + 140px));
+    height: calc(100% - (69px + 180px));
     padding: 0;
   }
 

@@ -6,7 +6,7 @@ const CreateNotes = () => {
   return (
     <>
       <div className={baseStyles.container}>
-        <h1 className={baseStyles.header}>Create Notes</h1>
+        <h1 className={`${baseStyles.header} ${style.header}`}>Create Notes</h1>
         <p className={style["notes-paragraph"]}>Create Notes</p>
       </div>
     </>
