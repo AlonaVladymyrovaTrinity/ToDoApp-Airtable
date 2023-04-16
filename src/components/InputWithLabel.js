@@ -34,7 +34,7 @@ let InputWithLabel = function ({
           onChange={onChange}
         ></input>
       </div>
-      {/* </div>     */}
+      {/* </div> */}
     </>
   );
 };

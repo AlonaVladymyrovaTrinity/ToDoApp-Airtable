@@ -1,3 +1,7 @@
+/* .label-input {
+  display: grid;
+  max-width: 400px;
+} */
 .input-field {
   position: relative;
   height: 40px;
@@ -39,4 +43,10 @@
     padding: 10px;
     margin: 0px 8px;
   }
+  /* .label-input {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 2fr;
+    align-items: center;
+  } */
 }

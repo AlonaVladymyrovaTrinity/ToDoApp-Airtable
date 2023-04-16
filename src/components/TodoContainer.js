@@ -8,7 +8,8 @@ import { faClipboardList } from "@fortawesome/free-solid-svg-icons";
 // import style from "../css/TodoContainer.module.css";
 import baseStyles from "../css/base.module.css";
 import { useParams } from "react-router-dom";
-import Spinner from "./Spinner";
+import StyledSpinner from "./StyledSpinner";
+import StyledGoBackButton from "./StyledGoBackButton";
 // import PropTypes from "prop-types";
 
 // const TodoContainer = ({ tableName }) => {
@@ -42,6 +43,9 @@ const TodoContainer = () => {
   return (
     <>
       <div className={baseStyles.container}>
+        <StyledGoBackButton linkName={"/"} children>
+          <span>My lists</span>
+        </StyledGoBackButton>
         <h1 className={baseStyles.header}>
           <FontAwesomeIcon icon={faClipboardList} /> Todo List: {tableName}
         </h1>
@@ -49,7 +53,7 @@ const TodoContainer = () => {
         {isLoading ? (
           <>
             <p>Loading...</p>
-            <Spinner />
+            <StyledSpinner />
           </>
         ) : todoList.length === 0 ? (
           <span className={baseStyles["pending-tasks"]}>

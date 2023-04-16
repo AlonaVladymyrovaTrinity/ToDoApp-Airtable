@@ -38,7 +38,7 @@ const CreateCustomTodoList = () => {
   return (
     <>
       <div className={baseStyles.container}>
-        <h1 className={baseStyles.header}>
+        <h1 className={`${baseStyles.header} ${style.header}`}>
           {/*<FontAwesomeIcon icon={faClipboardList} /> */}Create new List:
         </h1>
         <form onSubmit={handleAddNewTodoList}>

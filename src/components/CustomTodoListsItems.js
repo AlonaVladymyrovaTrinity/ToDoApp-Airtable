@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { getTodoList } from "./TodoApi";
 import PropTypes from "prop-types";
 import arrow from "../assets/arrow-forward.svg";
-// import Spinner from "./Spinner";
+// import StyledSpinner from "./StyledSpinner";
 
 const CustomTodoListsItems = ({ customTodo }) => {
   const [todoList, setTodoList] = useState([]);
@@ -61,7 +61,7 @@ const CustomTodoListsItems = ({ customTodo }) => {
       )}
       {/* {isLoading && (
         <>
-          <Spinner />
+          <StyledSpinner />
           <p>Loading tasks...</p>
         </>
       )} */}

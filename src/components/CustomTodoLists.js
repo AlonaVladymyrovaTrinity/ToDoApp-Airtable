@@ -2,7 +2,7 @@ import React from "react";
 import style from "../css/CustomTodoLists.module.css";
 import baseStyles from "../css/base.module.css";
 import CustomTodoListsItems from "./CustomTodoListsItems";
-import Spinner from "./Spinner";
+import StyledSpinner from "./StyledSpinner";
 import PropTypes from "prop-types";
 
 const CustomTodoLists = ({ customTodoLists, isListsLoading }) => {
@@ -10,7 +10,7 @@ const CustomTodoLists = ({ customTodoLists, isListsLoading }) => {
     <>
       {isListsLoading ? (
         <>
-          <p>Loading...</p> <Spinner />
+          <p>Loading...</p> <StyledSpinner />
         </>
       ) : (
         <ul className={`${baseStyles.ListItem} ${style.ListItem}`}>

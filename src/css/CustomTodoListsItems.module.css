@@ -11,7 +11,7 @@
 }
 
 .table-list-element {
-  padding: 10px 20px 10px 20px;
+  padding: 5px 20px 5px 20px;
 }
 
 .arrow {
@@ -20,4 +20,9 @@
   height: 25px;
   position: absolute;
   right: 16px;
+}
+@media (max-width: 280px) {
+  .table-list-element {
+    padding: 0px 20px 0px 20px;
+  }
 }
