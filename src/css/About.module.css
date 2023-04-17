@@ -9,7 +9,7 @@
   padding-left: 2rem;
 }
 
-h2 {
+.about-wrapper h2 {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -21,7 +21,7 @@ ul {
   margin-bottom: 20px;
 } */
 
-p {
+.about-wrapper p {
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 20px;

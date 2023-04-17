@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import BackButtonSvg from "../assets/arrow-back.svg";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const BackButtonWrapper = styled.div`
@@ -23,7 +24,7 @@ const BackLink = styled(Link)`
   text-transform: uppercase;
 `;
 
-const StyledGoBackButton = ({ linkName, children }) => (
+const StyledBackButton = ({ linkName, children }) => (
   <BackLink to={`${linkName}`}>
     <BackButtonWrapper>
       <GoBackImg src={BackButtonSvg} alt="go back button image" />
@@ -32,4 +33,8 @@ const StyledGoBackButton = ({ linkName, children }) => (
   </BackLink>
 );
 
-export default StyledGoBackButton;
+StyledBackButton.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default StyledBackButton;

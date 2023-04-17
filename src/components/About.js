@@ -1,12 +1,14 @@
 import React from "react";
-import style from "../css/About.module.css"; // Local CSS module
-import baseStyles from "../css/base.module.css"; // Shared CSS module
+import style from "../css/About.module.css";
+import baseStyles from "../css/base.module.css";
 
 const About = () => {
   return (
     <div className={`${baseStyles.container}`}>
       <h1 className={`${baseStyles.header} ${style.header}`}>About</h1>
-      <div className={`${baseStyles.ListItem} ${style.ListItem}`}>
+      <div
+        className={`${baseStyles.ListItem} ${style.ListItem} ${style["about-wrapper"]}`}
+      >
         <div>
           <h2>Welcome to the "To-do List App"</h2>
           <p>

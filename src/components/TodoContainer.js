@@ -9,7 +9,7 @@ import { faClipboardList } from "@fortawesome/free-solid-svg-icons";
 import baseStyles from "../css/base.module.css";
 import { useParams } from "react-router-dom";
 import StyledSpinner from "./StyledSpinner";
-import StyledGoBackButton from "./StyledGoBackButton";
+import StyledBackButton from "./StyledBackButton";
 // import PropTypes from "prop-types";
 
 // const TodoContainer = ({ tableName }) => {
@@ -43,9 +43,9 @@ const TodoContainer = () => {
   return (
     <>
       <div className={baseStyles.container}>
-        <StyledGoBackButton linkName={"/"} children>
+        <StyledBackButton linkName={"/"} children>
           <span>My lists</span>
-        </StyledGoBackButton>
+        </StyledBackButton>
         <h1 className={baseStyles.header}>
           <FontAwesomeIcon icon={faClipboardList} /> Todo List: {tableName}
         </h1>
