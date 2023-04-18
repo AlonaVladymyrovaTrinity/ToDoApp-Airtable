@@ -10,7 +10,6 @@ import baseStyles from "../css/base.module.css";
 import { useParams } from "react-router-dom";
 import StyledSpinner from "./StyledSpinner";
 import StyledBackButton from "./StyledBackButton";
-import Sorting from "./Sorting";
 import TodoListDropdown from "./TodoListDropdown";
 
 // import PropTypes from "prop-types";
@@ -50,7 +49,11 @@ const TodoContainer = () => {
           <StyledBackButton linkName={"/"} children>
             <span>My lists</span>
           </StyledBackButton>
-          <TodoListDropdown /*className={style["dropdown-component"]}*/ />
+          <TodoListDropdown
+            todoList={todoList}
+            setTodoList={setTodoList}
+            isLoading={isLoading}
+          />
         </div>
         <h1 className={baseStyles.header}>
           <FontAwesomeIcon icon={faClipboardList} /> Todo List: {tableName}
@@ -68,11 +71,6 @@ const TodoContainer = () => {
         ) : (
           <>
             <Search onSearch={handleSearch} />
-            <Sorting
-              todoList={todoList}
-              // isChecked={isChecked}
-              setTodoList={setTodoList}
-            />{" "}
             <span className={baseStyles["pending-tasks"]}>
               You have{" "}
               <span className={baseStyles["pending-num"]}>

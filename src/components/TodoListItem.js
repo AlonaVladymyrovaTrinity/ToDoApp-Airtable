@@ -7,8 +7,10 @@ import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { faSave } from "@fortawesome/free-solid-svg-icons";
 import { RiCloseCircleLine } from "react-icons/ri";
-// import { format } from "date-fns";
 import PropTypes from "prop-types";
+import moment from "moment";
+// import { format, parseISO } from "date-fns";
+import { format } from "date-fns";
 
 const TodoListItem = ({
   todo,
@@ -29,6 +31,11 @@ const TodoListItem = ({
   //   todo.fields.done.toLowerCase() === "true"
   // );
   const textareaRef = useRef(null);
+  // const parsedDate = parseISO(todo.createdTime);
+  const elapsedTime =
+    moment(todo.createdTime).fromNow() +
+    ". " +
+    format(new Date(todo.createdTime), "MM/dd/yyyy HH:mm:ss");
 
   useEffect(() => {
     if (isEditing) {
@@ -140,12 +147,11 @@ const TodoListItem = ({
                 }`}
               >
                 {todo.fields.Title}
-                {/* {format(new Date(todo.createdTime), "MM/dd/yyyy HH:mm:ss")} */}
               </div>
             </>
           )}
+          <span className={style["created-time"]}>Created: {elapsedTime}</span>
         </li>
-
         {isEditing ? (
           <>
             <button

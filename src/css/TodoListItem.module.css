@@ -130,7 +130,10 @@
 .delete-button:hover {
   background-color: #f030cd;
 }
-
+.created-time {
+  font-size: small;
+  color: grey;
+}
 @media screen and (max-width: 393px) {
   .check-circle-checked {
     margin-right: 5px;

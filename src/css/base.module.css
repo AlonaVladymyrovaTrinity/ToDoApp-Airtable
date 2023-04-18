@@ -135,7 +135,7 @@ button:active {
 } */
 
 .ListItem .list {
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: space-between;
   list-style: none;

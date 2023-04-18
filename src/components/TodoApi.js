@@ -17,6 +17,7 @@ export const getTodoList = (setTodoList, setIsLoading, tableName) => {
     .then((response) => response.json())
     .then((result) => {
       // console.log("Success:", result);
+      // console.log("My console log:", JSON.stringify(result.records));
       setTodoList(result.records);
       setIsLoading(false);
     })
@@ -50,9 +51,9 @@ export const editTitleAndData = (
       const newFields = done
         ? { ...todo.fields, Title: title, done: done }
         : { ...todo.fields, Title: title, done: null };
-      // console.log(newFields);
+      // console.log(JSON.stringify(newFields));
       updateAirtableRecord(todo.id, newFields, tableName); // update the record in Airtable
-      return { id: todo.id, fields: newFields };
+      return { id: todo.id, createdTime: todo.createdTime, fields: newFields };
     } else {
       return todo;
     }
