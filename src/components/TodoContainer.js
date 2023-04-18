@@ -10,6 +10,8 @@ import baseStyles from "../css/base.module.css";
 import { useParams } from "react-router-dom";
 import StyledSpinner from "./StyledSpinner";
 import StyledBackButton from "./StyledBackButton";
+import Sorting from "./Sorting";
+
 // import PropTypes from "prop-types";
 
 // const TodoContainer = ({ tableName }) => {
@@ -62,6 +64,11 @@ const TodoContainer = () => {
         ) : (
           <>
             <Search onSearch={handleSearch} />
+            <Sorting
+              todoList={todoList}
+              // isChecked={isChecked}
+              setTodoList={setTodoList}
+            />{" "}
             <span className={baseStyles["pending-tasks"]}>
               You have{" "}
               <span className={baseStyles["pending-num"]}>

@@ -7,6 +7,7 @@ import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { faSave } from "@fortawesome/free-solid-svg-icons";
 import { RiCloseCircleLine } from "react-icons/ri";
+// import { format } from "date-fns";
 import PropTypes from "prop-types";
 
 const TodoListItem = ({
@@ -139,6 +140,7 @@ const TodoListItem = ({
                 }`}
               >
                 {todo.fields.Title}
+                {/* {format(new Date(todo.createdTime), "MM/dd/yyyy HH:mm:ss")} */}
               </div>
             </>
           )}

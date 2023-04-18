@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 const API_ENDPOINT = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}`;
 const API_ENDPOINT_TABLES = `https://api.airtable.com/v0/meta/bases/${process.env.REACT_APP_AIRTABLE_BASE_ID}/tables`;
 
-//GET Items
+//GET Items from todo list
 export const getTodoList = (setTodoList, setIsLoading, tableName) => {
   fetch(`${API_ENDPOINT}/${tableName}/`, {
     method: "GET",
@@ -33,7 +33,7 @@ getTodoList.propTypes = {
   tableName: PropTypes.string,
 };
 
-//UPDATE Items
+//UPDATE Items in todo list
 export const editTitleAndData = (
   id,
   title,
@@ -105,7 +105,8 @@ updateAirtableRecord.propTypes = {
   fields: PropTypes.object,
   tableName: PropTypes.string,
 };
-//DELETE Items
+
+//DELETE Items from todo list
 export const removeTodo = (id, isLoading, todoList, setTodoList, tableName) => {
   if (!isLoading) {
     const newTodoList = todoList.filter((todo) => todo.id !== id);
@@ -133,7 +134,8 @@ removeTodo.propTypes = {
   setTodoList: PropTypes.func,
   tableName: PropTypes.string,
 };
-//ADD Items
+
+//ADD Items to todo list
 export const addTodo = (
   newTodo,
   setIsLoading,
@@ -181,7 +183,8 @@ addTodo.propTypes = {
   setTodoList: PropTypes.func,
   tableName: PropTypes.string,
 };
-//CREATE new table
+
+//CREATE new table (new todo list)
 export const createNewTable = (
   newListName,
   setIsListsLoading,
@@ -211,6 +214,29 @@ export const createNewTable = (
           },
           type: "checkbox",
         },
+        /**** I will keep this code below for the future (commented out) because Airtable didn't support creating fields with type createdTime at this time:
+         **   "type": "UNSUPPORTED_FIELD_TYPE_FOR_CREATE",
+         **   "message": "Invalid options for newListName.Created time: Creating createdTime fields is not supported at this time"*/
+        //   {
+        //     name: "Created time",
+        //     options: {
+        //         result: {
+        //             type: "dateTime",
+        //                 options: {
+        //                     dateFormat: {
+        //                         name: "local",
+        //                         format: "l"
+        //                     },
+        //                     timeFormat: {
+        //                         name: "12hour",
+        //                         format: "h:mma"
+        //                     },
+        //                     timeZone: "America/Los_Angeles"
+        //                 }
+        //         }
+        //     },
+        //     type: "createdTime"
+        // }
       ],
       name: newListName,
     }),
@@ -234,7 +260,7 @@ createNewTable.propTypes = {
   customTodoLists: PropTypes.array,
 };
 
-//GET table names
+//GET table names (todo list names)
 export const getBaseSchema = (setCustomTodoLists, setIsListsLoading) => {
   fetch(`${API_ENDPOINT_TABLES}`, {
     method: "GET",

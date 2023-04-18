@@ -30,7 +30,7 @@ const CustomTodoListsItems = ({ customTodo }) => {
                   <img
                     className={style.arrow}
                     src={arrow}
-                    alt="arrow forward"
+                    alt="go forward arrow"
                   />
                 </li>
               </Link>

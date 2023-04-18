@@ -15,6 +15,9 @@ const GoBackImg = styled.img`
   align-items: center;
   width: 35px;
   height: 40px;
+  font-size: 10px;
+  font-weight: none;
+  text-transform: none;
 `;
 const BackLink = styled(Link)`
   text-decoration: none;
@@ -27,7 +30,7 @@ const BackLink = styled(Link)`
 const StyledBackButton = ({ linkName, children }) => (
   <BackLink to={`${linkName}`}>
     <BackButtonWrapper>
-      <GoBackImg src={BackButtonSvg} alt="go back button image" />
+      <GoBackImg src={BackButtonSvg} alt="go back arrow" />
       {children}
     </BackButtonWrapper>
   </BackLink>
