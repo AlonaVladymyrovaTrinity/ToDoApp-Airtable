@@ -5,12 +5,13 @@ import { editTitleAndData, removeTodo, addTodo, getTodoList } from "./TodoApi";
 import Search from "./Search";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboardList } from "@fortawesome/free-solid-svg-icons";
-// import style from "../css/TodoContainer.module.css";
+import style from "../css/TodoContainer.module.css";
 import baseStyles from "../css/base.module.css";
 import { useParams } from "react-router-dom";
 import StyledSpinner from "./StyledSpinner";
 import StyledBackButton from "./StyledBackButton";
 import Sorting from "./Sorting";
+import TodoListDropdown from "./TodoListDropdown";
 
 // import PropTypes from "prop-types";
 
@@ -45,9 +46,12 @@ const TodoContainer = () => {
   return (
     <>
       <div className={baseStyles.container}>
-        <StyledBackButton linkName={"/"} children>
-          <span>My lists</span>
-        </StyledBackButton>
+        <div className={style["top-wrapper"]}>
+          <StyledBackButton linkName={"/"} children>
+            <span>My lists</span>
+          </StyledBackButton>
+          <TodoListDropdown /*className={style["dropdown-component"]}*/ />
+        </div>
         <h1 className={baseStyles.header}>
           <FontAwesomeIcon icon={faClipboardList} /> Todo List: {tableName}
         </h1>
