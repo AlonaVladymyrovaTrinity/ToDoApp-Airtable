@@ -1,24 +1,32 @@
 import PropTypes from "prop-types";
+import { sortingBy } from "./SortingBy";
 
 const API_ENDPOINT = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}`;
 const API_ENDPOINT_TABLES = `https://api.airtable.com/v0/meta/bases/${process.env.REACT_APP_AIRTABLE_BASE_ID}/tables`;
 
 //GET Items from todo list
 export const getTodoList = (setTodoList, setIsLoading, tableName) => {
-  fetch(`${API_ENDPOINT}/${tableName}/`, {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
-      "Cache-Control": "no-cache",
-      SameSite: "None",
-      Secure: true,
-    },
-  })
+  fetch(
+    `${API_ENDPOINT}/${tableName}`,
+    //?sortRecord=createdTime&sortDirection=asc"`,
+    // ?sort[0][field]=Title&sort[0][direction]=asc`,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+        "Cache-Control": "no-cache",
+        SameSite: "None",
+        Secure: true,
+      },
+    }
+  )
     .then((response) => response.json())
     .then((result) => {
-      // console.log("Success:", result);
-      // console.log("My console log:", JSON.stringify(result.records));
-      setTodoList(result.records);
+      // console.log("Success:", result.records);
+      // console.log("GET result:", JSON.stringify(result.records));
+      const sortedList = sortingBy("desc", "createdTime", result.records);
+      setTodoList(sortedList);
+      // setTodoList(result.records);
       setIsLoading(false);
     })
     .catch((error) => {
@@ -145,7 +153,7 @@ export const addTodo = (
   tableName
 ) => {
   setIsLoading(true);
-  fetch(`${API_ENDPOINT}/${tableName}/`, {
+  fetch(`${API_ENDPOINT}/${tableName}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -169,7 +177,12 @@ export const addTodo = (
     .then((response) => response.json())
     .then((result) => {
       // console.log("Success:", result);
-      setTodoList([...todoList, result.records[0]]);
+      const sortedList = sortingBy("desc", "createdTime", [
+        ...todoList,
+        result.records[0],
+      ]);
+      setTodoList(sortedList);
+      // setTodoList([...todoList, result.records[0]]);
       setIsLoading(false);
     })
     .catch((error) => {

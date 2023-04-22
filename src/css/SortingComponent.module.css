@@ -1,0 +1,31 @@
+/* .input-checkbox {
+  display: none;
+} */
+
+.input-label {
+  margin-left: 10px;
+  font-size: 14px;
+}
+.select-option {
+  border-radius: 5px;
+  background-color: #fafafa;
+  min-width: 100%;
+  min-height: 30px;
+}
+.select-option:focus {
+  background-color: #fafafa;
+  border-radius: 5px;
+  outline: none;
+}
+
+.select-option:hover {
+  background-color: #fafafa;
+  box-shadow: 0 1px 6px 0 #20212447;
+  border-radius: 5px;
+  outline: none;
+}
+.select-option:disabled {
+  background-color: dimgrey;
+  color: #a9a9a9;
+  opacity: 1;
+}

@@ -6,10 +6,15 @@ const SpinnerWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &.small-spinner {
+    transform: scale(0.5);
+  }
+  }
 `;
 
-const Spinner = () => (
-  <SpinnerWrapper>
+const Spinner = ({ className }) => (
+  <SpinnerWrapper className={className}>
     <img src={spinnerSvg} alt="spinner" />
   </SpinnerWrapper>
 );

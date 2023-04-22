@@ -1,18 +1,17 @@
-import React, { useState } from "react";
-import style from "../css/Sorting.module.css";
+import React, { useState, useEffect } from "react";
+import style from "../css/SortingComponent.module.css";
 
-const Sorting = ({ setTodoList, todoList, fieldName }) => {
+const SortingComponent = ({ setTodoList, todoList, fieldName, optionName }) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
-    sortingBy(!isChecked ? "asc" : "desc");
   };
 
   //   useEffect(() => {
   //     sortingBy(todoList, isChecked ? "asc" : "desc");
   //   }, [isChecked, todoList]);
-
+  //-------------------------------------------------
   const sortingBy = (order) => {
     const sortedTodoList = [...todoList];
     sortedTodoList.sort((objectA, objectB) => {
@@ -30,8 +29,15 @@ const Sorting = ({ setTodoList, todoList, fieldName }) => {
         return valA < valB ? 1 : valA > valB ? -1 : 0;
       }
     });
+    console.log(sortedTodoList);
     return setTodoList(sortedTodoList);
   };
+
+  useEffect(() => {
+    sortingBy(isChecked ? "asc" : "desc");
+  }, [isChecked, fieldName]); // add isChecked and fieldName as dependencies
+
+  //----------------------------------------------------
   // if (order === "asc") {
   //   sortedTodoList.sort((objectA, objectB) => {
   //     let valA, valB;
@@ -74,8 +80,15 @@ const Sorting = ({ setTodoList, todoList, fieldName }) => {
             checked={isChecked}
             onChange={handleCheckboxChange}
           />
-          <label htmlFor="sorting-order">
-            {fieldName}: {isChecked ? "asc (A-to-Z)" : "desc (Z-to-A)"}
+          <label className={style["input-label"]} htmlFor="sorting-order">
+            {optionName}:{" "}
+            {fieldName === "createdTime"
+              ? isChecked
+                ? "Oldest First"
+                : "Newest First"
+              : isChecked
+              ? "Ascending (A-to-Z)"
+              : "Descending (Z-to-A)"}
           </label>
         </>
       ) : (
@@ -85,4 +98,4 @@ const Sorting = ({ setTodoList, todoList, fieldName }) => {
   );
 };
 
-export default Sorting;
+export default SortingComponent;

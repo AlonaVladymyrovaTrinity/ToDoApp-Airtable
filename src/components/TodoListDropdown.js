@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import { IconDotsCircleHorizontal } from "@tabler/icons-react";
 import style from "../css/TodoListDropdown.module.css";
 import baseStyles from "../css/base.module.css";
-import Sorting from "./Sorting";
-import arrow from "../assets/arrow-forward.svg";
+import SortingComponent from "./SortingComponent";
+// import arrow from "../assets/arrow-downward.svg";
+import arrowUpDown from "../assets/arrow-up-down.svg";
+import StyledSpinner from "./StyledSpinner";
 import PropTypes from "prop-types";
 
 const TodoListDropdown = ({ todoList, setTodoList, isLoading }) => {
   const [showMenu, setShowMenu] = useState(false);
-  const menuOpenClose = () => {
+
+  const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
 
@@ -36,44 +39,32 @@ const TodoListDropdown = ({ todoList, setTodoList, isLoading }) => {
 
   return (
     <div className={style.dropdown}>
-      <button className={style["dropdown-btn"]} onClick={menuOpenClose}>
+      <button className={style["dropdown-btn"]} onClick={toggleMenu}>
         <IconDotsCircleHorizontal />
         <span className={baseStyles["sr-only"]}>Dropdown menu</span>
       </button>
       {showMenu ? (
         <ul>
           <li>
-            <img className={style.arrow} src={arrow} alt="go forward arrow" />
-            <strong>Sort By</strong>
+            {/* <img className={style.arrow} src={arrow} alt="arrow downward" /> */}
+            <label htmlFor="sortingOptions">
+              <strong>Sort By</strong>
+            </label>
+            <img
+              className={style["arrow-up-down"]}
+              src={arrowUpDown}
+              alt="arrow up down"
+            />
           </li>
           {!isLoading ? (
             <>
-              <li>
-                <Sorting
-                  todoList={todoList}
-                  setTodoList={setTodoList}
-                  fieldName="createdTime"
-                />
-              </li>
-              <li>
-                <Sorting
-                  todoList={todoList}
-                  setTodoList={setTodoList}
-                  fieldName="Title"
-                />
-              </li>
-              <li>
-                <Sorting
-                  todoList={todoList}
-                  setTodoList={setTodoList}
-                  fieldName="done"
-                />
-              </li>
+              <SortingComponent todoList={todoList} setTodoList={setTodoList} />
             </>
           ) : (
             <>
               <li>
                 <p>Loading...</p>
+                <StyledSpinner className="small-spinner" />
               </li>
             </>
           )}

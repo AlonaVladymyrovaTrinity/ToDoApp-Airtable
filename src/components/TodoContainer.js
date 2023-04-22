@@ -11,6 +11,7 @@ import { useParams } from "react-router-dom";
 import StyledSpinner from "./StyledSpinner";
 import StyledBackButton from "./StyledBackButton";
 import TodoListDropdown from "./TodoListDropdown";
+// import SortingComponent from "./SortingComponent";
 
 // import PropTypes from "prop-types";
 
@@ -70,6 +71,12 @@ const TodoContainer = () => {
           </span>
         ) : (
           <>
+            {/* <SortingComponent
+              todoList={todoList}
+              setTodoList={setTodoList}
+              fieldName="createdTime"
+              optionName="Created Time"
+            /> */}
             <Search onSearch={handleSearch} />
             <span className={baseStyles["pending-tasks"]}>
               You have{" "}
