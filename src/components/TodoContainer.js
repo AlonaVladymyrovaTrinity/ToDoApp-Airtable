@@ -23,6 +23,20 @@ const TodoContainer = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [searchInput, setSearchInput] = useState("");
 
+  const defaultIsChecked = false;
+  const defaultSortingFieldName = "createdTime";
+
+  const storedIsChecked = localStorage.getItem("isChecked");
+  const storedSortingFieldName = localStorage.getItem("sortingFieldName");
+
+  if (storedIsChecked === null) {
+    localStorage.setItem("isChecked", JSON.stringify(defaultIsChecked));
+  }
+
+  if (storedSortingFieldName === null) {
+    localStorage.setItem("sortingFieldName", defaultSortingFieldName);
+  }
+
   useEffect(() => {
     getTodoList(setTodoList, setIsLoading, tableName);
   }, [tableName]);
@@ -54,6 +68,8 @@ const TodoContainer = () => {
             todoList={todoList}
             setTodoList={setTodoList}
             isLoading={isLoading}
+            storedIsChecked={storedIsChecked}
+            storedSortingFieldName={storedSortingFieldName}
           />
         </div>
         <h1 className={baseStyles.header}>

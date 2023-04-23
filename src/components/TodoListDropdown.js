@@ -8,7 +8,13 @@ import arrowUpDown from "../assets/arrow-up-down.svg";
 import StyledSpinner from "./StyledSpinner";
 import PropTypes from "prop-types";
 
-const TodoListDropdown = ({ todoList, setTodoList, isLoading }) => {
+const TodoListDropdown = ({
+  todoList,
+  setTodoList,
+  isLoading,
+  storedIsChecked,
+  storedSortingFieldName,
+}) => {
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
@@ -58,7 +64,12 @@ const TodoListDropdown = ({ todoList, setTodoList, isLoading }) => {
           </li>
           {!isLoading ? (
             <>
-              <SortingComponent todoList={todoList} setTodoList={setTodoList} />
+              <SortingComponent
+                todoList={todoList}
+                setTodoList={setTodoList}
+                storedIsChecked={storedIsChecked}
+                storedSortingFieldName={storedSortingFieldName}
+              />
             </>
           ) : (
             <>

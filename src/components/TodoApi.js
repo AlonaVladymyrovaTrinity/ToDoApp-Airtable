@@ -8,8 +8,8 @@ const API_ENDPOINT_TABLES = `https://api.airtable.com/v0/meta/bases/${process.en
 export const getTodoList = (setTodoList, setIsLoading, tableName) => {
   fetch(
     `${API_ENDPOINT}/${tableName}`,
-    //?sortRecord=createdTime&sortDirection=asc"`,
     // ?sort[0][field]=Title&sort[0][direction]=asc`,
+    // ?view=Grid%20view&sort[0][field]=done&sort[0][direction]=asc
     {
       method: "GET",
       headers: {
@@ -24,7 +24,7 @@ export const getTodoList = (setTodoList, setIsLoading, tableName) => {
     .then((result) => {
       // console.log("Success:", result.records);
       // console.log("GET result:", JSON.stringify(result.records));
-      const sortedList = sortingBy("desc", "createdTime", result.records);
+      const sortedList = sortingBy(null, null, result.records);
       setTodoList(sortedList);
       // setTodoList(result.records);
       setIsLoading(false);
@@ -66,7 +66,9 @@ export const editTitleAndData = (
       return todo;
     }
   });
-  setTodoList(newTodoList);
+  const sortedList = sortingBy(null, null, newTodoList);
+  setTodoList(sortedList);
+  // setTodoList(newTodoList);
   // updateAirtableRecord(id, newTodoList.find((todo) => todo.id === id).fields);
 };
 
@@ -177,11 +179,13 @@ export const addTodo = (
     .then((response) => response.json())
     .then((result) => {
       // console.log("Success:", result);
-      const sortedList = sortingBy("desc", "createdTime", [
+
+      const sortedList = sortingBy(null, null, [
         ...todoList,
         result.records[0],
       ]);
       setTodoList(sortedList);
+
       // setTodoList([...todoList, result.records[0]]);
       setIsLoading(false);
     })

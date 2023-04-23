@@ -3,9 +3,18 @@ import React, { useState } from "react";
 import { sortingBy } from "./SortingBy";
 import style from "../css/SortingComponent.module.css";
 
-const SortingComponent = ({ setTodoList, todoList }) => {
-  const [isChecked, setIsChecked] = useState(false);
-  const [sortingFieldName, setSortingFieldName] = useState("createdTime");
+const SortingComponent = ({
+  setTodoList,
+  todoList,
+  storedIsChecked,
+  storedSortingFieldName,
+}) => {
+  const [isChecked, setIsChecked] = useState(
+    storedIsChecked !== null ? JSON.parse(storedIsChecked) : false
+  );
+  const [sortingFieldName, setSortingFieldName] = useState(
+    storedSortingFieldName !== null ? storedSortingFieldName : "createdTime"
+  );
 
   // const sortedListRef = useRef([]);
 
@@ -29,6 +38,8 @@ const SortingComponent = ({ setTodoList, todoList }) => {
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
+    localStorage.setItem("isChecked", JSON.stringify(!isChecked)); // Save to local storage
+
     // sortedListRef.current = sortingBy(
     const sortedList = sortingBy(
       !isChecked ? "asc" : "desc",
@@ -38,9 +49,17 @@ const SortingComponent = ({ setTodoList, todoList }) => {
     setTodoList(sortedList);
   };
 
+  // useEffect(() => {
+  //   const storedIsChecked = JSON.parse(localStorage.getItem("isChecked"));
+  //   if (storedIsChecked !== null) {
+  //     setIsChecked(storedIsChecked);
+  //   }
+  // }, []);
+
   const handleSelectChange = (event) => {
     const selectedFieldName = event.target.value;
     setSortingFieldName(selectedFieldName);
+    localStorage.setItem("sortingFieldName", selectedFieldName); // Save to local storage
     // sortedListRef.current = sortingBy(
     const sortedList = sortingBy(
       isChecked ? "asc" : "desc",
@@ -51,31 +70,38 @@ const SortingComponent = ({ setTodoList, todoList }) => {
     // setTodoList(sortedListRef.current);
   };
 
+  // useEffect(() => {
+  //   const storedSelectedFieldName = localStorage.getItem("sortingFieldName");
+  //   if (storedSelectedFieldName !== null) {
+  //     setSortingFieldName(storedSelectedFieldName);
+  //   }
+  // }, []);
+
   return (
     <div>
-      {Array.isArray(todoList) && todoList.length > 0 ? (
-        <>
-          <li>
-            <select
-              id="sortingOptions"
-              name="sortingOptions"
-              className={style["select-option"]}
-              disabled={!Array.isArray(todoList) || todoList.length === 0}
-              onChange={handleSelectChange}
-              value={sortingFieldName}
-            >
-              {" "}
-              {/* <option value="">--Select sort criteria--</option> */}
-              {Object.entries(options).map(([value, label]) => (
-                <option key={value} value={value}>
-                  {label}
-                </option>
-              ))}
-              {/* <option value="createdTime">Created Time</option>
+      <li>
+        <select
+          id="sortingOptions"
+          name="sortingOptions"
+          className={style["select-option"]}
+          disabled={!Array.isArray(todoList) || todoList.length === 0}
+          onChange={handleSelectChange}
+          value={sortingFieldName}
+        >
+          {" "}
+          {/* <option value="">--Select sort criteria--</option> */}
+          {Object.entries(options).map(([value, label]) => (
+            <option key={value} value={value}>
+              {label}
+            </option>
+          ))}
+          {/* <option value="createdTime">Created Time</option>
         <option value="Title">Title</option>
         <option value="done">Done</option> */}
-            </select>
-          </li>
+        </select>
+      </li>
+      {Array.isArray(todoList) && todoList.length > 0 ? (
+        <>
           <li>
             <input
               className={style["input-checkbox"]}
