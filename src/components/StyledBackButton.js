@@ -37,7 +37,9 @@ const StyledBackButton = ({ linkName, children }) => (
 );
 
 StyledBackButton.propTypes = {
-  children: PropTypes.node.isRequired,
+  linkName: PropTypes.string,
+  children: PropTypes.object,
+  // children: PropTypes.node.isRequired,
 };
 
 export default StyledBackButton;

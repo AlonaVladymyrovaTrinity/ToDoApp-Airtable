@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import spinnerSvg from "../assets/Spinner.svg";
+import PropTypes from "prop-types";
 
 const SpinnerWrapper = styled.div`
   display: flex;
@@ -13,10 +14,13 @@ const SpinnerWrapper = styled.div`
   }
 `;
 
-const Spinner = ({ className }) => (
+const StyledSpinner = ({ className }) => (
   <SpinnerWrapper className={className}>
     <img src={spinnerSvg} alt="spinner" />
   </SpinnerWrapper>
 );
+StyledSpinner.propTypes = {
+  className: PropTypes.string,
+};
 
-export default Spinner;
+export default StyledSpinner;

@@ -7,10 +7,10 @@ let InputWithLabel = function ({
   id,
   name,
   placeholder,
-  title,
+  todoTitle,
   type,
   value,
-  onChange,
+  handleTitleChange,
   children,
 }) {
   const inputRef = useRef(null);
@@ -19,7 +19,6 @@ let InputWithLabel = function ({
   }, []);
   return (
     <>
-      {/* <div className={style["label-input"]}> */}
       <label htmlFor={id}>{children}</label>
       <div className={style["input-field"]}>
         <input
@@ -27,19 +26,19 @@ let InputWithLabel = function ({
           ref={inputRef}
           name={name}
           placeholder={placeholder}
-          title={title}
+          title={todoTitle}
           type={type}
           value={value}
-          onChange={onChange}
+          onChange={handleTitleChange}
         />
       </div>
-      {/* </div> */}
     </>
   );
 };
 
 InputWithLabel.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.object,
+  // children: PropTypes.node.isRequired,
   onChange: PropTypes.func,
   value: PropTypes.string,
   type: PropTypes.string,

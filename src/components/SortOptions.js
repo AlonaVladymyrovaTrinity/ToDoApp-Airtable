@@ -122,8 +122,8 @@ const SortOptions = ({
                   ? "Oldest First"
                   : "Newest First"
                 : isChecked
-                ? "Ascending (A-to-Z)"
-                : "Descending (Z-to-A)"}
+                ? "Ascending"
+                : "Descending"}
             </label>
           </li>
         </>

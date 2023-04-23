@@ -44,13 +44,13 @@ const CreateCustomTodoList = () => {
         <form onSubmit={handleAddNewTodoList}>
           <div className={baseStyles["input-with-button"]}>
             <InputWithLabel
-              title={"createTodoList"}
+              todoTitle={"createTodoList"}
               placeholder={"Enter new todo list name"}
               id={"createTodoList"}
               name={"createTodoList"}
               type={"text"}
               value={newListName}
-              onChange={handleListNameChange}
+              handleTitleChange={handleListNameChange}
               children
             >
               <strong className={baseStyles.title}>Todo list name: </strong>

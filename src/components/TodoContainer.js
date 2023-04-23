@@ -7,13 +7,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboardList } from "@fortawesome/free-solid-svg-icons";
 import style from "../css/TodoContainer.module.css";
 import baseStyles from "../css/base.module.css";
-import { useParams } from "react-router-dom";
 import StyledSpinner from "./StyledSpinner";
 import StyledBackButton from "./StyledBackButton";
 import SortingDropdown from "./SortingDropdown";
-// import SortingComponent from "./SortingComponent";
-
-// import PropTypes from "prop-types";
+import { useParams } from "react-router-dom";
+import PropTypes from "prop-types";
 
 // const TodoContainer = ({ tableName }) => {
 const TodoContainer = () => {
@@ -22,6 +20,10 @@ const TodoContainer = () => {
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchInput, setSearchInput] = useState("");
+
+  useEffect(() => {
+    getTodoList(setTodoList, setIsLoading, tableName);
+  }, [tableName]);
 
   const defaultIsChecked = false;
   const defaultSortingFieldName = "createdTime";
@@ -36,10 +38,6 @@ const TodoContainer = () => {
   if (storedSortingFieldName === null) {
     localStorage.setItem("sortingFieldName", defaultSortingFieldName);
   }
-
-  useEffect(() => {
-    getTodoList(setTodoList, setIsLoading, tableName);
-  }, [tableName]);
 
   const handleNewAddTodo = (newTodo) => {
     addTodo(newTodo, setIsLoading, todoList, setTodoList, tableName);
@@ -72,10 +70,13 @@ const TodoContainer = () => {
             storedSortingFieldName={storedSortingFieldName}
           />
         </div>
+        {/* Heading level-one with dynamic tableName */}
         <h1 className={baseStyles.header}>
           <FontAwesomeIcon icon={faClipboardList} /> Todo List: {tableName}
         </h1>
+        {/* AddTodoForm Component */}
         <AddTodoForm onAddTodo={handleNewAddTodo} />
+        {/* Conditional rendering based on isLoading state */}
         {isLoading ? (
           <>
             <p>Loading...</p>
@@ -87,12 +88,6 @@ const TodoContainer = () => {
           </span>
         ) : (
           <>
-            {/* <SortingComponent
-              todoList={todoList}
-              setTodoList={setTodoList}
-              fieldName="createdTime"
-              optionName="Created Time"
-            /> */}
             <Search onSearch={handleSearch} />
             <span className={baseStyles["pending-tasks"]}>
               You have{" "}
@@ -122,8 +117,8 @@ const TodoContainer = () => {
   );
 };
 
-// TodoContainer.propTypes = {
-//   tableName: PropTypes.string,
-// };
+TodoContainer.propTypes = {
+  tableName: PropTypes.string,
+};
 
 export default TodoContainer;

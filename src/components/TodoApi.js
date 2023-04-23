@@ -4,7 +4,7 @@ import { sortingBy } from "./SortingBy";
 const API_ENDPOINT = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}`;
 const API_ENDPOINT_TABLES = `https://api.airtable.com/v0/meta/bases/${process.env.REACT_APP_AIRTABLE_BASE_ID}/tables`;
 
-//GET Items from todo list
+//GET Items from todo list. Using Fetch API, GET table records from Airtable for the given tableName
 export const getTodoList = (setTodoList, setIsLoading, tableName) => {
   fetch(
     `${API_ENDPOINT}/${tableName}`,
@@ -20,15 +20,22 @@ export const getTodoList = (setTodoList, setIsLoading, tableName) => {
       },
     }
   )
+    //Response is being parsed as JSON using the response.json() method
     .then((response) => response.json())
     .then((result) => {
       // console.log("Success:", result.records);
       // console.log("GET result:", JSON.stringify(result.records));
+
+      //Sort response data by one or more properties
       const sortedList = sortingBy(null, null, result.records);
+      //Set todoList state to sorted data
       setTodoList(sortedList);
       // setTodoList(result.records);
+
+      //Set isLoading to false
       setIsLoading(false);
     })
+    //If the request fails, the .catch() callback is called and logs the error to the console
     .catch((error) => {
       console.error("Error:", error);
       setIsLoading(false);
@@ -39,6 +46,96 @@ export const getTodoList = (setTodoList, setIsLoading, tableName) => {
 getTodoList.propTypes = {
   setTodoList: PropTypes.func,
   setIsLoading: PropTypes.func,
+  tableName: PropTypes.string,
+};
+
+//ADD Items to todo list. Using Fetch API, POST new record to Airtable with the given title field value
+export const addTodo = (
+  newTodo,
+  setIsLoading,
+  todoList,
+  setTodoList,
+  tableName
+) => {
+  setIsLoading(true);
+  fetch(`${API_ENDPOINT}/${tableName}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+    },
+    body: JSON.stringify({
+      records: [
+        {
+          fields: {
+            Title: newTodo.title,
+            //is type of data in db in column done is string:
+            //done: "false",
+            //if type of data in db in field done is Checkbox:
+            done: null,
+            // Completed: newTodo.completed,
+          },
+        },
+      ],
+    }),
+  })
+    //Response is being parsed as JSON using the response.json() method
+    .then((response) => response.json())
+    .then((result) => {
+      // console.log("Success:", result);
+
+      //Set todoList state to a new Array containing the added record
+      //(Bonus) Re-sort list data
+      const sortedList = sortingBy(null, null, [
+        ...todoList,
+        result.records[0],
+      ]);
+      setTodoList(sortedList);
+
+      // setTodoList([...todoList, result.records[0]]);
+      setIsLoading(false);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      setIsLoading(false);
+    });
+};
+addTodo.propTypes = {
+  newTodo: PropTypes.object,
+  setIsLoading: PropTypes.func,
+  todoList: PropTypes.object,
+  setTodoList: PropTypes.func,
+  tableName: PropTypes.string,
+};
+
+//DELETE Items from todo list. Using Fetch API, Delete record from Airtable given id
+export const removeTodo = (id, isLoading, todoList, setTodoList, tableName) => {
+  if (!isLoading) {
+    const newTodoList = todoList.filter((todo) => todo.id !== id);
+    //Set todoList state to new Array NOT containing the removed record
+    setTodoList(newTodoList);
+
+    fetch(`${API_ENDPOINT}/${tableName}/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+      },
+    })
+      //Response is being parsed as JSON using the response.json() method
+      .then((response) => response.json())
+      // .then((result) => {
+      //   console.log("Success:", result);
+      // })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
+};
+removeTodo.propTypes = {
+  id: PropTypes.string,
+  isLoading: PropTypes.bool,
+  todoList: PropTypes.object,
+  setTodoList: PropTypes.func,
   tableName: PropTypes.string,
 };
 
@@ -114,91 +211,6 @@ export const updateAirtableRecord = (id, fields, tableName) => {
 updateAirtableRecord.propTypes = {
   id: PropTypes.string,
   fields: PropTypes.object,
-  tableName: PropTypes.string,
-};
-
-//DELETE Items from todo list
-export const removeTodo = (id, isLoading, todoList, setTodoList, tableName) => {
-  if (!isLoading) {
-    const newTodoList = todoList.filter((todo) => todo.id !== id);
-    setTodoList(newTodoList);
-
-    fetch(`${API_ENDPOINT}/${tableName}/${id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
-      },
-    })
-      .then((response) => response.json())
-      // .then((result) => {
-      //   console.log("Success:", result);
-      // })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  }
-};
-removeTodo.propTypes = {
-  id: PropTypes.string,
-  isLoading: PropTypes.bool,
-  todoList: PropTypes.object,
-  setTodoList: PropTypes.func,
-  tableName: PropTypes.string,
-};
-
-//ADD Items to todo list
-export const addTodo = (
-  newTodo,
-  setIsLoading,
-  todoList,
-  setTodoList,
-  tableName
-) => {
-  setIsLoading(true);
-  fetch(`${API_ENDPOINT}/${tableName}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
-    },
-    body: JSON.stringify({
-      records: [
-        {
-          fields: {
-            Title: newTodo.title,
-            //is type of data in db in column done is string:
-            //done: "false",
-            //if type of data in db in field done is Checkbox:
-            done: null,
-            // Completed: newTodo.completed,
-          },
-        },
-      ],
-    }),
-  })
-    .then((response) => response.json())
-    .then((result) => {
-      // console.log("Success:", result);
-
-      const sortedList = sortingBy(null, null, [
-        ...todoList,
-        result.records[0],
-      ]);
-      setTodoList(sortedList);
-
-      // setTodoList([...todoList, result.records[0]]);
-      setIsLoading(false);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-      setIsLoading(false);
-    });
-};
-addTodo.propTypes = {
-  newTodo: PropTypes.object,
-  setIsLoading: PropTypes.func,
-  todoList: PropTypes.object,
-  setTodoList: PropTypes.func,
   tableName: PropTypes.string,
 };
 

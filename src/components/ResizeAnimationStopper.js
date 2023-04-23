@@ -31,11 +31,12 @@ function ResizeAnimationStopper({ children }) {
 }
 
 ResizeAnimationStopper.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-    PropTypes.elementType,
-  ]).isRequired,
+  children: PropTypes.object,
+  // oneOfType([
+  //   PropTypes.arrayOf(PropTypes.node),
+  //   PropTypes.node,
+  //   PropTypes.elementType,
+  // ]).isRequired,
 };
 
 export default ResizeAnimationStopper;

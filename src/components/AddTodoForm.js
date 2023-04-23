@@ -31,14 +31,13 @@ const AddTodoForm = ({ onAddTodo }) => {
     <form onSubmit={handleAddTodo}>
       <div className={baseStyles["input-with-button"]}>
         <InputWithLabel
-          title={"todoTitle"}
           placeholder={"Add todo Title"}
           id={"todoTitle"}
           name={"title"}
           type={"text"}
           value={todoTitle}
           todoTitle={todoTitle}
-          onChange={handleTitleChange}
+          handleTitleChange={handleTitleChange}
           children
         >
           <strong className={baseStyles.title}>Title name:</strong>

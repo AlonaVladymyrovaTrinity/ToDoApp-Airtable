@@ -25,12 +25,12 @@ const Search = ({ onSearch }) => {
       <div className={style["search-input"]}>
         <div className={baseStyles["input-with-button"]}>
           <InputWithLabel
-            title={"Search"}
+            todoTitle={"Search"}
             placeholder={"Search for titles"}
             id={"search"}
             name={"search"}
             type={"search"}
-            onChange={handleInputChange}
+            handleTitleChange={handleInputChange}
             children
           >
             <strong className={baseStyles.title}>Search: </strong>
