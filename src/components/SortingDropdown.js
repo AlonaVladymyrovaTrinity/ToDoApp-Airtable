@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { IconDotsCircleHorizontal } from "@tabler/icons-react";
-import style from "../css/TodoListDropdown.module.css";
+import style from "../css/SortingDropdown.module.css";
 import baseStyles from "../css/base.module.css";
-import SortingComponent from "./SortingComponent";
+import SortOptions from "./SortOptions";
 // import arrow from "../assets/arrow-downward.svg";
 import arrowUpDown from "../assets/arrow-up-down.svg";
 import StyledSpinner from "./StyledSpinner";
 import PropTypes from "prop-types";
 
-const TodoListDropdown = ({
+const SortingDropdown = ({
   todoList,
   setTodoList,
   isLoading,
@@ -64,7 +64,7 @@ const TodoListDropdown = ({
           </li>
           {!isLoading ? (
             <>
-              <SortingComponent
+              <SortOptions
                 todoList={todoList}
                 setTodoList={setTodoList}
                 storedIsChecked={storedIsChecked}
@@ -84,9 +84,12 @@ const TodoListDropdown = ({
     </div>
   );
 };
-TodoListDropdown.propTypes = {
+
+SortingDropdown.propTypes = {
   todoList: PropTypes.array,
   setTodoList: PropTypes.func,
   isLoading: PropTypes.bool,
+  storedIsChecked: PropTypes.string,
+  storedSortingFieldName: PropTypes.string,
 };
-export default TodoListDropdown;
+export default SortingDropdown;

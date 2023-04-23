@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export const sortingBy = (order, FieldName, todoList) => {
   const newisChecke = JSON.parse(localStorage.getItem("isChecked")) || false; // Get from local storage or 'false' by default
   const newSortingFieldName =
@@ -5,8 +7,6 @@ export const sortingBy = (order, FieldName, todoList) => {
 
   order = order !== null ? order : newisChecke ? "asc" : "desc";
   FieldName = FieldName !== null ? FieldName : newSortingFieldName;
-
-  console.log(order, FieldName);
 
   const sortedTodoList = [...todoList];
   sortedTodoList.sort((objectA, objectB) => {
@@ -28,6 +28,12 @@ export const sortingBy = (order, FieldName, todoList) => {
       return valA < valB ? 1 : valA > valB ? -1 : 0;
     }
   });
-  console.log(JSON.stringify(sortedTodoList));
+  // console.log(JSON.stringify(sortedTodoList));
   return sortedTodoList;
+};
+
+sortingBy.propTypes = {
+  order: PropTypes.string,
+  FieldName: PropTypes.string,
+  todoList: PropTypes.array,
 };

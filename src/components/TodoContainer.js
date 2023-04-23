@@ -10,7 +10,7 @@ import baseStyles from "../css/base.module.css";
 import { useParams } from "react-router-dom";
 import StyledSpinner from "./StyledSpinner";
 import StyledBackButton from "./StyledBackButton";
-import TodoListDropdown from "./TodoListDropdown";
+import SortingDropdown from "./SortingDropdown";
 // import SortingComponent from "./SortingComponent";
 
 // import PropTypes from "prop-types";
@@ -64,7 +64,7 @@ const TodoContainer = () => {
           <StyledBackButton linkName={"/"} children>
             <span>My lists</span>
           </StyledBackButton>
-          <TodoListDropdown
+          <SortingDropdown
             todoList={todoList}
             setTodoList={setTodoList}
             isLoading={isLoading}

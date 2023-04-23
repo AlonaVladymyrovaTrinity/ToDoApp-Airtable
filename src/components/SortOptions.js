@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 // import React, { useState, useCallback, useRef } from "react";
 import { sortingBy } from "./SortingBy";
-import style from "../css/SortingComponent.module.css";
+import style from "../css/SortOptions.module.css";
+import PropTypes from "prop-types";
 
-const SortingComponent = ({
+const SortOptions = ({
   setTodoList,
   todoList,
   storedIsChecked,
@@ -137,4 +138,11 @@ const SortingComponent = ({
   );
 };
 
-export default SortingComponent;
+SortOptions.propTypes = {
+  setTodoList: PropTypes.func,
+  todoList: PropTypes.array,
+  storedIsChecked: PropTypes.string,
+  storedSortingFieldName: PropTypes.string,
+};
+
+export default SortOptions;
