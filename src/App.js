@@ -6,14 +6,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboardList } from "@fortawesome/free-solid-svg-icons";
 import style from "./css/TodoListItem.module.css";
 
-const API_ENDPOINT = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default/`;
+const API_ENDPOINT = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Work`;
 
 function App() {
   const [todoList, setTodoList] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
+  //Alternatively for sorting with API requests I could use the following query parameters to use Grid View
+  //?view=Grid%20view&sort[0][field]=Title&sort[0][direction]=asc
+
   React.useEffect(() => {
-    fetch(`${API_ENDPOINT}`, {
+    // fetch(`${API_ENDPOINT}`, {
+    fetch(`${API_ENDPOINT}?sort[0][field]=Title&sort[0][direction]=asc`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
