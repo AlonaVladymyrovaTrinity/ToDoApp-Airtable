@@ -13,12 +13,10 @@ function App() {
   const [isLoading, setIsLoading] = React.useState(true);
   const [ascending, setAscending] = React.useState(true);
 
-  //Alternatively for sorting with API requests I could use the following query parameters to use Grid View
-  //?view=Grid%20view&sort[0][field]=Title&sort[0][direction]=asc
-
   React.useEffect(() => {
-    // fetch(`${API_ENDPOINT}`, {
     fetch(`${API_ENDPOINT}?sort[0][field]=Title&sort[0][direction]=asc`, {
+      //Alternatively for sorting with API requests I could use the following query parameters to use Grid View
+      //?view=Grid%20view&sort[0][field]=Title&sort[0][direction]=asc
       method: "GET",
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
