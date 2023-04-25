@@ -4,6 +4,10 @@
   margin-right: 1rem;
   width: auto;
 } */
+.label-input {
+  min-width: 60px;
+}
+
 .input-field {
   position: relative;
   width: 100%;
@@ -37,6 +41,9 @@
 }
 
 @media (max-width: 280px) {
+  .label-input {
+    min-width: 55px;
+  }
   .input-field {
     height: 25px;
     max-width: 80%;

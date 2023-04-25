@@ -21,10 +21,9 @@ const GoBackImg = styled.img`
 `;
 const BackLink = styled(Link)`
   text-decoration: none;
-  color: #2f2f2f;
+  color: #ffffff;
   font-size: 15px;
   font-weight: bold;
-  text-transform: uppercase;
 `;
 
 const StyledBackButton = ({ linkName, children }) => (

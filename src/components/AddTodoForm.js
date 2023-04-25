@@ -40,7 +40,7 @@ const AddTodoForm = ({ onAddTodo }) => {
           handleTitleChange={handleTitleChange}
           children
         >
-          <strong className={baseStyles.title}>Title name:</strong>
+          <strong className={baseStyles.title}>Title:</strong>
         </InputWithLabel>
         <button type={"submit"} className={style["add-button"]}>
           <FaRegPlusSquare />

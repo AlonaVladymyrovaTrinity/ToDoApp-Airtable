@@ -1,5 +1,5 @@
 .search-input {
-  padding-right: 65px;
+  padding-right: 62px;
 }
 
 input[type="search"] {
@@ -10,16 +10,28 @@ input[type="search"] {
 }
 @media screen and (max-width: 393px) {
   .search-input {
-    padding-right: 10px;
+    padding-right: 45px;
   }
 }
 @media (max-width: 280px) {
   input[type="search"] {
     background-position: 3px 1px;
     padding: 0 10px 0 28px;
+    min-width: 206px;
   }
 
   /* .search-input {
   padding-right: 10px;
 } */
+}
+
+@media (max-width: 279px) {
+  input[type="search"] {
+    background-position: 3px 1px;
+    padding: 0 10px 0 28px;
+    min-width: 100%;
+  }
+  .search-input {
+    padding-right: 0;
+  }
 }

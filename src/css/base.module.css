@@ -10,7 +10,20 @@
 
 body {
   /* background-color: black; */
-  background-image: linear-gradient(to right, #f030cd, #61cbfd);
+
+  /* background-image: url(../images/background.png);
+  background-size: cover; */
+
+  background-image: url(../images/background.png);
+  background-size: cover;
+
+  /* background-image: url(../assets/mountain_nature.png);
+  background-size: cover; */
+
+  /* background-size: contain; */
+  /* background-repeat: no-repeat; */
+  /* background-position: bottom; */
+  /* background-image: linear-gradient(to right, #f030cd, #61cbfd); */
   overflow-x: hidden;
   /* background-image: url("5313770.jpg");
     background-size: cover;
@@ -57,9 +70,10 @@ inclusive for all users. That's why the name of the class is
 
 .header {
   font-size: 2rem;
-  color: #2f2f2f;
+  color: #ffffff;
   font-weight: bold;
   padding: 0 10px 10px 25px;
+  /* text-transform: uppercase; */
 }
 .container {
   max-width: 600px;
@@ -74,7 +88,34 @@ inclusive for all users. That's why the name of the class is
   bottom: 50px;
   left: 0;
   right: 0;
-  background-color: #fff;
+  background-color: #f2f2f2;
+  background-image: linear-gradient(
+    to bottom,
+    /* rgba(255, 133, 198, 0.5),
+    hsl(343, 100%, 78%, 0.5),
+    hsl(359, 100%, 81%, 0.5),
+    hsl(14, 100%, 80%, 0.5),
+    hsl(23, 100%, 81%, 0.5),
+    hsl(21, 93%, 79%, 0.5),
+    hsl(20, 85%, 77%, 0.5),
+    hsl(18, 80%, 75%, 0.6),
+    hsl(3, 68%, 71%, 0.7),
+    hsl(344, 57%, 62%, 0.8),
+    hsl(323, 42%, 51%, 0.9),
+    hsl(285, 41%, 43%) */
+      hsl(285, 41%, 43%, 0.8),
+    hsl(323, 42%, 51%, 0.8),
+    hsl(344, 57%, 62%, 0.7),
+    hsl(3, 68%, 71%, 0.6),
+    hsl(18, 80%, 75%, 0.5),
+    hsl(20, 85%, 77%, 0.5),
+    hsl(21, 93%, 79%, 0.5),
+    hsl(23, 100%, 81%, 0.5),
+    hsl(14, 100%, 80%, 0.5),
+    hsl(359, 100%, 81%, 0.5),
+    hsl(343, 100%, 78%, 0.5),
+    rgba(255, 133, 198, 0.5)
+  );
   box-shadow: 0 5px 10px #747474;
   overflow: hidden;
 }
@@ -83,12 +124,12 @@ inclusive for all users. That's why the name of the class is
   /* flex-wrap: nowrap; */
   display: flex;
   align-items: center;
-  padding: 0 10px 10px 25px;
+  padding: 0 25px 10px 25px;
 }
 
 .title {
   font-size: 15px;
-  color: #2f2f2f;
+  color: #ffffff;
 }
 
 button {
@@ -120,7 +161,7 @@ button:active {
 .ListItem {
   /* max-height: 450px; */
   overflow: scroll;
-  height: calc(100% - (69px + 163px));
+  height: calc(100% - (69px + 154px));
   padding: 0 5px 10px 0;
   /* overflow-y: auto; */
   /* overflow-y: scroll; */
@@ -141,6 +182,7 @@ button:active {
   list-style: none;
   width: 100%;
   /*height:auto; */
+  /* background-color: hsla(0, 0%, 100%, 0.609); */
   background-color: #f2f2f2;
   padding: 10px 15px 15px 15px;
   border-radius: 15px;
@@ -156,6 +198,13 @@ button:active {
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
+
+/* @supports (backdrop-filter: blur(3rem)) {
+  .ListItem .list {
+    background-color: hsla(0, 0%, 100%, 0.57);
+    backdrop-filter: blur(3rem);
+  }
+} */
 /* .ListItem .list:hover { */
 /* box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.25); */
 /* box-shadow: 0 1px 6px 0 #20212447; */
@@ -206,7 +255,7 @@ p {
 
   .ListItem {
     overflow: scroll;
-    height: calc(100% - (69px + 150px));
+    height: calc(100% - (69px + 141px));
     padding: 0;
   }
   .ListItem .list {
@@ -263,7 +312,7 @@ p {
 
   .ListItem {
     overflow: scroll;
-    height: calc(100% - (69px + 180px));
+    height: calc(100% - (69px + 181px));
     padding: 0;
   }
 

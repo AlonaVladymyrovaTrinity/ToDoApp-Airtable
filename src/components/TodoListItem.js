@@ -118,6 +118,7 @@ const TodoListItem = ({
           <FontAwesomeIcon icon={faCheckCircle} />
           <span className={baseStyles["sr-only"]}>Done</span>
         </button>
+        {/* List-item element */}
         <li className={baseStyles.list}>
           {isEditing ? (
             <>
@@ -146,6 +147,7 @@ const TodoListItem = ({
                   isDone ? style["title-checked"] : ""
                 }`}
               >
+                {/* Title from todo Object */}
                 {todo.fields.Title}
               </div>
             </>
@@ -173,6 +175,7 @@ const TodoListItem = ({
             <span className={baseStyles["sr-only"]}>Edit</span>
           </button>
         )}
+        {/* Button element with text "Remove" and "onClick" event handler */}
         <button
           className={style["delete-button"]}
           onClick={handleRemoveClick}

@@ -22,12 +22,8 @@ function App() {
         <header className={`${style["primary-header"]} ${style.flex}`}>
           <div>
             <Link to="/" className={style["app-name-wrapper"]}>
-              <img
-                className={style.logo}
-                src={logo}
-                alt="To-Do List App Logo"
-              />
-              <span className={style["app-name"]}>To-Do List App</span>
+              <img className={style.logo} src={logo} alt="Todo List Logo" />
+              <span className={style["app-name"]}>Todo List</span>
             </Link>
           </div>
           <button
@@ -63,6 +59,8 @@ function App() {
               </li>
             </ul>
           </nav>
+          {/* I'm using react-router-dom version 6.10, which replaced Switch with the Routes component
+          https://reactrouter.com/en/6.9.0/upgrading/v5#upgrade-all-switch-elements-to-routes */}
           <Routes>
             <Route path="/" element={<CreateCustomTodoList />} />
             <Route

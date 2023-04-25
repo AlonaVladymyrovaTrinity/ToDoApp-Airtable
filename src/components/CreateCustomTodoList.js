@@ -53,7 +53,7 @@ const CreateCustomTodoList = () => {
               handleTitleChange={handleListNameChange}
               children
             >
-              <strong className={baseStyles.title}>Todo list name: </strong>
+              <strong className={baseStyles.title}>List: </strong>
             </InputWithLabel>
             <button type={"submit"} className={style["create-list-button"]}>
               <FaRegPlusSquare />

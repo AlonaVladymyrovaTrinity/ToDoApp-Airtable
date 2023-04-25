@@ -19,7 +19,9 @@ let InputWithLabel = function ({
   }, []);
   return (
     <>
-      <label htmlFor={id}>{children}</label>
+      <label htmlFor={id} className={style["label-input"]}>
+        {children}
+      </label>
       <div className={style["input-field"]}>
         <input
           id={id}

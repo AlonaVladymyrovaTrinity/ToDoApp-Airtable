@@ -60,7 +60,7 @@ const TodoContainer = () => {
       <div className={baseStyles.container}>
         <div className={style["top-wrapper"]}>
           <StyledBackButton linkName={"/"} children>
-            <span>My lists</span>
+            <span>My Lists</span>
           </StyledBackButton>
           <SortingDropdown
             todoList={todoList}

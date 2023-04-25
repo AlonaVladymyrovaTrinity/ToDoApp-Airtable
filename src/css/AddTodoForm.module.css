@@ -2,18 +2,26 @@
   background-color: #61cbfd;
   /* white-space: normal; */
   font-size: 22px;
+  border-radius: 50px;
+  min-width: 40px;
   margin: 0px 0px 0px 20px;
-  padding: 7px 10px 0 10px;
+  width: fit-content;
+  padding: 7px 14px 0 10px;
 }
 .add-button:hover {
   background-color: #029ce4;
 }
-
+@media screen and (max-width: 540px) {
+  .add-button {
+    padding: 7px 14px 0 9px;
+  }
+}
 @media screen and (max-width: 393px) {
   .add-button {
     font-size: 17px;
+    min-width: 32px;
     margin: 0px 0px 0px 15px;
-    padding: 7px 8px 1px 8px;
+    padding: 5px 7px 0px 7px;
   }
 }
 
@@ -26,7 +34,16 @@
   .add-button {
     /* border-radius: 50%; */
     font-size: 15px;
-    margin: 0px 0px 0px 20px;
-    padding: 5px 8px 0 8px;
+    min-width: 29px;
+    margin: 5px 0px 5px 15px;
+    padding: 5px 6px 0 6px;
+  }
+}
+
+@media (max-width: 279px) {
+  .add-button::after {
+    padding: 5px 20px 8px 5px;
+    margin: 5px 0px 5px 5px;
+    content: "Add title";
   }
 }
