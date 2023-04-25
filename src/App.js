@@ -11,6 +11,7 @@ const API_ENDPOINT = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTAB
 function App() {
   const [todoList, setTodoList] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
+  const [ascending, setAscending] = React.useState(true);
 
   //Alternatively for sorting with API requests I could use the following query parameters to use Grid View
   //?view=Grid%20view&sort[0][field]=Title&sort[0][direction]=asc
@@ -25,11 +26,23 @@ function App() {
     })
       .then((response) => response.json())
       .then((result) => {
+        ascending
+          ? result.records.sort((objectA, objactB) => {
+              if (objectA.fields.Title < objactB.fields.Title) return -1;
+              else if (objectA.fields.Title === objactB.fields.Title) return 0;
+              else return 1;
+            })
+          : result.records.sort((objectA, objactB) => {
+              console.log(result.records.sort);
+              if (objectA.fields.Title < objactB.fields.Title) return 1;
+              else if (objectA.fields.Title === objactB.fields.Title) return 0;
+              else return -1;
+            });
         setTodoList(result.records);
         setIsLoading(false);
       })
       .catch((error) => console.error(error));
-  }, []);
+  }, [ascending]);
 
   React.useEffect(() => {
     if (!isLoading) {
@@ -73,7 +86,18 @@ function App() {
                       </span>
                     </div>
                   ) : (
-                    <TodoList onRemoveTodo={removeTodo} todoList={todoList} />
+                    <>
+                      <label htmlFor="switch">
+                        Switch ascending and descending
+                      </label>
+                      <input
+                        id="switch"
+                        type="checkbox"
+                        checked={ascending}
+                        onChange={() => setAscending(!ascending)}
+                      />
+                      <TodoList onRemoveTodo={removeTodo} todoList={todoList} />
+                    </>
                   )}
                 </div>
               </>
