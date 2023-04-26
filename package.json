@@ -45,6 +45,7 @@
     ]
   },
   "devDependencies": {
-    "postcss-modules-values": "^4.0.0"
+    "postcss-modules-values": "^4.0.0",
+    "prettier": "^3.0.0-alpha.6"
   }
 }

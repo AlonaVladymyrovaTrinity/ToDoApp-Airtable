@@ -51,7 +51,7 @@ const TodoContainer = () => {
     return todoList.filter(
       (todo) =>
         todo.fields.Title &&
-        todo.fields.Title.toLowerCase().includes(searchInput.toLowerCase())
+        todo.fields.Title.toLowerCase().includes(searchInput.toLowerCase()),
     );
   };
 

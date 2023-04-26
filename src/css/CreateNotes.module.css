@@ -1,7 +1,27 @@
+/* *,
+*::before,
+*::after,
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+} */
+
+
+/* .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem 0;
+} */
+
 .header {
   margin-top: 20px;
 }
-.notes-paragraph {
+/* .notes-paragraph {
   margin: 5px 25px;
   color: #656a6b;
 }
@@ -9,4 +29,112 @@
   font-size: 15px;
   color: #2f2f2f;
   margin-left: 50px;
+} */
+/*  DARKMODE --------------------- */
+.dark-mode .create-notes {
+  background: rgb(0, 0, 0);
 }
+
+.dark-mode .header {
+/* .dark-mode h1 { */
+  color: white;
+}
+
+.dark-mode .button {
+  color: white;
+}
+
+.dark-mode .notes {
+  background: var(--color-notes);
+}
+
+.dark-mode .addNotes {
+  background: var(--color-add-notes);
+}
+
+.dark-mode .addNotes-footer-btn {
+  background: var(--color-btn);
+  color: black;
+}
+
+.dark-mode .addNotes-footer-btn:hover {
+  background: var(--color-btn-alt);
+}
+
+
+.create-notes {
+  min-height: 100vh;
+  width: 100vw;
+  /* background: url("./images/bg.jpg"); */
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+}
+
+.create-notes-container {
+  width: 80%;
+  height: 100%;
+  max-width: 1200px;
+}
+
+@media (min-width: 768px) {
+  .create-notes-container {
+    width: 70%;
+  }
+}
+
+
+/* img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+a:hover {
+  color: var(--color-brand);
+}
+
+h1 {
+  color: var(--color-brand);
+}
+
+ul {
+  list-style: none;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  // Colors 
+  --color-btn: #e1e1e1;
+  --color-btn-alt: #ededed;
+  --color-brand: #8a2435;
+  --color-notes: #fef68a;
+  --color-add-notes: #67d7cc;
+
+  // GlassMorph effect 
+  --gm-background: rgba(255, 255, 255, 0.2);
+  --gm-background-hover: rgba(255, 255, 255, 0.4);
+  --gm-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  --gm-bg-filter: blur(10px);
+  --gm-border: 1px solid rgba(255, 255, 255, 0.25);
+  --gm-border-side: 1px solid rgba(255, 255, 255, 0.5);
+} */
+
+
+/* html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: all 750ms !important;
+  transition-delay: 0 !important;
+} */

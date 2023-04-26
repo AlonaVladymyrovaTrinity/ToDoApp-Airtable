@@ -18,7 +18,7 @@ export const getTodoList = (setTodoList, setIsLoading, tableName) => {
         SameSite: "None",
         Secure: true,
       },
-    }
+    },
   )
     //Response is being parsed as JSON using the response.json() method
     .then((response) => response.json())
@@ -55,7 +55,7 @@ export const addTodo = (
   setIsLoading,
   todoList,
   setTodoList,
-  tableName
+  tableName,
 ) => {
   setIsLoading(true);
   fetch(`${API_ENDPOINT}/${tableName}`, {
@@ -146,7 +146,7 @@ export const editTitleAndData = (
   done,
   todoList,
   setTodoList,
-  tableName
+  tableName,
 ) => {
   const newTodoList = todoList.map((todo) => {
     if (todo.id === id) {
@@ -219,7 +219,7 @@ export const createNewTable = (
   newListName,
   setIsListsLoading,
   setCustomTodoLists,
-  customTodoLists
+  customTodoLists,
 ) => {
   setIsListsLoading(true);
   fetch(`${API_ENDPOINT_TABLES}`, {

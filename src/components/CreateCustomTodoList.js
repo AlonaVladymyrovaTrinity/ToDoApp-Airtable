@@ -29,7 +29,7 @@ const CreateCustomTodoList = () => {
         newListName,
         setIsListsLoading,
         setCustomTodoLists,
-        customTodoLists
+        customTodoLists,
       );
       setNewListName("");
     }

@@ -16,7 +16,7 @@ const Search = ({ onSearch }) => {
       setTimeout(() => {
         const inputValue = event.target.value;
         onSearch(inputValue);
-      }, 500)
+      }, 500),
     );
   };
 

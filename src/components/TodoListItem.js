@@ -43,7 +43,7 @@ const TodoListItem = ({
       textareaRef.current.focus();
       textareaRef.current.setSelectionRange(
         textareaRef.current.value.length,
-        textareaRef.current.value.length
+        textareaRef.current.value.length,
       );
     }
   }, [isEditing]);
@@ -64,7 +64,7 @@ const TodoListItem = ({
       //updatedIsDone.toString(),
       todoList,
       setTodoList,
-      tableName
+      tableName,
     );
   };
 
@@ -88,7 +88,7 @@ const TodoListItem = ({
       // isDone.toString(),
       todoList,
       setTodoList,
-      tableName
+      tableName,
     );
   };
 

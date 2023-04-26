@@ -1,0 +1,84 @@
+/* button {
+    cursor: pointer;
+    color: inherit;
+    font-family: inherit;
+  } */
+
+
+.button {
+    display: inline-block;
+    color: var(--color-brand);
+    transition: 0.3s;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 15px;
+    display: flex;
+    place-content: center;
+  }
+  
+  .button:hover {
+    background: var(--gm-background-hover);
+  }
+
+.addNotes {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 170px;
+    border-radius: 10px;
+    padding: 1rem;
+    white-space: pre-wrap;
+  }
+  
+  .addNotes-text {
+    font-size: 0.9rem;
+    resize: none;
+    background: transparent;
+    border: 0;
+  }
+  
+  .addNotes-text:focus {
+    outline: none;
+  }
+  
+  .addNotes-footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .addNotes-footer-chars {
+    font-size: 0.7rem;
+  }
+  
+  .addNotes-footer-btn {
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .addNotes-footer-btn:hover {
+    color: gray;
+  }
+
+  /* .glassmorph {
+    background: rgba(255, 255, 255, 0.2); 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+} */
+
+/* UTILITIES -------------- */
+.glassmorph {
+    background: var(--gm-background);
+    box-shadow: var(--gm-box-shadow);
+    backdrop-filter: var(--gm-bg-filter);
+    border: var(--gm-border);
+    border-top: var(--gm-border-side);
+    border-left: var(--gm-border-side);
+  }
+

@@ -59,8 +59,7 @@ function App() {
               </li>
             </ul>
           </nav>
-          {/* I'm using react-router-dom version 6.10, which replaced Switch with the Routes component
-          https://reactrouter.com/en/6.9.0/upgrading/v5#upgrade-all-switch-elements-to-routes */}
+          {/* I'm using react-router-dom version 6.10, which replaced Switch with the Routes component*/}
           <Routes>
             <Route path="/" element={<CreateCustomTodoList />} />
             <Route

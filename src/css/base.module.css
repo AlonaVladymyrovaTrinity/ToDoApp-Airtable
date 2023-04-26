@@ -10,24 +10,17 @@
 
 body {
   /* background-color: black; */
-
-  /* background-image: url(../images/background.png);
-  background-size: cover; */
-
-  background-image: url(../images/background.png);
+  background-image: url("../images/desktop-background.jpeg");
   background-size: cover;
-
-  /* background-image: url(../assets/mountain_nature.png);
-  background-size: cover; */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 
   /* background-size: contain; */
   /* background-repeat: no-repeat; */
   /* background-position: bottom; */
   /* background-image: linear-gradient(to right, #f030cd, #61cbfd); */
   overflow-x: hidden;
-  /* background-image: url("5313770.jpg");
-    background-size: cover;
-    background-position: center; */
 }
 
 /*The CSS class "sr-only" is used to hide element visually from
@@ -147,7 +140,9 @@ button {
 }
 
 button:hover {
-  box-shadow: inset 0px 11px 8px -10px #ccc, inset 0px -11px 8px -10px #ccc;
+  box-shadow:
+    inset 0px 11px 8px -10px #ccc,
+    inset 0px -11px 8px -10px #ccc;
 }
 
 button:active {
