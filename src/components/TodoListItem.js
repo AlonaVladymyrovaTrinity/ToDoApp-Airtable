@@ -143,7 +143,7 @@ const TodoListItem = ({
           ) : (
             <>
               <div
-                className={`${baseStyles.title} ${
+                className={`${baseStyles["title-item"]} ${
                   isDone ? style["title-checked"] : ""
                 }`}
               >

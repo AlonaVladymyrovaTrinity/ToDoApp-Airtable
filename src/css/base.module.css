@@ -124,6 +124,10 @@ inclusive for all users. That's why the name of the class is
   font-size: 15px;
   color: #ffffff;
 }
+.title-item {
+  font-size: 15px;
+  color: #2f2f2f;
+}
 
 button {
   outline: none;

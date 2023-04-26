@@ -5,7 +5,7 @@ import StyledBackButton from "./StyledBackButton";
 import style from "../css/CreateNotes.module.css";
 import baseStyles from "../css/base.module.css";
 import NotesList from "./NotesList";
-import Toggle from "./Toggle"
+// import Toggle from "./Toggle"
 import { nanoid } from "nanoid"; //??????
 
 
@@ -28,7 +28,7 @@ const DEFAULT_NOTES = [
 ];
 
 const CreateNotes = () => {
-    const [darkMode, setDarkMode] = useState(false);
+    // const [darkMode, setDarkMode] = useState(false);
     const [notes, setNotes] = useState(DEFAULT_NOTES);
 
      // Adding notes
@@ -70,31 +70,33 @@ const CreateNotes = () => {
     }, [notes]);
 
   return (
-    <> 
-    <div className={`${darkMode && style["dark-mode"]}`}>
-      <div className={baseStyles.container}>
+    <>
+    <div className={baseStyles.container}>
+       {/* <div className={`${darkMode && style["dark-mode"]}`}> */}
         <StyledBackButton linkName={"/"} children>
           <span>My lists</span>
         </StyledBackButton>
-        <div className={style["create-notes"]}>
-                <div className={style["create-notes-container"]}>
+        {/* <div className={style["create-notes"]}>
+            <div className={style["create-notes-container"]}> */}
+           
                 {/* <div className={style["header"]}> */}
                <h1 className={`${baseStyles.header} ${style.header}`}>Notes</h1>
-                <Toggle handleToggleDarkMode={setDarkMode} />
+                {/* <Toggle handleToggleDarkMode={setDarkMode} /> */}
                 {/* </div> */}
+                
                     <NotesList
                         notes={notes}
                         onHandleDeleteNote={handleDeleteNote}
                         onHandleAddNote={handleAddNote}
                     />
-                </div>
-            </div>
+            {/* </div>
+        </div> */}
 
         {/* <p className={style["notes-paragraph"]}>Create Notes</p> */}
         {/* <span className={style["notes-span"]}>
           This page is currently under development. Please come back later.
         </span> */}
-      </div> 
+      {/* </div>  */}
       
       </div>
     </>

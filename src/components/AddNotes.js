@@ -19,7 +19,7 @@ const AddNotes = ({ onHandleAddNote }) => {
   };
 
   return (
-    <div className={style["addNotes glassmorph"]}>
+    <div className={`${style.addNotes} ${style.glassmorph}`}>
       <textarea
         className={style["addNotes-text"]}
         cols="10"
@@ -34,7 +34,7 @@ const AddNotes = ({ onHandleAddNote }) => {
         </small>
         <button
           onClick={handleAddNote}
-          className={style["glassmorph button addNotes-footer-btn"]}
+          className={`${style.glassmorph} ${style.button} ${style["addNotes-footer-btn"]}`}
         >
           Add Note
         </button>

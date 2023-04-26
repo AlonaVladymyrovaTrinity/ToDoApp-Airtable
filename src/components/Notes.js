@@ -6,7 +6,7 @@ import style from "../css/Notes.module.css";
 
 const Notes = ({ id, text, date, onHandleDeleteNote }) => {
   return (
-    <div className={style["notes glassmorph"]}>
+    <div className={`${style.notes} ${style.glassmorph}`}>
       <div className={style["notes-text"]}>{text}</div>
       <div className={style["notes-footer"]}>
         <small className={style["notes-footer-date"]}>{date}</small>

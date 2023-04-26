@@ -10,6 +10,23 @@ html {
   font-family: "Poppins", sans-serif;
 } */
 
+:root {
+  /* Colors  */
+ --color-btn: #e1e1e1;
+ --color-btn-alt: #ededed;
+ --color-brand: #8a2435;
+ --color-notes: #fef68a;
+ --color-add-notes: #67d7cc;
+
+ /* GlassMorph effect  */
+ --gm-background: rgba(255, 255, 255, 0.2);
+ --gm-background-hover: rgba(255, 255, 255, 0.4);
+ --gm-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+ --gm-bg-filter: blur(10px);
+ --gm-border: 1px solid rgba(255, 255, 255, 0.25);
+ --gm-border-side: 1px solid rgba(255, 255, 255, 0.5);
+}
+
 
 /* .header {
   display: flex;
@@ -21,6 +38,7 @@ html {
 .header {
   margin-top: 20px;
 }
+/*  OLD --------------------- */
 /* .notes-paragraph {
   margin: 5px 25px;
   color: #656a6b;
@@ -61,17 +79,17 @@ html {
   background: var(--color-btn-alt);
 }
 
-
-.create-notes {
+/* .create-notes {
   min-height: 100vh;
-  width: 100vw;
-  /* background: url("./images/bg.jpg"); */
-  background-position: center;
+  width: 100vw; 
+  background: url("./images/bg.jpg");
+   background-position: center;
   background-size: cover;
   background-attachment: fixed;
   display: flex;
   justify-content: center;
 }
+  
 
 .create-notes-container {
   width: 80%;
@@ -83,7 +101,7 @@ html {
   .create-notes-container {
     width: 70%;
   }
-}
+} */
 
 
 /* img {
@@ -112,24 +130,7 @@ ul {
   margin: 0;
   padding: 0;
 }
-
-:root {
-  // Colors 
-  --color-btn: #e1e1e1;
-  --color-btn-alt: #ededed;
-  --color-brand: #8a2435;
-  --color-notes: #fef68a;
-  --color-add-notes: #67d7cc;
-
-  // GlassMorph effect 
-  --gm-background: rgba(255, 255, 255, 0.2);
-  --gm-background-hover: rgba(255, 255, 255, 0.4);
-  --gm-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
-  --gm-bg-filter: blur(10px);
-  --gm-border: 1px solid rgba(255, 255, 255, 0.25);
-  --gm-border-side: 1px solid rgba(255, 255, 255, 0.5);
-} */
-
+ */
 
 /* html.transition,
 html.transition *,
