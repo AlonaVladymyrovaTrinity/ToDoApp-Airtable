@@ -1,0 +1,303 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+*,
+*::before,
+*::after,
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+a:hover {
+  color: var(--color-brand);
+}
+
+button {
+  cursor: pointer;
+  color: inherit;
+  font-family: inherit;
+}
+
+ul {
+  list-style: none;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Colors */
+  --color-btn: #e1e1e1;
+  --color-btn-alt: #ededed;
+  --color-brand: #8a2435;
+  --color-notes: #fef68a;
+  --color-add-notes: #67d7cc;
+
+  /* GlassMorph effect */
+  --gm-background: rgba(255, 255, 255, 0.2);
+  --gm-background-hover: rgba(255, 255, 255, 0.4);
+  --gm-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  --gm-bg-filter: blur(10px);
+  --gm-border: 1px solid rgba(255, 255, 255, 0.25);
+  --gm-border-side: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* .glassmorph {
+    background: rgba(255, 255, 255, 0.2); 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+} */
+
+/* UTILITIES -------------- */
+.glassmorph {
+  background: var(--gm-background);
+  box-shadow: var(--gm-box-shadow);
+  backdrop-filter: var(--gm-bg-filter);
+  border: var(--gm-border);
+  border-top: var(--gm-border-side);
+  border-left: var(--gm-border-side);
+}
+
+.button {
+  display: inline-block;
+  color: var(--color-brand);
+  transition: 0.3s;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 15px;
+  display: flex;
+  place-content: center;
+}
+
+.button:hover {
+  background: var(--gm-background-hover);
+}
+
+h1 {
+  color: var(--color-brand);
+}
+
+/* APP --------------------- */
+.app {
+  min-height: 100vh;
+  width: 100vw;
+  /* background: url('./images/bg.jpg'); */
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+}
+
+.app-container {
+  width: 80%;
+  height: 100%;
+  max-width: 1200px;
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    width: 70%;
+  }
+}
+
+/* HEADER ----------------------- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem 0;
+}
+
+/* NotesList ----------------------- */
+.notesList {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 1rem;
+  max-width: 960px;
+  place-content: center;
+  margin-bottom: 3rem;
+}
+
+/* Notes -------------------------- */
+.notes {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 170px;
+  border-radius: 10px;
+  padding: 1rem;
+  white-space: pre-wrap;
+}
+
+.notes-text {
+  font-size: 0.9rem;
+}
+
+.notes-footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.notes-footer-date {
+  font-size: 0.7rem;
+}
+
+.notes-footer-icon {
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.notes-footer-icon:hover {
+  color: gray;
+}
+
+/*  ADD NOTES --------------------- */
+.addNotes {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 170px;
+  border-radius: 10px;
+  padding: 1rem;
+  white-space: pre-wrap;
+}
+
+.addNotes-text {
+  font-size: 0.9rem;
+  resize: none;
+  background: transparent;
+  border: 0;
+}
+
+.addNotes-text:focus {
+  outline: none;
+}
+
+.addNotes-footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.addNotes-footer-chars {
+  font-size: 0.7rem;
+}
+
+.addNotes-footer-btn {
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.addNotes-footer-btn:hover {
+  color: gray;
+}
+
+/*  DARKMODE --------------------- */
+.dark-mode .app {
+  background: rgb(0, 0, 0);
+}
+
+.dark-mode h1 {
+  color: white;
+}
+
+.dark-mode .button {
+  color: white;
+}
+
+.dark-mode .notes {
+  background: var(--color-notes);
+}
+
+.dark-mode .addNotes {
+  background: var(--color-add-notes);
+}
+
+.dark-mode .addNotes-footer-btn {
+  background: var(--color-btn);
+  color: black;
+}
+
+.dark-mode .addNotes-footer-btn:hover {
+  background: var(--color-btn-alt);
+}
+
+/* Toggle Button ----------------  */
+
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 52px;
+  height: 27px;
+  background: grey;
+  float: right;
+  border-radius: 100px;
+  position: relative;
+}
+
+label:after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background: grey;
+}
+
+input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 45px;
+}
+
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: all 750ms !important;
+  transition-delay: 0 !important;
+}

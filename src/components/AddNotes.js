@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import style from "../css/AddNotes.module.css"
+import style from "../css/AddNotes.module.css";
 
-const AddNotes = ({ onHandleAddNote }) => {
+const AddNotes = ({ onHandleAddNote, darkMode }) => {
   const [noteText, setNoteText] = useState("");
   const characterLimit = 200;
 
@@ -19,25 +19,27 @@ const AddNotes = ({ onHandleAddNote }) => {
   };
 
   return (
-    <div className={`${style.addNotes} ${style.glassmorph}`}>
-      <textarea
-        className={style["addNotes-text"]}
-        cols="10"
-        rows="6"
-        placeholder="Add Your Notes..."
-        value={noteText}
-        onChange={handleChange}
-      ></textarea>
-      <div className={style["addNotes-footer"]}>
-        <small className={style["addNotes-footer-chars"]}>
-          {characterLimit - noteText.length} remaining
-        </small>
-        <button
-          onClick={handleAddNote}
-          className={`${style.glassmorph} ${style.button} ${style["addNotes-footer-btn"]}`}
-        >
-          Add Note
-        </button>
+    <div className={`${darkMode && style["dark-mode"]}`}>
+      <div className={`${style.addNotes} ${style.glassmorph}`}>
+        <textarea
+          className={style["addNotes-text"]}
+          cols="10"
+          rows="6"
+          placeholder="Add Your Notes..."
+          value={noteText}
+          onChange={handleChange}
+        ></textarea>
+        <div className={style["addNotes-footer"]}>
+          <small className={style["addNotes-footer-chars"]}>
+            {characterLimit - noteText.length} remaining
+          </small>
+          <button
+            onClick={handleAddNote}
+            className={`${style.glassmorph} ${style.button} ${style["addNotes-footer-btn"]}`}
+          >
+            <span>Add Note</span>
+          </button>
+        </div>
       </div>
     </div>
   );

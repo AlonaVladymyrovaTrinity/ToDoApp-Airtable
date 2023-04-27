@@ -22,7 +22,6 @@ const AddTodoForm = ({ onAddTodo }) => {
     } else {
       // onAddTodo({ title: todoTitle, id: Date.now() });
       onAddTodo({ title: todoTitle });
-
       // console.log(todoTitle);
       setTodoTitle("");
     }

@@ -10,24 +10,6 @@ html {
   font-family: "Poppins", sans-serif;
 } */
 
-:root {
-  /* Colors  */
- --color-btn: #e1e1e1;
- --color-btn-alt: #ededed;
- --color-brand: #8a2435;
- --color-notes: #fef68a;
- --color-add-notes: #67d7cc;
-
- /* GlassMorph effect  */
- --gm-background: rgba(255, 255, 255, 0.2);
- --gm-background-hover: rgba(255, 255, 255, 0.4);
- --gm-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
- --gm-bg-filter: blur(10px);
- --gm-border: 1px solid rgba(255, 255, 255, 0.25);
- --gm-border-side: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-
 /* .header {
   display: flex;
   align-items: center;
@@ -37,6 +19,7 @@ html {
 
 .header {
   margin-top: 20px;
+  color: #ffffff;
 }
 /*  OLD --------------------- */
 /* .notes-paragraph {
@@ -49,34 +32,11 @@ html {
   margin-left: 50px;
 } */
 /*  DARKMODE --------------------- */
-.dark-mode .create-notes {
-  background: rgb(0, 0, 0);
+.dark-mode {
+  background: rgb(255, 255, 255);
 }
-
 .dark-mode .header {
-/* .dark-mode h1 { */
-  color: white;
-}
-
-.dark-mode .button {
-  color: white;
-}
-
-.dark-mode .notes {
-  background: var(--color-notes);
-}
-
-.dark-mode .addNotes {
-  background: var(--color-add-notes);
-}
-
-.dark-mode .addNotes-footer-btn {
-  background: var(--color-btn);
-  color: black;
-}
-
-.dark-mode .addNotes-footer-btn:hover {
-  background: var(--color-btn-alt);
+  color: #b7b7b7;
 }
 
 /* .create-notes {
@@ -102,7 +62,6 @@ html {
     width: 70%;
   }
 } */
-
 
 /* img {
   max-width: 100%;

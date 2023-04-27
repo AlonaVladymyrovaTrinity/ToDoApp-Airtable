@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../css/Toggle.module.css"
+import style from "../css/Toggle.module.css";
 
 const Toggle = ({ handleToggleDarkMode }) => {
   return (
@@ -10,10 +10,13 @@ const Toggle = ({ handleToggleDarkMode }) => {
         id="switch"
         name="theme"
         onClick={() =>
-          handleToggleDarkMode((previousDarkMode) => !previousDarkMode)}
-          className={style["toggle-input"]}
+          handleToggleDarkMode((previousDarkMode) => !previousDarkMode)
+        }
+        className={style["toggle-input"]}
       />
-      <label htmlFor="switch" className={style["toggle-label"]}>Toggle</label>
+      <label htmlFor="switch" className={style["toggle-label"]}>
+        Toggle
+      </label>
     </div>
   );
 };

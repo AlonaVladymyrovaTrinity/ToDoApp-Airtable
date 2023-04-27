@@ -81,7 +81,8 @@ inclusive for all users. That's why the name of the class is
   bottom: 50px;
   left: 0;
   right: 0;
-  background-color: #f2f2f2;
+  /* background-color: #f2f2f2; */
+  background-color: rgba(242, 242, 242, 0.6);
   background-image: linear-gradient(
     to bottom,
     /* rgba(255, 133, 198, 0.5),
@@ -144,9 +145,7 @@ button {
 }
 
 button:hover {
-  box-shadow:
-    inset 0px 11px 8px -10px #ccc,
-    inset 0px -11px 8px -10px #ccc;
+  box-shadow: inset 0px 11px 8px -10px #ccc, inset 0px -11px 8px -10px #ccc;
 }
 
 button:active {

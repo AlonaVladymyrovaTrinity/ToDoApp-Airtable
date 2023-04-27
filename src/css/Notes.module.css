@@ -1,3 +1,28 @@
+:root {
+  /* Colors  */
+  --color-btn: #e1e1e1;
+  --color-btn-alt: #ededed;
+  --color-brand: #8a2435;
+  --color-notes: #fef68a;
+  --color-add-notes: #67d7cc;
+
+  /* GlassMorph effect  */
+  --gm-background: rgba(255, 255, 255, 0.2);
+  --gm-background-hover: rgba(255, 255, 255, 0.4);
+  --gm-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  --gm-bg-filter: blur(10px);
+  --gm-border: 1px solid rgba(255, 255, 255, 0.25);
+  --gm-border-side: 1px solid rgba(255, 255, 255, 0.5);
+}
+/*---------------------*/
+/* .glassmorph {
+    background: rgba(255, 255, 255, 0.2); 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+} */
 .notes-footer-icon {
   font-size: 1.2rem;
   cursor: pointer;
@@ -13,7 +38,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 170px;
+  min-height: 190px;
   border-radius: 10px;
   padding: 1rem;
   white-space: pre-wrap;
@@ -33,7 +58,17 @@
 .notes-footer-date {
   font-size: 0.7rem;
 }
-  /* .glassmorph {
+
+/*  DARKMODE --------------------- */
+.dark-mode .notes {
+  background: var(--color-notes);
+}
+/* .dark-mode {
+  color: #fef68a;
+} */
+/*   --------------------- */
+
+/* .glassmorph {
     background: rgba(255, 255, 255, 0.2); 
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
     backdrop-filter: blur(10px);

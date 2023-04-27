@@ -11,10 +11,10 @@ const SortOptions = ({
   storedSortingFieldName,
 }) => {
   const [isChecked, setIsChecked] = useState(
-    storedIsChecked !== null ? JSON.parse(storedIsChecked) : false,
+    storedIsChecked !== null ? JSON.parse(storedIsChecked) : false
   );
   const [sortingFieldName, setSortingFieldName] = useState(
-    storedSortingFieldName !== null ? storedSortingFieldName : "createdTime",
+    storedSortingFieldName !== null ? storedSortingFieldName : "createdTime"
   );
 
   // const sortedListRef = useRef([]);
@@ -45,7 +45,7 @@ const SortOptions = ({
     const sortedList = sortingBy(
       !isChecked ? "asc" : "desc",
       sortingFieldName,
-      todoList,
+      todoList
     );
     setTodoList(sortedList);
   };
@@ -65,7 +65,7 @@ const SortOptions = ({
     const sortedList = sortingBy(
       isChecked ? "asc" : "desc",
       selectedFieldName,
-      todoList,
+      todoList
     );
     setTodoList(sortedList);
     // setTodoList(sortedListRef.current);
