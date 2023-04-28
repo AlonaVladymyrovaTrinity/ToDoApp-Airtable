@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import BackButtonSvg from "../assets/arrow-back.svg";
+import BackButtonWhiteSvg from "../assets/arrow-back-white.svg";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
@@ -24,12 +25,19 @@ const BackLink = styled(Link)`
   color: #ffffff;
   font-size: 15px;
   font-weight: bold;
+
+  &.link-color {
+    color: #39191e;
+  }
 `;
 
-const StyledBackButton = ({ linkName, children }) => (
-  <BackLink to={`${linkName}`}>
+const StyledBackButton = ({ linkName, children, className, darkMode }) => (
+  <BackLink to={`${linkName}`} className={className}>
     <BackButtonWrapper>
-      <GoBackImg src={BackButtonSvg} alt="go back arrow" />
+      <GoBackImg
+        src={darkMode ? BackButtonSvg : BackButtonWhiteSvg}
+        alt="go back arrow"
+      />
       {children}
     </BackButtonWrapper>
   </BackLink>

@@ -63,7 +63,12 @@ const TodoContainer = () => {
         className={`${darkMode && style["dark-mode"]} ${baseStyles.container}`}
       >
         <div className={style["top-wrapper"]}>
-          <StyledBackButton linkName={"/"} children>
+          <StyledBackButton
+            linkName={"/"}
+            children
+            className={darkMode ? "link-color" : ""}
+            darkMode={darkMode}
+          >
             <span>My Lists</span>
           </StyledBackButton>
           <SortingDropdown

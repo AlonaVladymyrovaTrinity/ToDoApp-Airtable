@@ -11,7 +11,12 @@ const About = () => {
     <div
       className={`${darkMode && style["dark-mode"]} ${baseStyles.container}`}
     >
-      <StyledBackButton linkName={"/"} children>
+      <StyledBackButton
+        linkName={"/"}
+        children
+        className={darkMode ? "link-color" : ""}
+        darkMode={darkMode}
+      >
         <span>My lists</span>
       </StyledBackButton>
       <div className={baseStyles["header-wrapper"]}>
