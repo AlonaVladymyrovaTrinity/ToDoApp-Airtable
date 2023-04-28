@@ -1,3 +1,8 @@
+/*  DARKMODE ----------- */
+.title {
+  color: var(--color-brand);
+}
+/*--------------------- */
 .add-button {
   background-color: #61cbfd;
   /* white-space: normal; */

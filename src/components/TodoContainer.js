@@ -12,6 +12,7 @@ import StyledBackButton from "./StyledBackButton";
 import SortingDropdown from "./SortingDropdown";
 import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
+import StyledToggle from "./StyledToggle";
 
 // const TodoContainer = ({ tableName }) => {
 const TodoContainer = () => {
@@ -20,6 +21,7 @@ const TodoContainer = () => {
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchInput, setSearchInput] = useState("");
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     getTodoList(setTodoList, setIsLoading, tableName);
@@ -57,7 +59,9 @@ const TodoContainer = () => {
 
   return (
     <>
-      <div className={baseStyles.container}>
+      <div
+        className={`${darkMode && style["dark-mode"]} ${baseStyles.container}`}
+      >
         <div className={style["top-wrapper"]}>
           <StyledBackButton linkName={"/"} children>
             <span>My Lists</span>
@@ -70,12 +74,15 @@ const TodoContainer = () => {
             storedSortingFieldName={storedSortingFieldName}
           />
         </div>
-        {/* Heading level-one with dynamic tableName */}
-        <h1 className={baseStyles.header}>
-          <FontAwesomeIcon icon={faClipboardList} /> Todo List: {tableName}
-        </h1>
+        <div className={baseStyles["header-wrapper"]}>
+          {/* Heading level-one with dynamic tableName */}
+          <h1 className={`${baseStyles.header} ${style.header}`}>
+            <FontAwesomeIcon icon={faClipboardList} /> Todo List: {tableName}
+          </h1>
+          <StyledToggle handleToggleDarkMode={setDarkMode} />
+        </div>
         {/* AddTodoForm Component */}
-        <AddTodoForm onAddTodo={handleNewAddTodo} />
+        <AddTodoForm onAddTodo={handleNewAddTodo} darkMode={darkMode} />
         {/* Conditional rendering based on isLoading state */}
         {isLoading ? (
           <>
@@ -88,7 +95,7 @@ const TodoContainer = () => {
           </span>
         ) : (
           <>
-            <Search onSearch={handleSearch} />
+            <Search onSearch={handleSearch} darkMode={darkMode} />
             <span className={baseStyles["pending-tasks"]}>
               You have{" "}
               <span className={baseStyles["pending-num"]}>

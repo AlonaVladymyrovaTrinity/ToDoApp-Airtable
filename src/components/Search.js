@@ -4,7 +4,7 @@ import style from "../css/Search.module.css";
 import baseStyles from "../css/base.module.css";
 import PropTypes from "prop-types";
 
-const Search = ({ onSearch }) => {
+const Search = ({ onSearch, darkMode }) => {
   const [timer, setTimer] = useState(null);
 
   const handleInputChange = (event) => {
@@ -33,7 +33,9 @@ const Search = ({ onSearch }) => {
             handleTitleChange={handleInputChange}
             children
           >
-            <strong className={baseStyles.title}>Search: </strong>
+            <strong className={darkMode ? style.title : baseStyles.title}>
+              Search:
+            </strong>
           </InputWithLabel>
         </div>
       </div>

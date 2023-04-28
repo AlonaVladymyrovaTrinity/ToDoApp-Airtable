@@ -9,18 +9,19 @@ html {
   scroll-behavior: smooth;
   font-family: "Poppins", sans-serif;
 } */
-
-.header-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 1rem 0;
-}
-
+/* 
 .header {
-  margin-top: 20px;
   color: #ffffff;
+} */
+/*  DARKMODE --------------------- */
+.dark-mode {
+  background: var(--gm-background);
 }
+.dark-mode .header {
+  color: var(--color-brand);
+}
+/*--------------------- */
+
 /*  OLD --------------------- */
 /* .notes-paragraph {
   margin: 5px 25px;
@@ -31,14 +32,6 @@ html {
   color: #2f2f2f;
   margin-left: 50px;
 } */
-/*  DARKMODE --------------------- */
-.dark-mode {
-  background: var(--gm-background);
-  /* background: rgb(255, 255, 255); */
-}
-.dark-mode .header {
-  color: var(--color-brand);
-}
 
 /* .create-notes {
   min-height: 100vh;

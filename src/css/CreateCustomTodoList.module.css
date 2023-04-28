@@ -1,5 +1,15 @@
+/*  DARKMODE --------------------- */
+.dark-mode {
+  background: var(--gm-background);
+}
+.dark-mode .header {
+  color: var(--color-brand);
+}
+/*--------------------- */
+
 .header {
   margin-top: 20px;
+  padding-left: 10px;
 }
 
 .create-list-button {

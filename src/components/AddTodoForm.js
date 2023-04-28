@@ -2,11 +2,10 @@ import React from "react";
 import InputWithLabel from "./InputWithLabel";
 import style from "../css/AddTodoForm.module.css";
 import baseStyles from "../css/base.module.css";
-
 import { FaRegPlusSquare } from "react-icons/fa";
 import PropTypes from "prop-types";
 
-const AddTodoForm = ({ onAddTodo }) => {
+const AddTodoForm = ({ onAddTodo, darkMode }) => {
   const [todoTitle, setTodoTitle] = React.useState("");
 
   const handleTitleChange = (event) => {
@@ -39,7 +38,9 @@ const AddTodoForm = ({ onAddTodo }) => {
           handleTitleChange={handleTitleChange}
           children
         >
-          <strong className={baseStyles.title}>Title:</strong>
+          <strong className={darkMode ? style.title : baseStyles.title}>
+            Title:
+          </strong>
         </InputWithLabel>
         <button type={"submit"} className={style["add-button"]}>
           <FaRegPlusSquare />

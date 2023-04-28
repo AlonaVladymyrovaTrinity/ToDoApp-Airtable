@@ -1,3 +1,17 @@
+/*  DARKMODE --------------------- */
+.dark-mode {
+  background: var(--gm-background);
+}
+.dark-mode .header {
+  color: var(--color-brand);
+}
+.title {
+  color: var(--color-brand);
+}
+/*--------------------- */
+.header {
+  padding-left: 10px;
+}
 .top-wrapper {
   display: flex;
   align-items: center;

@@ -1,9 +1,6 @@
-// import React from "react";
 import React, { useState, useEffect } from "react";
 import StyledBackButton from "./StyledBackButton";
-// import StyledSpinner from "./StyledSpinner";
 import style from "../css/CreateNotes.module.css";
-
 import baseStyles from "../css/base.module.css";
 import NotesList from "./NotesList";
 import StyledToggle from "./StyledToggle";
@@ -61,8 +58,8 @@ const CreateNotes = () => {
         {/* <div className={style["create-notes"]}>
             <div className={style["create-notes-container"]}> */}
 
-        <div className={style["header-wrapper"]}>
-          <h1 className={`${baseStyles.header} ${style.header}`}>Notes</h1>
+        <div className={baseStyles["header-wrapper"]}>
+          <h1 className={`${style.header} ${baseStyles.header}`}>Notes</h1>
           <StyledToggle handleToggleDarkMode={setDarkMode} />
         </div>
         <NotesList

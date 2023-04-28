@@ -1,20 +1,3 @@
-:root {
-  /* Colors  */
-  --color-btn: #e1e1e1;
-  --color-btn-alt: #ededed;
-  --color-brand: #39191e;
-  --color-notes: #fef28a;
-  --color-add-notes: #ffadef;
-
-  /* GlassMorph effect  */
-  --gm-background: rgba(255, 255, 255, 0.2);
-  --gm-background-hover: rgba(255, 255, 255, 0.4);
-  --gm-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
-  --gm-bg-filter: blur(10px);
-  --gm-border: 1px solid rgba(255, 255, 255, 0.25);
-  --gm-border-side: 1px solid rgba(255, 255, 255, 0.5);
-}
-/*---------------------*/
 /* .glassmorph {
     background: rgba(255, 255, 255, 0.2); 
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);

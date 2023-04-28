@@ -1,14 +1,36 @@
-.header {
+/* .header {
   font-size: 36px;
   font-weight: bold;
   margin-top: 20px;
+} */
+
+/*  DARKMODE --------------------- */
+.dark-mode {
+  background: var(--gm-background);
 }
+.dark-mode .header {
+  color: var(--color-brand);
+}
+.dark-mode .ListItem div h2,
+.dark-mode .ListItem div p {
+  color: #000000;
+}
+.dark-mode .about-wrapper div {
+  background-color: hsla(0, 0%, 100%, 0.719);
+  border-radius: 15px;
+  padding: 15px 15px 0 15px;
+}
+/*--------------------- */
 
 .ListItem {
-  height: calc(100% - 60px);
-  padding-left: 2rem;
+  height: calc(100% - 130px);
+  padding-left: 20px;
 }
-
+.about-wrapper div {
+  background-color: var(--gm-background);
+  border-radius: 15px;
+  padding: 15px 15px 0 15px;
+}
 .about-wrapper h2 {
   font-size: 24px;
   font-weight: bold;
@@ -26,4 +48,5 @@ ul {
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 20px;
+  color: #182449;
 }

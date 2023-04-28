@@ -5,11 +5,13 @@ import { getBaseSchema, createNewTable } from "./TodoApi";
 import { FaRegPlusSquare } from "react-icons/fa";
 import style from "../css/CreateCustomTodoList.module.css";
 import baseStyles from "../css/base.module.css";
+import StyledToggle from "./StyledToggle";
 
 const CreateCustomTodoList = () => {
   const [newListName, setNewListName] = useState("");
   const [customTodoLists, setCustomTodoLists] = useState([]);
   const [isListsLoading, setIsListsLoading] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     getBaseSchema(setCustomTodoLists, setIsListsLoading);
@@ -37,10 +39,15 @@ const CreateCustomTodoList = () => {
 
   return (
     <>
-      <div className={baseStyles.container}>
-        <h1 className={`${baseStyles.header} ${style.header}`}>
-          {/*<FontAwesomeIcon icon={faClipboardList} /> */}Create new List:
-        </h1>
+      <div
+        className={`${darkMode && style["dark-mode"]} ${baseStyles.container}`}
+      >
+        <div className={baseStyles["header-wrapper"]}>
+          <h1 className={`${baseStyles.header} ${style.header}`}>
+            Create new List:
+          </h1>
+          <StyledToggle handleToggleDarkMode={setDarkMode} />
+        </div>
         <form onSubmit={handleAddNewTodoList}>
           <div className={baseStyles["input-with-button"]}>
             <InputWithLabel
@@ -53,7 +60,9 @@ const CreateCustomTodoList = () => {
               handleTitleChange={handleListNameChange}
               children
             >
-              <strong className={baseStyles.title}>List: </strong>
+              <strong className={darkMode ? style.title : baseStyles.title}>
+                List:
+              </strong>
             </InputWithLabel>
             <button type={"submit"} className={style["create-list-button"]}>
               <FaRegPlusSquare />

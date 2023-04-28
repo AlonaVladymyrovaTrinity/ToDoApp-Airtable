@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "../css/About.module.css";
 import baseStyles from "../css/base.module.css";
+import StyledBackButton from "./StyledBackButton";
+import StyledToggle from "./StyledToggle";
 
 const About = () => {
+  const [darkMode, setDarkMode] = useState(false);
+
   return (
-    <div className={`${baseStyles.container}`}>
-      <h1 className={`${baseStyles.header} ${style.header}`}>About</h1>
+    <div
+      className={`${darkMode && style["dark-mode"]} ${baseStyles.container}`}
+    >
+      <StyledBackButton linkName={"/"} children>
+        <span>My lists</span>
+      </StyledBackButton>
+      <div className={baseStyles["header-wrapper"]}>
+        <h1 className={`${style.header} ${baseStyles.header}`}>About</h1>
+        {/* ${style.header} */}
+        <StyledToggle handleToggleDarkMode={setDarkMode} />
+      </div>
       <div
         className={`${baseStyles.ListItem} ${style.ListItem} ${style["about-wrapper"]}`}
       >
@@ -50,11 +63,11 @@ const About = () => {
           </p>
         </div>
         <div>
-          <h2>Thank you for choosing the "To-do List App"</h2>
+          <h2>Thank you for choosing the "Todo List"</h2>
           <p>
-            Thank you for choosing the "To-do List App". We're confident that
-            our app will help you stay organized and productive, no matter what
-            your to-do list entails.
+            Thank you for choosing the "Todo List" application. We're confident
+            that our app will help you stay organized and productive, no matter
+            what your to-do list entails.
           </p>
         </div>
       </div>
