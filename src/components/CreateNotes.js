@@ -6,7 +6,7 @@ import style from "../css/CreateNotes.module.css";
 
 import baseStyles from "../css/base.module.css";
 import NotesList from "./NotesList";
-import Toggle from "./Toggle";
+import StyledToggle from "./StyledToggle";
 import { nanoid } from "nanoid";
 
 const CreateNotes = () => {
@@ -61,10 +61,10 @@ const CreateNotes = () => {
         {/* <div className={style["create-notes"]}>
             <div className={style["create-notes-container"]}> */}
 
-        {/* <div className={style["header"]}> */}
-        <h1 className={`${baseStyles.header} ${style.header}`}>Notes</h1>
-        <Toggle handleToggleDarkMode={setDarkMode} />
-        {/* </div> */}
+        <div className={style["header-wrapper"]}>
+          <h1 className={`${baseStyles.header} ${style.header}`}>Notes</h1>
+          <StyledToggle handleToggleDarkMode={setDarkMode} />
+        </div>
         <NotesList
           notes={notes}
           onHandleDeleteNote={handleDeleteNote}

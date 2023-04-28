@@ -10,12 +10,12 @@ html {
   font-family: "Poppins", sans-serif;
 } */
 
-/* .header {
+.header-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 2rem 0;
-} */
+  margin: 1rem 0;
+}
 
 .header {
   margin-top: 20px;
@@ -33,10 +33,11 @@ html {
 } */
 /*  DARKMODE --------------------- */
 .dark-mode {
-  background: rgb(255, 255, 255);
+  background: var(--gm-background);
+  /* background: rgb(255, 255, 255); */
 }
 .dark-mode .header {
-  color: #b7b7b7;
+  color: var(--color-brand);
 }
 
 /* .create-notes {
