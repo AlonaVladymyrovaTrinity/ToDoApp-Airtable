@@ -46,7 +46,8 @@ const StyledBackButton = ({ linkName, children, className, darkMode }) => (
 StyledBackButton.propTypes = {
   linkName: PropTypes.string,
   children: PropTypes.object,
-  // children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  darkMode: PropTypes.bool,
 };
 
 export default StyledBackButton;

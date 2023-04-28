@@ -12,6 +12,7 @@
   margin: 0px 0px 0px 20px;
   width: fit-content;
   padding: 7px 14px 0 10px;
+  box-shadow: 2px 2px 6px 2px #20212447;
 }
 .add-button:hover {
   background-color: #029ce4;

@@ -77,6 +77,7 @@ const TodoContainer = () => {
             isLoading={isLoading}
             storedIsChecked={storedIsChecked}
             storedSortingFieldName={storedSortingFieldName}
+            darkMode={darkMode}
           />
         </div>
         <div className={baseStyles["header-wrapper"]}>

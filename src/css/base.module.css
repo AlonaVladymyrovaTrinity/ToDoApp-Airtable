@@ -129,10 +129,10 @@ inclusive for all users. That's why the name of the class is
     hsl(20, 85%, 77%, 0.5),
     hsl(21, 93%, 79%, 0.5),
     hsl(23, 100%, 81%, 0.5),
-    hsl(14, 100%, 80%, 0.5),
-    hsl(359, 100%, 81%, 0.5),
-    hsl(343, 100%, 78%, 0.5),
-    rgba(255, 133, 198, 0.5)
+    hsl(14, 100%, 80%, 0.4),
+    hsl(359, 100%, 81%, 0.3),
+    hsl(343, 100%, 78%, 0.2),
+    rgba(255, 133, 198, 0.1)
   );
   box-shadow: 0 5px 10px #747474;
   overflow: hidden;
@@ -151,7 +151,7 @@ inclusive for all users. That's why the name of the class is
 }
 .title-item {
   font-size: 15px;
-  color: #2f2f2f;
+  color: #000000;
 }
 
 button {
@@ -161,14 +161,18 @@ button {
   padding: 9px 14px;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 2px 2px 6px 2px #20212447;
+  /* box-shadow: 2px 2px 6px 2px #20212447; */
   /* box-shadow: 3.5px 3px 6px 1px #9f9f9f; */
-  transition: 0.2s all;
+  transition: 0.5s all;
   font-size: 15px;
   margin-left: 10px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.5),
+    5px 5px 10px rgba(0, 0, 70, 0.12);
 }
 
 button:hover {
+  /* box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 0.5),
+    inset 10px 10px 15px rgba(70, 70, 70, 0.12); */
   box-shadow: inset 0px 11px 8px -10px #ccc, inset 0px -11px 8px -10px #ccc;
 }
 

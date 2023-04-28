@@ -14,6 +14,7 @@ const SortingDropdown = ({
   isLoading,
   storedIsChecked,
   storedSortingFieldName,
+  darkMode,
 }) => {
   const [showMenu, setShowMenu] = useState(false);
 
@@ -45,7 +46,10 @@ const SortingDropdown = ({
 
   return (
     <div className={style.dropdown}>
-      <button className={style["dropdown-btn"]} onClick={toggleMenu}>
+      <button
+        className={`${darkMode && style["dark-mode"]} ${style["dropdown-btn"]}`}
+        onClick={toggleMenu}
+      >
         <IconDotsCircleHorizontal />
         <span className={baseStyles["sr-only"]}>Dropdown menu</span>
       </button>

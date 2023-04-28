@@ -3,7 +3,7 @@ import style from "../css/TodoListItem.module.css";
 import baseStyles from "../css/base.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
-import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+// import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { faSave } from "@fortawesome/free-solid-svg-icons";
 import { RiCloseCircleLine } from "react-icons/ri";
@@ -108,16 +108,19 @@ const TodoListItem = ({
   return (
     <>
       <div className={baseStyles["list-with-button"]}>
-        <button
-          onClick={handleCheckClick}
-          type="button"
-          className={`${
-            isDone ? style["check-circle-checked"] : style["check-circle"]
-          }`}
-        >
-          <FontAwesomeIcon icon={faCheckCircle} />
-          <span className={baseStyles["sr-only"]}>Done</span>
-        </button>
+        <div className={style["checkbox-wrapper"]}>
+          <label className={style["container"]}>
+            <input
+              className={style["checked"]}
+              type="checkbox"
+              checked={isDone}
+              onChange={handleCheckClick}
+            />
+            <span className={baseStyles["sr-only"]}>
+              {isDone ? "Done" : "Not done"}
+            </span>
+          </label>
+        </div>
         {/* List-item element */}
         <li className={baseStyles.list}>
           {isEditing ? (
@@ -143,9 +146,9 @@ const TodoListItem = ({
           ) : (
             <>
               <div
-                className={`${baseStyles["title-item"]} ${
-                  isDone ? style["title-checked"] : ""
-                }`}
+                className={
+                  isDone ? style["title-checked"] : baseStyles["title-item"]
+                }
               >
                 {/* Title from todo Object */}
                 {todo.fields.Title}
