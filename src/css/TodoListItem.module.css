@@ -2,7 +2,7 @@
   padding: 10px;
   /* float: left; */
   font-size: 12px;
-  color: #9500ff;
+  color: #853b72;
   position: absolute;
   top: 0px;
 }
@@ -10,7 +10,7 @@
 .cancel-button {
   background-color: transparent;
   border: none;
-  color: #af43fc;
+  color: #853b72;
   font-size: 20px;
   /* background-color: #af43fc; */
   /* border-radius: 50%; */
@@ -31,20 +31,20 @@
 .cancel-button:hover {
   /* background-color: #9500ff; */
   /* opacity: 1; */
-  color: #d296fd;
+  color: #b94c9e;
   box-shadow: none;
 }
 .cancel-button:active {
   /* background-color: #c067ff; */
   /* opacity: 1; */
-  color: #d296fd;
+  color: #b94c9e;
   box-shadow: none;
   /* color: #eeeeee; */
 }
 .edit-input {
   border: none;
   /* background-color: transparent; */
-  background-color: #fafafa;
+  background-color: hsla(34, 88%, 93%, 0.5);
   /* box-shadow: 0 1px 6px 0 #20212447; */
   border-radius: 15px;
   outline: none;
@@ -65,14 +65,14 @@
 }
 
 .edit-input:focus {
-  background-color: #fafafa;
+  background-color: hsla(34, 88%, 93%, 0.5);
   /* box-shadow: 0 1px 6px 0 #20212447; */
   border-radius: 15px;
   outline: none;
 }
 
 .edit-input:hover {
-  background-color: #fafafa;
+  background-color: hsla(34, 88%, 93%, 0.5);
   box-shadow: 0 1px 6px 0 #20212447;
   border-radius: 15px;
   outline: none;
@@ -84,25 +84,25 @@
 }
 
 .save-button {
-  background-color: #82f0f2;
+  background-color: #fe83a1;
 }
 
 .save-button:hover {
-  background-color: #30e6f0;
+  background-color: #f85b83;
 }
 .edit-button {
-  background-color: #cd82f2;
+  background-color: #be53a3;
 }
 
 .edit-button:hover {
-  background-color: #aa30f0;
+  background-color: #be3a9d;
 }
 .delete-button {
-  background-color: #f282dd;
+  background-color: #ff8ec4;
 }
 
 .delete-button:hover {
-  background-color: #f030cd;
+  background-color: #f458a3;
 }
 .created-time {
   font-size: small;
@@ -159,7 +159,7 @@
   box-shadow: 10px 10px 15px rgba(70, 70, 70, 0.12),
     inset -10px -10px 15px rgba(255, 255, 255, 0.5),
     inset 10px 10px 15px rgba(70, 70, 70, 0.12);
-  background-color: #984a98;
+  background-color: #853b72;
   transition: 0.5s;
 }
 

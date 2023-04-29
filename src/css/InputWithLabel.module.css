@@ -29,7 +29,7 @@
   /* border: 1px solid #ccc; */
   box-shadow: 0 1px 6px 0 #20212447;
   border: none;
-  background-color: #fff;
+  background-color: hsla(0, 0%, 100%, 0.919);
   resize: none;
   margin: 0px 10px;
 }

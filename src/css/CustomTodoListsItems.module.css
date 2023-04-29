@@ -21,6 +21,9 @@
   position: absolute;
   right: 16px;
 }
+.list {
+  max-width: 460px;
+}
 @media (max-width: 280px) {
   .table-list-element {
     padding: 0px 20px 0px 20px;

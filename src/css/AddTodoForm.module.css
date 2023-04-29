@@ -4,7 +4,7 @@
 }
 /*--------------------- */
 .add-button {
-  background-color: #61cbfd;
+  background-color: #853b72;
   /* white-space: normal; */
   font-size: 22px;
   border-radius: 50px;
@@ -15,7 +15,8 @@
   box-shadow: 2px 2px 6px 2px #20212447;
 }
 .add-button:hover {
-  background-color: #029ce4;
+  background-color: #a64c8e;
+  box-shadow: none;
 }
 @media screen and (max-width: 540px) {
   .add-button {

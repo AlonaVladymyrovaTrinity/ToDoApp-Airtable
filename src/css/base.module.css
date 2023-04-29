@@ -201,7 +201,7 @@ button:active {
     display: none;  Safari and Chrome
 } */
 
-.ListItem .list {
+.list {
   /* display: flex; */
   align-items: center;
   justify-content: space-between;
@@ -209,7 +209,7 @@ button:active {
   width: 100%;
   /*height:auto; */
   /* background-color: hsla(0, 0%, 100%, 0.609); */
-  background-color: #f2f2f2;
+  background-color: hsla(0, 0%, 100%, 0.919);
   padding: 10px 15px 15px 15px;
   border-radius: 15px;
   color: #2f2f2f;
@@ -251,11 +251,11 @@ p {
   /* display: flex;
   align-items: center;
   justify-content: space-between; */
-  margin: 5px 25px;
+  margin: 5px 0 5px 25px;
 }
 .pending-tasks,
 p {
-  color: #2e315b;
+  color: #39191e;
 }
 .pending-num {
   color: #000000;

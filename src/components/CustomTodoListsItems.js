@@ -23,7 +23,7 @@ const CustomTodoListsItems = ({ customTodo }) => {
             <>
               <Link
                 to={`/todolist/${customTodo.name}`}
-                className={`${baseStyles.list} ${style["table-names-list"]}`}
+                className={`${baseStyles.list} ${style.list} ${style["table-names-list"]}`}
               >
                 <li className={`${style["table-list-element"]}`}>
                   {customTodo.name}
@@ -44,7 +44,7 @@ const CustomTodoListsItems = ({ customTodo }) => {
             </>
           ) : (
             <>
-              <li className={baseStyles.list}>
+              <li className={`${baseStyles.list} ${style.list}`}>
                 <Link
                   to={`/todolist/${customTodo.name}`}
                   className={style["table-names-list"]}

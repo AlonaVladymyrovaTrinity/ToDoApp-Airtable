@@ -35,7 +35,7 @@ const Label = styled.label`
   }
 
   ${Input}:checked + & {
-    background: #984a98;
+    background: #fe83a1;
   }
 
   ${Input}:checked + &:after {

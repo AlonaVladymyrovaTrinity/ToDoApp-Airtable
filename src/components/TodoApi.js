@@ -15,6 +15,7 @@ export const getTodoList = (setTodoList, setIsLoading, tableName) => {
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
         "Cache-Control": "no-cache",
+        "Content-Type": "application/json",
         SameSite: "None",
         Secure: true,
       },
@@ -297,6 +298,7 @@ export const getBaseSchema = (setCustomTodoLists, setIsListsLoading) => {
     headers: {
       Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_PERSONAL_ACCESS_TOKEN_GET_DB_SCHEMA}`,
       "Cache-Control": "no-cache",
+      "Content-Type": "application/json",
       SameSite: "None",
       Secure: true,
     },
