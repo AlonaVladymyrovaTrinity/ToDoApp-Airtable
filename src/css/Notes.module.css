@@ -7,6 +7,7 @@
     border-left: 1px solid rgba(255, 255, 255, 0.5);
 } */
 .notes-footer-icon {
+  color: #000000;
   font-size: 1.2rem;
   cursor: pointer;
   transition: 0.3s;
@@ -15,20 +16,29 @@
 .notes-footer-icon:hover {
   color: gray;
 }
+.delete-button {
+  background-color: transparent;
+  padding: 9px 5px;
+  box-shadow: none;
+}
 
+.delete-button:hover {
+  background-color: transparent;
+  box-shadow: none;
+}
 .notes {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 190px;
+  min-height: 222px;
   border-radius: 10px;
   padding: 1rem;
   white-space: pre-wrap;
 }
 
 .notes-text {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .notes-footer {
@@ -47,6 +57,7 @@
 /*  DARKMODE --------------------- */
 .dark-mode .notes {
   background: var(--color-notes);
+  box-shadow: 0 1px 6px 0 #20212447;
 }
 /* .dark-mode {
   color: #fef68a;
@@ -66,8 +77,12 @@
 .glassmorph {
   background: var(--gm-background);
   box-shadow: var(--gm-box-shadow);
-  backdrop-filter: var(--gm-bg-filter);
   border: var(--gm-border);
   border-top: var(--gm-border-side);
   border-left: var(--gm-border-side);
+}
+@supports (backdrop-filter: blur(10px)) {
+  .glassmorph {
+    backdrop-filter: var(--gm-bg-filter);
+  }
 }

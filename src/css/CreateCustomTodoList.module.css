@@ -1,6 +1,6 @@
 /*  DARKMODE --------------------- */
 .dark-mode {
-  background: var(--gm-background);
+  background: var(--gm-background-glassmorph);
 }
 .dark-mode .header {
   color: var(--color-brand);

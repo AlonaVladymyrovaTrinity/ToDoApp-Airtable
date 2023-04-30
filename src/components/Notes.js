@@ -18,12 +18,17 @@ const Notes = ({ id, text, date, onHandleDeleteNote, darkMode }) => {
         <div className={style["notes-text"]}>{text}</div>
         <div className={style["notes-footer"]}>
           <small className={style["notes-footer-date"]}>{date}</small>
-          <FontAwesomeIcon
-            icon={faTrashAlt}
+          <button
+            className={style["delete-button"]}
             onClick={() => onHandleDeleteNote(id)}
-            className={style["notes-footer-icon"]}
-          />
-          <span className={baseStyles["sr-only"]}>Delete Note</span>
+            type="button"
+          >
+            <FontAwesomeIcon
+              icon={faTrashAlt}
+              className={style["notes-footer-icon"]}
+            />
+            <span className={baseStyles["sr-only"]}>Delete Note</span>
+          </button>
         </div>
       </div>
     </div>

@@ -126,7 +126,8 @@
   /* border-radius: 50%; */
   border-radius: 1em;
   border: 8px solid #d4d4d4;
-  background-color: #e4e4e4;
+  background-color: #ffffff;
+  /* #e4e4e4; */
   outline: none;
   display: flex;
   justify-content: center;
