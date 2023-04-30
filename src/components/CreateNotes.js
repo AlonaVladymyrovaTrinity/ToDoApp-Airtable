@@ -7,7 +7,10 @@ import StyledToggle from "./StyledToggle";
 import { nanoid } from "nanoid";
 
 const CreateNotes = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const storedIDarkMode = localStorage.getItem("DarkMode");
+  const [darkMode, setDarkMode] = useState(
+    storedIDarkMode !== null ? JSON.parse(storedIDarkMode) : false
+  );
   const [notes, setNotes] = useState(
     JSON.parse(localStorage.getItem("notes")) || []
   );
@@ -65,7 +68,7 @@ const CreateNotes = () => {
 
         <div className={baseStyles["header-wrapper"]}>
           <h1 className={`${style.header} ${baseStyles.header}`}>Notes</h1>
-          <StyledToggle handleToggleDarkMode={setDarkMode} />
+          <StyledToggle setDarkMode={setDarkMode} darkMode={darkMode} />
         </div>
         <NotesList
           notes={notes}

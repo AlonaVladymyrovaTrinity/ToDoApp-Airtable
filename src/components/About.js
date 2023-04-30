@@ -5,8 +5,10 @@ import StyledBackButton from "./StyledBackButton";
 import StyledToggle from "./StyledToggle";
 
 const About = () => {
-  const [darkMode, setDarkMode] = useState(false);
-
+  const storedIDarkMode = localStorage.getItem("DarkMode");
+  const [darkMode, setDarkMode] = useState(
+    storedIDarkMode !== null ? JSON.parse(storedIDarkMode) : false
+  );
   return (
     <div
       className={`${darkMode && style["dark-mode"]} ${baseStyles.container}`}
@@ -22,7 +24,7 @@ const About = () => {
       <div className={baseStyles["header-wrapper"]}>
         <h1 className={`${style.header} ${baseStyles.header}`}>About</h1>
         {/* ${style.header} */}
-        <StyledToggle handleToggleDarkMode={setDarkMode} />
+        <StyledToggle setDarkMode={setDarkMode} darkMode={darkMode} />
       </div>
       <div
         className={`${baseStyles.ListItem} ${style.ListItem} ${style["about-wrapper"]}`}

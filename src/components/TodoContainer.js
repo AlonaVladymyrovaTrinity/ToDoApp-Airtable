@@ -21,17 +21,27 @@ const TodoContainer = () => {
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchInput, setSearchInput] = useState("");
-  const [darkMode, setDarkMode] = useState(false);
+  // const [darkMode, setDarkMode] = useState(storedIDarkMode !== null ? JSON.parse(storedIDarkMode) : false);
+
+  const storedIDarkMode = localStorage.getItem("DarkMode");
+  const [darkMode, setDarkMode] = useState(
+    storedIDarkMode !== null ? JSON.parse(storedIDarkMode) : false
+  );
 
   useEffect(() => {
     getTodoList(setTodoList, setIsLoading, tableName);
   }, [tableName]);
 
+  // const defaultdarkMode = false;
   const defaultIsChecked = false;
   const defaultSortingFieldName = "createdTime";
 
   const storedIsChecked = localStorage.getItem("isChecked");
   const storedSortingFieldName = localStorage.getItem("sortingFieldName");
+
+  // if (storedIDarkMode === null) {
+  //   localStorage.setItem("DarkMode", JSON.stringify(defaultdarkMode));
+  // }
 
   if (storedIsChecked === null) {
     localStorage.setItem("isChecked", JSON.stringify(defaultIsChecked));
@@ -85,7 +95,7 @@ const TodoContainer = () => {
           <h1 className={`${baseStyles.header} ${style.header}`}>
             <FontAwesomeIcon icon={faClipboardList} /> Todo List: {tableName}
           </h1>
-          <StyledToggle handleToggleDarkMode={setDarkMode} />
+          <StyledToggle setDarkMode={setDarkMode} darkMode={darkMode} />
         </div>
         {/* AddTodoForm Component */}
         <AddTodoForm onAddTodo={handleNewAddTodo} darkMode={darkMode} />

@@ -42,13 +42,17 @@ const Label = styled.label`
     left: calc(100% - 5px);
     transform: translateX(-100%);
   }
-
   &:active::after {
     width: 45px;
   }
 `;
 
-const StyledToggle = ({ handleToggleDarkMode }) => {
+const StyledToggle = ({ setDarkMode, darkMode }) => {
+  const handleToggleClick = () => {
+    setDarkMode(!darkMode);
+    localStorage.setItem("DarkMode", JSON.stringify(!darkMode)); // Save to local storage
+  };
+
   return (
     // <div class="toggle-container">
     <ToggleWrapper>
@@ -56,9 +60,8 @@ const StyledToggle = ({ handleToggleDarkMode }) => {
         type="checkbox"
         id="switch"
         name="theme"
-        onClick={() =>
-          handleToggleDarkMode((previousDarkMode) => !previousDarkMode)
-        }
+        onClick={handleToggleClick}
+        checked={darkMode}
         // className={style["toggle-input"]}
       />
       {/* <label htmlFor="switch" className={style["toggle-label"]}> */}

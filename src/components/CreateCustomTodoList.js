@@ -11,7 +11,11 @@ const CreateCustomTodoList = () => {
   const [newListName, setNewListName] = useState("");
   const [customTodoLists, setCustomTodoLists] = useState([]);
   const [isListsLoading, setIsListsLoading] = useState(true);
-  const [darkMode, setDarkMode] = useState(false);
+
+  const storedIDarkMode = localStorage.getItem("DarkMode");
+  const [darkMode, setDarkMode] = useState(
+    storedIDarkMode !== null ? JSON.parse(storedIDarkMode) : false
+  );
 
   useEffect(() => {
     getBaseSchema(setCustomTodoLists, setIsListsLoading);
@@ -46,7 +50,7 @@ const CreateCustomTodoList = () => {
           <h1 className={`${baseStyles.header} ${style.header}`}>
             Create new List:
           </h1>
-          <StyledToggle handleToggleDarkMode={setDarkMode} />
+          <StyledToggle setDarkMode={setDarkMode} darkMode={darkMode} />
         </div>
         <form onSubmit={handleAddNewTodoList}>
           <div className={baseStyles["input-with-button"]}>
