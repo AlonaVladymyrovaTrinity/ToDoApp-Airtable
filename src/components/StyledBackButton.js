@@ -23,7 +23,7 @@ const GoBackImg = styled.img`
 const BackLink = styled(Link)`
   text-decoration: none;
   color: #ffffff;
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: bold;
 
   &.link-color {

@@ -2,7 +2,7 @@
   padding: 10px;
   /* float: left; */
   font-size: 12px;
-  color: #853b72;
+  color: #39191e;
   position: absolute;
   top: 0px;
 }
@@ -10,7 +10,7 @@
 .cancel-button {
   background-color: transparent;
   border: none;
-  color: #853b72;
+  color: #39191e;
   font-size: 20px;
   /* background-color: #af43fc; */
   /* border-radius: 50%; */
@@ -31,7 +31,7 @@
 .cancel-button:hover {
   /* background-color: #9500ff; */
   /* opacity: 1; */
-  color: #b94c9e;
+  color: #692f37;
   box-shadow: none;
 }
 .cancel-button:active {

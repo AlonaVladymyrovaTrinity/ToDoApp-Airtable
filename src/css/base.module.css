@@ -12,12 +12,17 @@
   --color-btn: #e1e1e1;
   --color-btn-alt: #ededed;
   --color-brand: #39191e;
-  --color-notes: hsla(54, 98%, 77%, 0.829);
-  --color-add-notes: hsla(312, 100%, 84%, 0.829);
+  --color-notes: hsl(46, 84%, 90%);
+  /* hsla(54, 98%, 77%, 0.829); */
+  --color-add-notes: hsl(342, 100%, 86%);
+  /* hsla(312, 100%, 84%, 0.829); */
 
   /* GlassMorph effect  */
-  --gm-background: rgba(255, 255, 255, 0.2);
-  --gm-background-hover: rgba(255, 255, 255, 0.4);
+  /* --gm-background: rgba(255, 255, 255, 0.2); */
+  --gm-background-glassmorph: rgba(255, 255, 255, 0.206);
+  --gm-background: hsla(0, 0%, 100%, 0.719);
+  --gm-background-hover: hsl(316, 37%, 47%);
+  /* rgba(255, 255, 255, 0.4); */
   --gm-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
   --gm-bg-filter: blur(10px);
   --gm-border: 1px solid rgba(255, 255, 255, 0.25);
@@ -121,7 +126,7 @@ inclusive for all users. That's why the name of the class is
     hsl(344, 57%, 62%, 0.8),
     hsl(323, 42%, 51%, 0.9),
     hsl(285, 41%, 43%) */
-      hsl(285, 41%, 43%, 0.8),
+      hsl(285, 41%, 43%, 0.9),
     hsl(323, 42%, 51%, 0.8),
     hsl(344, 57%, 62%, 0.7),
     hsl(3, 68%, 71%, 0.6),
@@ -134,7 +139,13 @@ inclusive for all users. That's why the name of the class is
     hsl(343, 100%, 78%, 0.2),
     rgba(255, 133, 198, 0.1)
   );
-  box-shadow: 0 5px 10px #747474;
+  /* box-shadow: 0 5px 10px #747474; */
+  /* box-shadow: 0px 5px 56px 26px rgba(133, 65, 155, 0.42);
+  -webkit-box-shadow: 0px 5px 56px 26px rgba(133, 65, 155, 0.42);
+  -moz-box-shadow: 0px 5px 56px 26px rgba(133, 65, 155, 0.42); */
+  box-shadow: 1px 4px 65px 6px rgba(133, 65, 155, 0.62);
+  -webkit-box-shadow: 1px 4px 65px 6px rgba(133, 65, 155, 0.62);
+  -moz-box-shadow: 1px 4px 65px 6px rgba(133, 65, 155, 0.62);
   overflow: hidden;
 }
 
@@ -146,11 +157,11 @@ inclusive for all users. That's why the name of the class is
 }
 
 .title {
-  font-size: 15px;
+  font-size: 1rem;
   color: #ffffff;
 }
 .title-item {
-  font-size: 15px;
+  font-size: 1rem;
   color: #000000;
 }
 

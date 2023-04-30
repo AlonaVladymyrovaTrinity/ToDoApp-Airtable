@@ -1,6 +1,6 @@
 /* UTILITIES -------------- */
 .glassmorph {
-  background: var(--gm-background);
+  background: var(--gm-background-glassmorph);
   box-shadow: var(--gm-box-shadow);
   backdrop-filter: var(--gm-bg-filter);
   border: var(--gm-border);
@@ -14,18 +14,25 @@
   } */
 
 .button {
+  background-color: #853b72;
+  font-weight: bold;
   display: inline-block;
-  color: var(--color-brand);
+  color: #ffffff;
   transition: 0.3s;
   cursor: pointer;
   padding: 5px 10px;
   border-radius: 15px;
   display: flex;
   place-content: center;
+  /* box-shadow: 2px 2px 6px 2px #20212447; */
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.5),
+    5px 5px 10px rgba(0, 0, 70, 0.12);
 }
 
 .button:hover {
-  background: var(--gm-background-hover);
+  background-color: var(--gm-background-hover);
+  box-shadow: none;
+  /* background: var(--gm-background-hover); */
 }
 
 .addNotes {
@@ -58,17 +65,18 @@
 }
 
 .addNotes-footer-chars {
-  font-size: 0.7rem;
+  /* font-size: 0.8rem; */
+  font-size: small;
 }
 
 .addNotes-footer-btn {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .addNotes-footer-btn:hover {
-  color: gray;
+  color: #ffffff;
 }
 
 /* DARKMODE ---------------------*/
