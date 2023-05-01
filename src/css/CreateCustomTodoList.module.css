@@ -23,7 +23,6 @@
   background-color: #a64c8e;
   box-shadow: none;
 }
-
 @media (max-width: 280px) {
   form {
     display: flex;

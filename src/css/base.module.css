@@ -198,7 +198,7 @@ button:active {
 .ListItem {
   /* max-height: 450px; */
   overflow: scroll;
-  height: calc(100% - (69px + 154px));
+  height: calc(100% - (69px + 170px));
   padding: 0 5px 10px 0;
   /* overflow-y: auto; */
   /* overflow-y: scroll; */
@@ -292,7 +292,7 @@ p {
 
   .ListItem {
     overflow: scroll;
-    height: calc(100% - (69px + 141px));
+    height: calc(100% - (69px + 157px));
     padding: 0;
   }
   .ListItem .list {
@@ -349,7 +349,7 @@ p {
 
   .ListItem {
     overflow: scroll;
-    height: calc(100% - (69px + 181px));
+    height: calc(100% - (69px + 233px));
     padding: 0;
   }
 

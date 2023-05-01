@@ -29,7 +29,8 @@
 .about-wrapper div {
   background-color: var(--gm-background);
   border-radius: 15px;
-  padding: 15px 15px 0 15px;
+  padding: 15px 15px 15px 15px;
+  margin-bottom: 15px;
 }
 .about-wrapper h2 {
   font-size: 20px;
@@ -49,4 +50,16 @@ ul {
   line-height: 1.5;
   margin-bottom: 20px;
   color: #000000;
+}
+@media screen and (max-width: 393px) {
+  .ListItem {
+    height: calc(100% - 102px);
+    padding-left: 20px;
+  }
+}
+@media (max-width: 280px) {
+  .ListItem {
+    height: calc(100% - 111px);
+    padding-left: 20px;
+  }
 }

@@ -10,6 +10,18 @@
 }
 
 .ListItem {
-  height: calc(100% - (150px));
+  height: calc(100% - (115px));
   padding: 0 10px 20px 20px;
+}
+@media screen and (max-width: 393px) {
+  .ListItem {
+    height: calc(100% - 99px);
+    padding-left: 20px;
+  }
+}
+@media (max-width: 280px) {
+  .ListItem {
+    height: calc(100% - 110px);
+    padding-left: 20px;
+  }
 }
