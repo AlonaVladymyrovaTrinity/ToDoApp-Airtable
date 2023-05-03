@@ -29,9 +29,14 @@
 .dark-mode {
   color: #2f2f2f;
 }
-
+/*-------------------- */
 .dropdown-btn:hover {
   color: #a3a3a3;
+  box-shadow: none;
+}
+.dropdown-btn:active {
+  color: #000000;
+  transform: scale(0.98);
   box-shadow: none;
 }
 /* .cancel-button:active {
@@ -55,8 +60,12 @@
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
-.dropdown:hover ul {
+/* .dropdown:hover ul {
   display: block;
+  border-radius: 15px;
+} */
+.dropdown ul.show-menu {
+  display: block !important;
   border-radius: 15px;
 }
 

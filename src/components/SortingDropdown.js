@@ -54,7 +54,7 @@ const SortingDropdown = ({
         <span className={baseStyles["sr-only"]}>Dropdown menu</span>
       </button>
       {showMenu ? (
-        <ul>
+        <ul className={style["show-menu"]}>
           <li>
             {/* <img className={style.arrow} src={arrow} alt="arrow downward" /> */}
             <label htmlFor="sortingOptions">
