@@ -1,5 +1,10 @@
 .ListItem {
-  height: calc(100% - (69px + 90px));
+  height: calc(100% - (69px + 92px));
+}
+@media screen and (max-width: 540px) {
+  .ListItem {
+    height: calc(100% - (69px + 92px));
+  }
 }
 @media screen and (max-width: 393px) {
   .ListItem {
@@ -8,6 +13,6 @@
 }
 @media (max-width: 280px) {
   .ListItem {
-    height: calc(100% - (69px + 134px));
+    height: calc(100% - (69px + 65px));
   }
 }

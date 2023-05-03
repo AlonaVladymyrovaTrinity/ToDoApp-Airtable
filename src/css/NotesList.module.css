@@ -21,7 +21,7 @@
 }
 @media (max-width: 280px) {
   .ListItem {
-    height: calc(100% - 110px);
+    height: calc(100% - 81px);
     padding-left: 20px;
   }
 }

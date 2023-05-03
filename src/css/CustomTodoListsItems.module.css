@@ -22,10 +22,28 @@
   right: 16px;
 }
 .list {
-  max-width: 460px;
+  /* min-width: 460px; */
+  min-width: 82%;
+}
+
+@media screen and (max-width: 540px) {
+  .list {
+    /* min-width: 300px; */
+    min-width: 81%;
+  }
+}
+@media screen and (max-width: 393px) {
+  .list {
+    /* min-width: 250px; */
+    min-width: 78%;
+  }
 }
 @media (max-width: 280px) {
   .table-list-element {
     padding: 0px 20px 0px 20px;
+  }
+  .list {
+    /* min-width: 200px; */
+    min-width: 75%;
   }
 }

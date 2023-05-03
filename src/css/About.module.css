@@ -18,7 +18,7 @@
 .dark-mode .about-wrapper div {
   background-color: hsla(0, 0%, 100%, 0.719);
   border-radius: 15px;
-  padding: 15px 15px 0 15px;
+  padding: 15px 15px 5px 15px;
 }
 /*--------------------- */
 
@@ -48,18 +48,18 @@ ul {
 .about-wrapper p {
   font-size: 16px;
   line-height: 1.5;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   color: #000000;
 }
 @media screen and (max-width: 393px) {
   .ListItem {
-    height: calc(100% - 102px);
+    height: calc(100% - 101px);
     padding-left: 20px;
   }
 }
 @media (max-width: 280px) {
   .ListItem {
-    height: calc(100% - 111px);
+    height: calc(100% - 82px);
     padding-left: 20px;
   }
 }

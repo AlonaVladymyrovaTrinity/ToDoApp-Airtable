@@ -90,9 +90,9 @@
   gap: var(--gap, 1rem);
 }
 @media screen and (max-width: 540px) {
-  .app-name {
+  /* .app-name {
     display: none;
-  }
+  } */
   .primary-navigation {
     mask-image: linear-gradient(
       90deg,

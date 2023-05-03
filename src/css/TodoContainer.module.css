@@ -17,3 +17,11 @@
   align-items: center;
   justify-content: space-between;
 }
+@media (max-width: 280px) {
+  .top-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-height: 30px;
+  }
+}

@@ -78,7 +78,7 @@
   outline: none;
 }
 .title-checked {
-  font-size: 15px;
+  font-size: 1rem;
   color: #838383;
   text-decoration: line-through;
 }
@@ -191,11 +191,22 @@
   }
   .edit-input {
     padding: 10px 10px;
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin-top: 15px;
   }
 }
 @media (max-width: 280px) {
+  .checkbox-wrapper *,
+  .checkbox-wrapper ::after,
+  .checkbox-wrapper ::before {
+    transform: scale(0.8);
+    max-width: 30px;
+    max-height: 30px;
+  }
+  .checkbox-wrapper .container input {
+    border: 4px solid #d4d4d4;
+  }
+
   .check-circle-checked {
     padding: 1px 3px 0px 3px;
     margin-right: 3px;
@@ -217,6 +228,7 @@
     max-width: 12px;
     padding: 0px 1px 0px 1px;
     margin-right: 8px;
+    font-size: 12px;
   }
   .edit-input {
     padding: 10px 10px;

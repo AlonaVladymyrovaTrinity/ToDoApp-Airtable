@@ -1,9 +1,31 @@
 import React from "react";
 // import style from "../css/Toggle.module.css";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon } from "@fortawesome/free-solid-svg-icons";
+import { RiSunFill } from "react-icons/ri";
 
 const ToggleWrapper = styled.div`
   align-items: center;
+  margin: 0 5px 0 5px;
+  @media (max-width: 280px) {
+    transform: scale(0.7);
+  }
+`;
+const IconsWrapper = styled.div`
+  align-items: center;
+  display: flex;
+  align-items: center;
+  @media (max-width: 280px) {
+    transform: scale(0.7);
+  }
+  .black-icon {
+    color: black;
+  }
+
+  .white-icon {
+    color: white;
+  }
 `;
 
 const Input = styled.input`
@@ -54,19 +76,28 @@ const StyledToggle = ({ setDarkMode, darkMode }) => {
   };
 
   return (
-    // <div class="toggle-container">
-    <ToggleWrapper>
-      <Input
-        type="checkbox"
-        id="switch"
-        name="theme"
-        onClick={handleToggleClick}
-        checked={darkMode}
-        // className={style["toggle-input"]}
-      />
-      {/* <label htmlFor="switch" className={style["toggle-label"]}> */}
-      <Label htmlFor="switch">Toggle</Label>
-    </ToggleWrapper>
+    <>
+      {/* // <div class="toggle-container"> */}
+      <IconsWrapper>
+        <FontAwesomeIcon
+          icon={faMoon}
+          className={darkMode ? "black-icon" : "white-icon"}
+        />
+        <ToggleWrapper>
+          <Input
+            type="checkbox"
+            id="switch"
+            name="theme"
+            onChange={handleToggleClick}
+            checked={darkMode}
+            // className={style["toggle-input"]}
+          />
+          {/* <label htmlFor="switch" className={style["toggle-label"]}> */}
+          <Label htmlFor="switch">Dark mode toggle</Label>
+        </ToggleWrapper>
+        <RiSunFill className={darkMode ? "black-icon" : "white-icon"} />
+      </IconsWrapper>
+    </>
   );
 };
 
