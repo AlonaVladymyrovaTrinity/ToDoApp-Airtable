@@ -206,6 +206,11 @@ p {
   color: #000000;
 }
 @media screen and (max-width: 540px) {
+  .ListItem {
+    overflow: scroll;
+    height: calc(100% - (289px));
+    padding: 0;
+  }
   .container {
     margin: 50px auto 0;
     top: 50px;
