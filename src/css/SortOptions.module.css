@@ -1,11 +1,13 @@
-/* .input-checkbox {
-  display: none;
-} */
+.input-checkbox:checked {
+  /* display: none; */
+  accent-color: #853b72;
+}
 
 .input-label {
   margin-left: 10px;
   font-size: 14px;
 }
+
 .select-option {
   border-radius: 5px;
   background-color: #fafafa;

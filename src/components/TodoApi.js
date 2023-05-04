@@ -28,13 +28,17 @@ export const getTodoList = (setTodoList, setIsLoading, tableName) => {
       // console.log("GET result:", JSON.stringify(result.records));
 
       //Sort response data by one or more properties
+      // setTimeout(() => {
       const sortedList = sortingBy(null, null, result.records);
       //Set todoList state to sorted data
+
       setTodoList(sortedList);
+
       // setTodoList(result.records);
 
       //Set isLoading to false
       setIsLoading(false);
+      // }, 3000);
     })
     //If the request fails, the .catch() callback is called and logs the error to the console
     .catch((error) => {

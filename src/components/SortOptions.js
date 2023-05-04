@@ -113,7 +113,7 @@ const SortOptions = ({
               checked={isChecked}
               onChange={handleCheckboxChange}
             />
-            <label className={style["input-label"]} htmlFor="sorting-order">
+            <label htmlFor="sorting-order" className={style["input-label"]}>
               {sortingFieldName === "createdTime"
                 ? `Default (${options[sortingFieldName]}): `
                 : `${options[sortingFieldName]}: `}

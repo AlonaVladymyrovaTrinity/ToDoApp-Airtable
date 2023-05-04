@@ -8,6 +8,7 @@ import CreateCustomTodoList from "./components/CreateCustomTodoList";
 import logo from "./assets/task-list-white.svg";
 import About from "./components/About";
 import CreateNotes from "./components/CreateNotes";
+import PageNotFound from "./components/PageNotFound";
 
 function App() {
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
@@ -69,6 +70,8 @@ function App() {
             />
             <Route path="/notes" element={<CreateNotes />} />
             <Route path="/about" element={<About />} />
+            <Route path="*" element={<PageNotFound />} />{" "}
+            {/* Handling Page Not Found errors */}
           </Routes>
         </header>
       </ResizeAnimationStopper>
