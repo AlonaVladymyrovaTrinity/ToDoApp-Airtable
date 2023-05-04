@@ -7,13 +7,9 @@ import PropTypes from "prop-types";
 
 const Notes = ({ id, text, date, onHandleDeleteNote, darkMode }) => {
   return (
-    // <div
-    //   className={
-    //     darkMode
-    //       ? `${style.glassmorph} ${style.notes} ${style["dark-mode"]}`
-    //       : `${style.glassmorph} ${style.notes}`
-    //   }
-    // >
+    // This code renders a note that displays the note text, creation date, and a delete button with a trash can icon;
+    // the note's style is dependent on whether dark mode is enabled, and the onHandleDeleteNote
+    //function is called when the delete button is clicked.
     <div className={`${darkMode && style["dark-mode"]}`}>
       <div className={`${style.glassmorph} ${style.notes}`}>
         <div className={style["notes-text"]}>{text}</div>

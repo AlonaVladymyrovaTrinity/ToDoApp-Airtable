@@ -5,6 +5,8 @@ import StyledBackButton from "./StyledBackButton";
 import StyledToggle from "./StyledToggle";
 
 const About = () => {
+  //This code initializes state variable "darkMode" to a boolean value that is retrieved from local storage
+  //and parsed as JSON, or false value if the stored value does not exist.
   const storedIDarkMode = localStorage.getItem("DarkMode");
   const [darkMode, setDarkMode] = useState(
     storedIDarkMode !== null ? JSON.parse(storedIDarkMode) : false
@@ -13,6 +15,8 @@ const About = () => {
     <div
       className={`${darkMode && style["dark-mode"]} ${baseStyles.container}`}
     >
+      {/* Renders a custom StyledBackButton component with a link to the home page, 
+      styled with a color based on the darkMode state variable. */}
       <StyledBackButton
         linkName={"/"}
         children
@@ -23,14 +27,16 @@ const About = () => {
       </StyledBackButton>
       <div className={baseStyles["header-wrapper"]}>
         <h1 className={`${style.header} ${baseStyles.header}`}>About</h1>
-        {/* ${style.header} */}
+
+        {/* Renders a custom StyledToggle component that allows the user to toggle the darkMode state variable. */}
         <StyledToggle setDarkMode={setDarkMode} darkMode={darkMode} />
       </div>
       <div
         className={`${baseStyles.ListItem} ${style.ListItem} ${style["about-wrapper"]}`}
       >
+        {/*About page main content. Welcome message and a brief description of the features of the "To-do List" application. */}
         <div>
-          <h2>Welcome to the "To-do List App"</h2>
+          <h2>Welcome to the "To-do List"</h2>
           <p>
             A powerful and user-friendly application designed to streamline your
             task management process. Our fast and responsive app allows you to

@@ -30,7 +30,8 @@ const BackLink = styled(Link)`
     color: #39191e;
   }
 `;
-
+// This is functional styled 'StyledBackButton' component that renders a styled back button
+//with optional children and custom CSS class, based on whether the dark mode is enabled or not.
 const StyledBackButton = ({ linkName, children, className, darkMode }) => (
   <BackLink to={`${linkName}`} className={className}>
     <BackButtonWrapper>

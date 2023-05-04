@@ -8,6 +8,9 @@ import PropTypes from "prop-types";
 const CustomTodoLists = ({ customTodoLists, isListsLoading }) => {
   return (
     <>
+      {/* Conditional rendering of either a loading message and a StyledSpinner component or a list of custom to-do lists 
+    using the ternary operator. If isListsLoading is true, it will display "Loading..." text and a spinner, otherwise 
+    it will display custom to-do lists by mapping through the customTodoLists array and rendering each one using the CustomTodoListsItems component. */}
       {isListsLoading ? (
         <>
           <p>Loading...</p> <StyledSpinner />

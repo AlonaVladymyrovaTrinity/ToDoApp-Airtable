@@ -4,44 +4,38 @@ import { sortingBy } from "./SortingBy";
 import style from "../css/SortOptions.module.css";
 import PropTypes from "prop-types";
 
+/* SortOptions component responsible for sorting selection for to-do list items based on criteria such as fild name and ascending or descending order. */
 const SortOptions = ({
   setTodoList,
   todoList,
   storedIsChecked,
   storedSortingFieldName,
 }) => {
+  //State variable isChecked which is initialized to the value of the storedIsChecked variable if it is not null,
+  //or to false value if it is null, and provides a function setIsChecked to update its value.
   const [isChecked, setIsChecked] = useState(
     storedIsChecked !== null ? JSON.parse(storedIsChecked) : false
   );
+
+  //State variable sortingFieldName which is initialized to the value of the storedSortingFieldName variable if it is not null,
+  //or to "createdTime" value if it is null, and provides a function setSortingFieldName to update its value.
   const [sortingFieldName, setSortingFieldName] = useState(
     storedSortingFieldName !== null ? storedSortingFieldName : "createdTime"
   );
 
-  // const sortedListRef = useRef([]);
-
   const options = {
-    // "": "--Select sort criteria--",
     createdTime: "Created Time",
     Title: "Title",
     done: "Done",
   };
 
-  // const sortingBy = useCallback(
-  // sortingBy function...
-  //, [todoList]
-  // );
-
-  // console.log(
-  //   sortingFieldName,
-  //   isChecked,
-  //   sortingBy(!isChecked ? "asc" : "desc", sortingFieldName, todoList)
-  // );
-
+  //Function handleCheckboxChange updates a state variable representing a checkbox, saves the checkbox value to local storage,
+  //sorts a list based on the checkbox value and a selected field name(using sortingBy function),
+  //and updates the state variable representing the sorted list.
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
     localStorage.setItem("isAscending", JSON.stringify(!isChecked)); // Save to local storage
 
-    // sortedListRef.current = sortingBy(
     const sortedList = sortingBy(
       !isChecked ? "asc" : "desc",
       sortingFieldName,
@@ -50,33 +44,19 @@ const SortOptions = ({
     setTodoList(sortedList);
   };
 
-  // useEffect(() => {
-  //   const storedIsChecked = JSON.parse(localStorage.getItem("isChecked"));
-  //   if (storedIsChecked !== null) {
-  //     setIsChecked(storedIsChecked);
-  //   }
-  // }, []);
-
+  //Function handleSelectChange updates the sorting field name based on the user's selection from a dropdown menu,
+  //saves it to local storage, and re-sorts the todo list(using sortingBy function) according to the new field name.
   const handleSelectChange = (event) => {
     const selectedFieldName = event.target.value;
     setSortingFieldName(selectedFieldName);
     localStorage.setItem("sortingFieldName", selectedFieldName); // Save to local storage
-    // sortedListRef.current = sortingBy(
     const sortedList = sortingBy(
       isChecked ? "asc" : "desc",
       selectedFieldName,
       todoList
     );
     setTodoList(sortedList);
-    // setTodoList(sortedListRef.current);
   };
-
-  // useEffect(() => {
-  //   const storedSelectedFieldName = localStorage.getItem("sortingFieldName");
-  //   if (storedSelectedFieldName !== null) {
-  //     setSortingFieldName(storedSelectedFieldName);
-  //   }
-  // }, []);
 
   return (
     <div>
@@ -89,16 +69,11 @@ const SortOptions = ({
           onChange={handleSelectChange}
           value={sortingFieldName}
         >
-          {" "}
-          {/* <option value="">--Select sort criteria--</option> */}
           {Object.entries(options).map(([value, label]) => (
             <option key={value} value={value}>
               {label}
             </option>
           ))}
-          {/* <option value="createdTime">Created Time</option>
-        <option value="Title">Title</option>
-        <option value="done">Done</option> */}
         </select>
       </li>
       {Array.isArray(todoList) && todoList.length > 0 ? (

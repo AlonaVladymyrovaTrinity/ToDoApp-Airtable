@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-
+//sortingBy is a function to sort a todo list by field names such as 'createdTime', 'Title', 'done' in ascending or descending order.
 export const sortingBy = (order, FieldName, todoList) => {
   const newisChecke = JSON.parse(localStorage.getItem("isAscending")) || false; // Get from local storage or 'false' by default
   const newSortingFieldName =
@@ -46,7 +46,7 @@ export const sortingBy = (order, FieldName, todoList) => {
       }
     }
   });
-  // console.log(JSON.stringify(sortedTodoList));
+  //function returns sorted todo list
   return sortedTodoList;
 };
 

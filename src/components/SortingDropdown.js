@@ -3,11 +3,11 @@ import { IconDotsCircleHorizontal } from "@tabler/icons-react";
 import style from "../css/SortingDropdown.module.css";
 import baseStyles from "../css/base.module.css";
 import SortOptions from "./SortOptions";
-// import arrow from "../assets/arrow-downward.svg";
 import arrowUpDown from "../assets/arrow-up-down.svg";
 import StyledSpinner from "./StyledSpinner";
 import PropTypes from "prop-types";
 
+// This is a component of dropdown sorting menu
 const SortingDropdown = ({
   todoList,
   setTodoList,
@@ -16,36 +16,19 @@ const SortingDropdown = ({
   storedSortingFieldName,
   darkMode,
 }) => {
+  //State variable "showMenu"  is declared and initialized to false valuse using the "useState" hook.
+  //Function setShowMenu updates its value later in the component's lifecycle.
   const [showMenu, setShowMenu] = useState(false);
 
+  //Function toggleMenu sets the state of showMenu to its opposite value each time it is called.
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
 
-  // const getCreatedTime = (todoList) => {
-  //   if (Array.isArray(todoList) && todoList.length > 0) {
-  //     return Object.keys(todoList[0])[1];
-  //   } else {
-  //     return "createdTime";
-  //   }
-  // };
-  // const getTitle = (todoList) => {
-  //   if (Array.isArray(todoList) && todoList.length > 0) {
-  //     return Object.keys(todoList[0].fields)[1];
-  //   } else {
-  //     return "Title";
-  //   }
-  // };
-  // const getDone = (todoList) => {
-  //   if (Array.isArray(todoList) && todoList.length > 0) {
-  //     return Object.keys(todoList[0].fields)[0];
-  //   } else {
-  //     return "Title";
-  //   }
-  // };
-
   return (
     <div className={style.dropdown}>
+      {/* This button toggles a dropdown menu when clicked. It includes an icon and an invisible 
+     label for screen readers. If darkMode is true, it applies a dark mode style. */}
       <button
         className={`${darkMode && style["dark-mode"]} ${style["dropdown-btn"]}`}
         onClick={toggleMenu}
@@ -55,8 +38,9 @@ const SortingDropdown = ({
       </button>
       {showMenu ? (
         <ul className={style["show-menu"]}>
+          {/* This code renders a list item containing a label "Sort By" and an arrow up-down image. 
+          The "htmlFor" attribute connects the label to the input field with the "sortingOptions" id. */}
           <li>
-            {/* <img className={style.arrow} src={arrow} alt="arrow downward" /> */}
             <label htmlFor="sortingOptions">
               <strong>Sort By</strong>
             </label>
@@ -66,8 +50,11 @@ const SortingDropdown = ({
               alt="arrow up down"
             />
           </li>
+          {/* This is a conditional rendering of either a SortOptions component if isLoading is false, 
+          or a loading message with a StyledSpinner component if isLoading is true. */}
           {!isLoading ? (
             <>
+              {/* SortOptions component responsible for sorting selection for to-do list items based on criteria such as fild name and ascending or descending order. */}
               <SortOptions
                 todoList={todoList}
                 setTodoList={setTodoList}
@@ -79,6 +66,7 @@ const SortingDropdown = ({
             <>
               <li>
                 <p>Loading...</p>
+                {/* Renders a styled spinner component that displays a spinner with smaller size based on the given class name 'small-spinner'.*/}
                 <StyledSpinner className="small-spinner" />
               </li>
             </>

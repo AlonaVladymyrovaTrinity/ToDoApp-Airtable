@@ -15,6 +15,8 @@ const NotesList = ({
     <div
       className={`${style["notes-list"]} ${baseStyles.ListItem} ${style.ListItem}`}
     >
+      {/*This code maps over an array of "notes" objects, and for each "note" it renders a component called "Notes" 
+      passing in its "id", "text", "date", "onHandleDeleteNote", and "darkMode" as props. */}
       {notes.map((note) => (
         <Notes
           key={note.id}
@@ -25,6 +27,8 @@ const NotesList = ({
           darkMode={darkMode}
         />
       ))}
+      {/* This code renders the AddNotes component, which allows users to add a new note, and passes 
+      the onHandleAddNote and darkMode props to it.*/}
       <AddNotes onHandleAddNote={onHandleAddNote} darkMode={darkMode} />
     </div>
   );
