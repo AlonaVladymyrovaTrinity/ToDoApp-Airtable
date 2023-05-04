@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
 import { RiSunFill } from "react-icons/ri";
+import PropTypes from "prop-types";
 
 const ToggleWrapper = styled.div`
   align-items: center;
@@ -99,6 +100,10 @@ const StyledToggle = ({ setDarkMode, darkMode }) => {
       </IconsWrapper>
     </>
   );
+};
+StyledToggle.propTypes = {
+  setDarkMode: PropTypes.func,
+  darkMode: PropTypes.bool,
 };
 
 export default StyledToggle;

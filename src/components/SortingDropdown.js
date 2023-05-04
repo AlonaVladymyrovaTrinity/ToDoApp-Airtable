@@ -95,5 +95,6 @@ SortingDropdown.propTypes = {
   isLoading: PropTypes.bool,
   storedIsChecked: PropTypes.string,
   storedSortingFieldName: PropTypes.string,
+  darkMode: PropTypes.bool,
 };
 export default SortingDropdown;

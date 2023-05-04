@@ -51,6 +51,6 @@ const AddTodoForm = ({ onAddTodo, darkMode }) => {
   );
 };
 
-AddTodoForm.propTypes = { onAddTodo: PropTypes.func };
+AddTodoForm.propTypes = { onAddTodo: PropTypes.func, darkMode: PropTypes.bool };
 
 export default AddTodoForm;

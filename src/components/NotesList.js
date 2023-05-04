@@ -2,8 +2,8 @@ import React from "react";
 import AddNotes from "./AddNotes";
 import Notes from "./Notes";
 import style from "../css/NotesList.module.css";
-
 import baseStyles from "../css/base.module.css";
+import PropTypes from "prop-types";
 
 const NotesList = ({
   notes,
@@ -28,6 +28,13 @@ const NotesList = ({
       <AddNotes onHandleAddNote={onHandleAddNote} darkMode={darkMode} />
     </div>
   );
+};
+
+NotesList.propTypes = {
+  notes: PropTypes.array,
+  onHandleDeleteNote: PropTypes.func,
+  onHandleAddNote: PropTypes.func,
+  darkMode: PropTypes.bool,
 };
 
 export default NotesList;

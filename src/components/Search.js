@@ -45,6 +45,7 @@ const Search = ({ onSearch, darkMode }) => {
 
 Search.propTypes = {
   onSearch: PropTypes.func,
+  darkMode: PropTypes.bool,
 };
 
 export default Search;

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import style from "../css/Notes.module.css";
 import baseStyles from "../css/base.module.css";
+import PropTypes from "prop-types";
 
 const Notes = ({ id, text, date, onHandleDeleteNote, darkMode }) => {
   return (
@@ -35,4 +36,11 @@ const Notes = ({ id, text, date, onHandleDeleteNote, darkMode }) => {
   );
 };
 
+Notes.propTypes = {
+  id: PropTypes.string,
+  text: PropTypes.string,
+  date: PropTypes.string,
+  onHandleDeleteNote: PropTypes.func,
+  darkMode: PropTypes.bool,
+};
 export default Notes;

@@ -41,10 +41,10 @@ let InputWithLabel = function ({
 InputWithLabel.propTypes = {
   children: PropTypes.object,
   // children: PropTypes.node.isRequired,
-  onChange: PropTypes.func,
+  handleTitleChange: PropTypes.func,
   value: PropTypes.string,
   type: PropTypes.string,
-  title: PropTypes.string,
+  todoTitle: PropTypes.string,
   placeholder: PropTypes.string,
   name: PropTypes.string,
   id: PropTypes.string,

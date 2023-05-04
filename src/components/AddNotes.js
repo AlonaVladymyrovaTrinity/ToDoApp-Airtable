@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import style from "../css/AddNotes.module.css";
+import PropTypes from "prop-types";
 
 const AddNotes = ({ onHandleAddNote, darkMode }) => {
   const [noteText, setNoteText] = useState("");
@@ -43,6 +44,10 @@ const AddNotes = ({ onHandleAddNote, darkMode }) => {
       </div>
     </div>
   );
+};
+AddNotes.propTypes = {
+  onHandleAddNote: PropTypes.func,
+  darkMode: PropTypes.bool,
 };
 
 export default AddNotes;
