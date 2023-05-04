@@ -32,24 +32,19 @@ const TodoContainer = () => {
     getTodoList(setTodoList, setIsLoading, tableName);
   }, [tableName]);
 
-  // const defaultdarkMode = false;
-  const defaultIsChecked = false;
-  const defaultSortingFieldName = "createdTime";
+  // const defaultIsChecked = false;
+  // const defaultSortingFieldName = "createdTime";
 
-  const storedIsChecked = localStorage.getItem("isChecked");
+  const storedIsChecked = localStorage.getItem("isAscending");
   const storedSortingFieldName = localStorage.getItem("sortingFieldName");
 
-  // if (storedIDarkMode === null) {
-  //   localStorage.setItem("DarkMode", JSON.stringify(defaultdarkMode));
+  // if (storedIsChecked === null) {
+  //   localStorage.setItem("isChecked", JSON.stringify(defaultIsChecked));
   // }
 
-  if (storedIsChecked === null) {
-    localStorage.setItem("isChecked", JSON.stringify(defaultIsChecked));
-  }
-
-  if (storedSortingFieldName === null) {
-    localStorage.setItem("sortingFieldName", defaultSortingFieldName);
-  }
+  // if (storedSortingFieldName === null) {
+  //   localStorage.setItem("sortingFieldName", defaultSortingFieldName);
+  // }
 
   const handleNewAddTodo = (newTodo) => {
     addTodo(newTodo, setIsLoading, todoList, setTodoList, tableName);

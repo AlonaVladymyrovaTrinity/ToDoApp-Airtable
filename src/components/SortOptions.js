@@ -39,7 +39,7 @@ const SortOptions = ({
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
-    localStorage.setItem("isChecked", JSON.stringify(!isChecked)); // Save to local storage
+    localStorage.setItem("isAscending", JSON.stringify(!isChecked)); // Save to local storage
 
     // sortedListRef.current = sortingBy(
     const sortedList = sortingBy(
