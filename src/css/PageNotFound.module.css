@@ -1,4 +1,4 @@
-/*  DARKMODE --------------------- */
+/*  DARKMODE ----------- */
 .dark-mode {
   background: var(--gm-background-glassmorph);
 }
@@ -25,10 +25,6 @@
   margin-bottom: 10px;
   color: #000000;
 }
-/* .container {
-  padding: 0;
-  overflow: hidden;
-} */
 .img-page-not-found {
   width: 100%;
   height: 100%;

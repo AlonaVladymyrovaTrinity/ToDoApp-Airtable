@@ -3,6 +3,7 @@ import TodoListItem from "./TodoListItem";
 import baseStyles from "../css/base.module.css";
 import PropTypes from "prop-types";
 
+// Functional React component named TodoList with props: todoList and onRemoveTodo
 const TodoList = ({
   onRemoveTodo,
   onSaveTodo,
@@ -13,16 +14,15 @@ const TodoList = ({
   tableName,
 }) => {
   return (
+    // Unordered list element
     <ul className={baseStyles.ListItem}>
+      {/* map statement which loops through todoList Array and returns TodoListItem Component*/}
       {todoList?.map(function (todo) {
         return (
           <React.Fragment key={todo.id}>
             <TodoListItem
               todo={todo}
               onRemoveTodo={onRemoveTodo}
-              // onRemoveTodo={(id) =>
-              //   onRemoveTodo(id, isLoading, todoList, setTodoList, tableName)
-              // }
               onSaveTodo={onSaveTodo}
               onIsDoneUpdateVal={onIsDoneUpdateVal}
               key={todo.id}

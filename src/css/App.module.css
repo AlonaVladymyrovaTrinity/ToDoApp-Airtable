@@ -27,9 +27,6 @@
   padding: 0;
   margin: 0;
   letter-spacing: 0.2rem;
-  /* border-radius: 15px 0 0 15px; */
-  /* background: hsla(315, 39%, 38%, 0.6); */
-  /* background-color: rgba(242, 242, 242, 0.6); */
   mask-image: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0) 0%,
@@ -52,10 +49,8 @@
     #e981bc,
     #fe92c4
   );
-
-  /* background-color: hsla(285, 41%, 43%, 0.68); */
   padding: 1rem;
-  --gap: 3rem; /*clamp(1.5rem, 5vw, 3rem)*/
+  --gap: 3rem;
   padding-inline: clamp(3rem, 10vw, 10rem);
 }
 .primary-navigation li a {
@@ -78,10 +73,6 @@
     background-color: rgba(133, 65, 155, 0.921);
   }
 }
-/* .primary-navigation {
-    background: hsla(0, 0%, 100%, 0.1);
-    backdrop-filter: blur(3rem);
-  } */
 .active {
   text-transform: uppercase;
 }
@@ -90,9 +81,6 @@
   gap: var(--gap, 1rem);
 }
 @media screen and (max-width: 540px) {
-  /* .app-name {
-    display: none;
-  } */
   .primary-navigation {
     mask-image: linear-gradient(
       90deg,
@@ -100,7 +88,6 @@
       #ffffff 10%,
       #ffffff 5%
     );
-    /* background: rgba(133, 65, 155, 0.945); */
     background-image: linear-gradient(
       to bottom,
       hsla(285, 41%, 43%, 0.9),
@@ -116,7 +103,6 @@
       hsl(12, 95%, 78%, 0.4),
       hsl(20, 85%, 77%, 0.3)
     );
-    /* color:#85419b; */
   }
   .primary-navigation li a {
     text-decoration: none;
@@ -138,21 +124,6 @@
     }
   }
 
-  /* @supports (backdrop-filter: blur(3rem)) {
-    .primary-navigation {
-      background: hsla(0, 0%, 100%, 0.625);
-      backdrop-filter: blur(3rem);
-      mask-image: none;
-    }
-    .primary-navigation li a {
-      text-decoration: none;
-      color: #660d55;
-    }
-    .primary-navigation li a:hover {
-      color: #c41ca5;
-    }
-  } */
-
   .primary-navigation {
     --gap: 2em;
 
@@ -161,7 +132,6 @@
     inset: 0 0 0 30%;
 
     flex-direction: column;
-    /* padding: min(15vh, 6rem) 2em; */
     padding: min(15vh, 6rem) 1em min(15vh, 6rem) 5em;
     transition: transform 350ms ease-out;
     transform: translateX(0%);

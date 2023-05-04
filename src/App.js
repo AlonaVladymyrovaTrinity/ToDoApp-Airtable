@@ -10,6 +10,7 @@ import About from "./components/About";
 import CreateNotes from "./components/CreateNotes";
 import PageNotFound from "./components/PageNotFound";
 
+// Functional React component named App
 function App() {
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
 
@@ -18,6 +19,7 @@ function App() {
   };
 
   return (
+    // Router from “react-router-dom”
     <BrowserRouter>
       <ResizeAnimationStopper>
         <header className={`${style["primary-header"]} ${style.flex}`}>
@@ -27,6 +29,7 @@ function App() {
               <span className={style["app-name"]}>Todo List</span>
             </Link>
           </div>
+          {/* (Bonus) Navigation menu */}
           <button
             className={`${style["mobile-nav-toggle"]} ${
               !isNavigationVisible ? style["mobile-nav-toggle-close"] : ""
@@ -55,19 +58,17 @@ function App() {
                 <Link to="/notes">Notes</Link>
               </li>
               <li className={style.active}>
-                {/* <Link to={`/${tableName}`}> */}
                 <Link to="/about">About</Link>
               </li>
             </ul>
           </nav>
-          {/* I'm using react-router-dom version 6.10, which replaced Switch with the Routes component*/}
+          {/* Switch component with two or more Routes that are navigable. 
+          In react-router-dom version 6 and higher Switch was replaced with the Routes component*/}
           <Routes>
+            {/* One route for “home” or “landing” page */}
             <Route path="/" element={<CreateCustomTodoList />} />
-            <Route
-              // path={`/${tableName}`}
-              path="/todolist/:tableName"
-              element={<TodoContainer />}
-            />
+            {/* One or more routes which render a TodoList component */}
+            <Route path="/todolist/:tableName" element={<TodoContainer />} />
             <Route path="/notes" element={<CreateNotes />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<PageNotFound />} />{" "}

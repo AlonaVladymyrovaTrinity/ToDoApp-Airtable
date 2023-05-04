@@ -5,7 +5,6 @@
 /*--------------------- */
 .add-button {
   background-color: #853b72;
-  /* white-space: normal; */
   font-size: 22px;
   border-radius: 50px;
   min-width: 40px;
@@ -39,7 +38,6 @@
     align-items: center;
   }
   .add-button {
-    /* border-radius: 50%; */
     font-size: 15px;
     min-width: 29px;
     margin: 5px 0px 5px 15px;

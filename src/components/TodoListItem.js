@@ -3,15 +3,14 @@ import style from "../css/TodoListItem.module.css";
 import baseStyles from "../css/base.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
-// import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { faSave } from "@fortawesome/free-solid-svg-icons";
 import { RiCloseCircleLine } from "react-icons/ri";
 import PropTypes from "prop-types";
 import moment from "moment";
-// import { format, parseISO } from "date-fns";
 import { format } from "date-fns";
 
+// Functional React component named TodoListItem with props: todo and onRemoveTodo
 const TodoListItem = ({
   todo,
   onRemoveTodo,
@@ -24,14 +23,8 @@ const TodoListItem = ({
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [title, setTitle] = useState(todo.fields.Title);
-  //if type of data in db in field done is Checkbox:
   const [isDone, setIsDone] = useState(todo.fields.done === true);
-  //if type of data in db in column done is string:
-  // const [isDone, setIsDone] = useState(
-  //   todo.fields.done.toLowerCase() === "true"
-  // );
   const textareaRef = useRef(null);
-  // const parsedDate = parseISO(todo.createdTime);
   const elapsedTime =
     moment(todo.createdTime).fromNow() +
     ". " +
@@ -58,10 +51,7 @@ const TodoListItem = ({
     onIsDoneUpdateVal(
       todo.id,
       title,
-      //if type of field in db is Checkbox:
       updatedIsDone,
-      //if type of field in db is streeng:
-      //updatedIsDone.toString(),
       todoList,
       setTodoList,
       tableName
@@ -79,17 +69,7 @@ const TodoListItem = ({
 
   const handleSaveClick = () => {
     setIsEditing(false);
-    onSaveTodo(
-      todo.id,
-      title,
-      //if type of field in db is Checkbox:
-      isDone,
-      //if type of field in db is streeng:
-      // isDone.toString(),
-      todoList,
-      setTodoList,
-      tableName
-    );
+    onSaveTodo(todo.id, title, isDone, todoList, setTodoList, tableName);
   };
 
   const handleTitleChange = (event) => {
@@ -98,7 +78,6 @@ const TodoListItem = ({
   };
 
   const autoResize = (textareaRef) => {
-    // console.log(textareaRef.current.value);
     // Set textarea height to auto so that it adjusts to the content
     textareaRef.current.style.height = "auto";
     // Set new textarea height based on the scroll height of the content

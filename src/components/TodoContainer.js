@@ -14,37 +14,30 @@ import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 import StyledToggle from "./StyledToggle";
 
-// const TodoContainer = ({ tableName }) => {
+// Functional React component named TodoContainer
 const TodoContainer = () => {
   const { tableName } = useParams();
-
+  // State variable named todoList with default value of an empty Array ([])
   const [todoList, setTodoList] = useState([]);
+  // State variable named isLoading with default value of true
   const [isLoading, setIsLoading] = useState(true);
+  // State variable named searchInput with default value of empty string
   const [searchInput, setSearchInput] = useState("");
-  // const [darkMode, setDarkMode] = useState(storedIDarkMode !== null ? JSON.parse(storedIDarkMode) : false);
 
+  //This code initializes state variable "darkMode" to a boolean value that is retrieved from local storage
+  //and parsed as JSON, or false value if the stored value does not exist.
   const storedIDarkMode = localStorage.getItem("DarkMode");
   const [darkMode, setDarkMode] = useState(
     storedIDarkMode !== null ? JSON.parse(storedIDarkMode) : false
   );
 
+  // useEffect hook with dependency tableName (prop) and callback function
   useEffect(() => {
     getTodoList(setTodoList, setIsLoading, tableName);
   }, [tableName]);
 
-  // const defaultIsChecked = false;
-  // const defaultSortingFieldName = "createdTime";
-
   const storedIsChecked = localStorage.getItem("isAscending");
   const storedSortingFieldName = localStorage.getItem("sortingFieldName");
-
-  // if (storedIsChecked === null) {
-  //   localStorage.setItem("isChecked", JSON.stringify(defaultIsChecked));
-  // }
-
-  // if (storedSortingFieldName === null) {
-  //   localStorage.setItem("sortingFieldName", defaultSortingFieldName);
-  // }
 
   const handleNewAddTodo = (newTodo) => {
     addTodo(newTodo, setIsLoading, todoList, setTodoList, tableName);
@@ -54,6 +47,8 @@ const TodoContainer = () => {
     setSearchInput(inputValue);
   };
 
+  //Function filterListTitles filters a given todoList by searching for items that have a Title field
+  //containing a given searchInput, and returns the filtered list.
   const filterListTitles = (todoList, searchInput) => {
     return todoList.filter(
       (todo) =>
@@ -97,6 +92,7 @@ const TodoContainer = () => {
         {/* Conditional rendering based on isLoading state */}
         {isLoading ? (
           <>
+            {/* If true, paragraph that reads “Loading…” or some equivalent message */}
             <p>Loading...</p>
             <StyledSpinner />
           </>
@@ -106,6 +102,7 @@ const TodoContainer = () => {
           </span>
         ) : (
           <>
+            {/* If false, TodoList Component */}
             <Search onSearch={handleSearch} darkMode={darkMode} />
             <span className={baseStyles["pending-tasks"]}>
               You have{" "}
@@ -114,11 +111,6 @@ const TodoContainer = () => {
               </span>{" "}
               task{todoList.length === 1 ? "" : "s"} in your list:
             </span>
-            {/* <span className={baseStyles["pending-num"]}>
-                You have{" "}
-                {todoList.filter((record) => !("done" in record.fields)).length}{" "}
-                of {todoList.length} tasks pending:
-              </span> */}
             <TodoList
               onRemoveTodo={removeTodo}
               todoList={filterListTitles(todoList, searchInput)}

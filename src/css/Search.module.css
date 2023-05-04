@@ -24,10 +24,6 @@ input[type="search"] {
     padding: 0 10px 0 28px;
     min-width: 206px;
   }
-
-  /* .search-input {
-  padding-right: 10px;
-} */
 }
 
 @media (max-width: 279px) {

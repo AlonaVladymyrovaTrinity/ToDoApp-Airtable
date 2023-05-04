@@ -4,7 +4,8 @@ import { sortingBy } from "./SortingBy";
 const API_ENDPOINT = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}`;
 const API_ENDPOINT_TABLES = `https://api.airtable.com/v0/meta/bases/${process.env.REACT_APP_AIRTABLE_BASE_ID}/tables`;
 
-//GET Items from todo list. Using Fetch API, GET table records from Airtable for the given tableName
+//GET Items from todo list.Function getTodoList does the following:
+//Using Fetch API, GET table records from Airtable for the given tableName
 export const getTodoList = (setTodoList, setIsLoading, tableName) => {
   fetch(
     `${API_ENDPOINT}/${tableName}`,
@@ -24,21 +25,13 @@ export const getTodoList = (setTodoList, setIsLoading, tableName) => {
     //Response is being parsed as JSON using the response.json() method
     .then((response) => response.json())
     .then((result) => {
-      // console.log("Success:", result.records);
-      // console.log("GET result:", JSON.stringify(result.records));
-
       //Sort response data by one or more properties
-      // setTimeout(() => {
       const sortedList = sortingBy(null, null, result.records);
       //Set todoList state to sorted data
-
       setTodoList(sortedList);
-
-      // setTodoList(result.records);
 
       //Set isLoading to false
       setIsLoading(false);
-      // }, 3000);
     })
     //If the request fails, the .catch() callback is called and logs the error to the console
     .catch((error) => {
@@ -54,7 +47,8 @@ getTodoList.propTypes = {
   tableName: PropTypes.string,
 };
 
-//ADD Items to todo list. Using Fetch API, POST new record to Airtable with the given title field value
+//ADD Items to todo list. Function named addTodo that does the following:
+//Using Fetch API, POST new record to Airtable with the given title field value
 export const addTodo = (
   newTodo,
   setIsLoading,
@@ -74,11 +68,7 @@ export const addTodo = (
         {
           fields: {
             Title: newTodo.title,
-            //is type of data in db in column done is string:
-            //done: "false",
-            //if type of data in db in field done is Checkbox:
             done: null,
-            // Completed: newTodo.completed,
           },
         },
       ],
@@ -87,8 +77,6 @@ export const addTodo = (
     //Response is being parsed as JSON using the response.json() method
     .then((response) => response.json())
     .then((result) => {
-      // console.log("Success:", result);
-
       //Set todoList state to a new Array containing the added record
       //(Bonus) Re-sort list data
       const sortedList = sortingBy(null, null, [
@@ -96,8 +84,6 @@ export const addTodo = (
         result.records[0],
       ]);
       setTodoList(sortedList);
-
-      // setTodoList([...todoList, result.records[0]]);
       setIsLoading(false);
     })
     .catch((error) => {
@@ -113,7 +99,8 @@ addTodo.propTypes = {
   tableName: PropTypes.string,
 };
 
-//DELETE Items from todo list. Using Fetch API, Delete record from Airtable given id
+//DELETE Items from todo list. Function named removeTodo with parameter id that does the following:
+//Using Fetch API, Delete record from Airtable given id
 export const removeTodo = (id, isLoading, todoList, setTodoList, tableName) => {
   if (!isLoading) {
     const newTodoList = todoList.filter((todo) => todo.id !== id);
@@ -128,9 +115,6 @@ export const removeTodo = (id, isLoading, todoList, setTodoList, tableName) => {
     })
       //Response is being parsed as JSON using the response.json() method
       .then((response) => response.json())
-      // .then((result) => {
-      //   console.log("Success:", result);
-      // })
       .catch((error) => {
         console.error("Error:", error);
       });
@@ -155,13 +139,9 @@ export const editTitleAndData = (
 ) => {
   const newTodoList = todoList.map((todo) => {
     if (todo.id === id) {
-      //if type of data in db in column done is string:
-      // const newFields = { ...todo.fields, Title: title, done: done };
-      //if type of data in db in field done is Checkbox:
       const newFields = done
         ? { ...todo.fields, Title: title, done: done }
         : { ...todo.fields, Title: title, done: null };
-      // console.log(JSON.stringify(newFields));
       updateAirtableRecord(todo.id, newFields, tableName); // update the record in Airtable
       return { id: todo.id, createdTime: todo.createdTime, fields: newFields };
     } else {
@@ -170,8 +150,6 @@ export const editTitleAndData = (
   });
   const sortedList = sortingBy(null, null, newTodoList);
   setTodoList(sortedList);
-  // setTodoList(newTodoList);
-  // updateAirtableRecord(id, newTodoList.find((todo) => todo.id === id).fields);
 };
 
 editTitleAndData.propTypes = {
@@ -182,7 +160,7 @@ editTitleAndData.propTypes = {
   setTodoList: PropTypes.func,
   tableName: PropTypes.string,
 };
-
+//Function updateAirtableRecord updates the records in Airtable
 export const updateAirtableRecord = (id, fields, tableName) => {
   if (typeof fields !== "object") {
     console.error("Error: fields parameter must be an object");
@@ -199,13 +177,11 @@ export const updateAirtableRecord = (id, fields, tableName) => {
       Secure: true,
     },
     body: JSON.stringify({
-      //records: [{ id, fields }],
       fields,
     }),
   })
     .then((response) => response.json())
     .then((result) => {
-      // console.log("Success:", result);
       return result;
     })
     .catch((error) => {
@@ -249,36 +225,12 @@ export const createNewTable = (
           },
           type: "checkbox",
         },
-        /**** I will keep this code below for the future (commented out) because Airtable didn't support creating fields with type createdTime at this time:
-         **   "type": "UNSUPPORTED_FIELD_TYPE_FOR_CREATE",
-         **   "message": "Invalid options for newListName.Created time: Creating createdTime fields is not supported at this time"*/
-        //   {
-        //     name: "Created time",
-        //     options: {
-        //         result: {
-        //             type: "dateTime",
-        //                 options: {
-        //                     dateFormat: {
-        //                         name: "local",
-        //                         format: "l"
-        //                     },
-        //                     timeFormat: {
-        //                         name: "12hour",
-        //                         format: "h:mma"
-        //                     },
-        //                     timeZone: "America/Los_Angeles"
-        //                 }
-        //         }
-        //     },
-        //     type: "createdTime"
-        // }
       ],
       name: newListName,
     }),
   })
     .then((response) => response.json())
     .then((result) => {
-      // console.log("Success:", result);
       setCustomTodoLists([...customTodoLists, result]);
       setIsListsLoading(false);
     })
@@ -309,7 +261,6 @@ export const getBaseSchema = (setCustomTodoLists, setIsListsLoading) => {
   })
     .then((response) => response.json())
     .then((result) => {
-      // console.log("Success:", result);
       setCustomTodoLists(result.tables);
       setIsListsLoading(false);
     })

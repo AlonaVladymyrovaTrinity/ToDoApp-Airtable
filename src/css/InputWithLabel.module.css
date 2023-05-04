@@ -1,9 +1,3 @@
-/* .label-input {
-  flex-direction: row;
-  align-items: center;
-  margin-right: 1rem;
-  width: auto;
-} */
 .label-input {
   min-width: 60px;
 }
@@ -26,7 +20,6 @@
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   padding: 15px;
-  /* border: 1px solid #ccc; */
   box-shadow: 0 1px 6px 0 #20212447;
   border: none;
   background-color: hsla(0, 0%, 100%, 0.919);
@@ -34,8 +27,6 @@
   margin: 0px 10px;
 }
 .input-field input:focus {
-  /* border-color: #fb8ce2; */
-  /* box-shadow: 3.5px 3px 6px 1px #9f9f9f; */
   box-shadow: 0 1px 6px 0 #20212447;
   border: 1px solid #ccc;
 }
@@ -53,12 +44,4 @@
     padding: 10px;
     margin: 0px 8px;
   }
-  /* .label-input {
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-right: 1rem;
-    width: 100%;
-  } */
 }

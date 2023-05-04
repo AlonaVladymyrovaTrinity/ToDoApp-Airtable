@@ -1,5 +1,4 @@
 import React from "react";
-// import style from "../css/Toggle.module.css";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
@@ -69,8 +68,10 @@ const Label = styled.label`
     width: 45px;
   }
 `;
-
+//This is functional styled 'StyledToggle' component in the shape of toggle button to switch dark mod
 const StyledToggle = ({ setDarkMode, darkMode }) => {
+  //Function handleToggleClick toggles the value of the darkMode state and saves the new value to local storage
+  //using the setItem() method.
   const handleToggleClick = () => {
     setDarkMode(!darkMode);
     localStorage.setItem("DarkMode", JSON.stringify(!darkMode)); // Save to local storage
@@ -78,7 +79,8 @@ const StyledToggle = ({ setDarkMode, darkMode }) => {
 
   return (
     <>
-      {/* // <div class="toggle-container"> */}
+      {/* This code renders a set of icons and a toggle switch button for dark mode, where the icons change color 
+    based on the current theme (light/dark) and the toggle switch handles a state change for the dark mode. */}
       <IconsWrapper>
         <FontAwesomeIcon
           icon={faMoon}
@@ -91,9 +93,7 @@ const StyledToggle = ({ setDarkMode, darkMode }) => {
             name="theme"
             onChange={handleToggleClick}
             checked={darkMode}
-            // className={style["toggle-input"]}
           />
-          {/* <label htmlFor="switch" className={style["toggle-label"]}> */}
           <Label htmlFor="switch">Dark mode toggle</Label>
         </ToggleWrapper>
         <RiSunFill className={darkMode ? "black-icon" : "white-icon"} />

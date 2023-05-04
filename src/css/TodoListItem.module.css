@@ -1,6 +1,5 @@
 .edit-text-label {
   padding: 10px;
-  /* float: left; */
   font-size: 12px;
   color: #39191e;
   position: absolute;
@@ -12,8 +11,6 @@
   border: none;
   color: #39191e;
   font-size: 20px;
-  /* background-color: #af43fc; */
-  /* border-radius: 50%; */
   position: absolute;
   margin: 8px 10px 0 0;
   top: 0px;
@@ -24,36 +21,25 @@
   width: fit-content;
   padding: 0px 1.5px 0px 1.5px;
   margin-right: 10px;
-  /* opacity: 0.6; */
   box-shadow: none;
 }
 
 .cancel-button:hover {
-  /* background-color: #9500ff; */
-  /* opacity: 1; */
   color: #692f37;
   box-shadow: none;
 }
 .cancel-button:active {
-  /* background-color: #c067ff; */
-  /* opacity: 1; */
   color: #b94c9e;
   box-shadow: none;
-  /* color: #eeeeee; */
 }
 .edit-input {
   border: none;
-  /* background-color: transparent; */
   background-color: hsla(34, 88%, 93%, 0.5);
-  /* box-shadow: 0 1px 6px 0 #20212447; */
   border-radius: 15px;
   outline: none;
-  /* #f2f2f2; */
   width: 100%;
-  /* height: 100%; */
   padding: 10px 10px;
   box-sizing: border-box;
-  /* text-decoration: underline #b5b5b5; */
   color: #2f2f2f;
   font-size: 1rem;
   resize: none;
@@ -61,12 +47,10 @@
   white-space: normal;
   position: relative;
   margin-top: 20px;
-  /* height: auto; */
 }
 
 .edit-input:focus {
   background-color: hsla(34, 88%, 93%, 0.5);
-  /* box-shadow: 0 1px 6px 0 #20212447; */
   border-radius: 15px;
   outline: none;
 }
@@ -123,11 +107,9 @@
   width: 50px;
   box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5),
     10px 10px 15px rgba(0, 0, 70, 0.12);
-  /* border-radius: 50%; */
   border-radius: 1em;
   border: 8px solid #d4d4d4;
   background-color: #ffffff;
-  /* #e4e4e4; */
   outline: none;
   display: flex;
   justify-content: center;
