@@ -1,24 +1,24 @@
-import PropTypes from "prop-types";
-import { sortingBy } from "./SortingBy";
+import PropTypes from 'prop-types';
+import { sortingBy } from './SortingBy';
 
 const API_ENDPOINT = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}`;
 const API_ENDPOINT_TABLES = `https://api.airtable.com/v0/meta/bases/${process.env.REACT_APP_AIRTABLE_BASE_ID}/tables`;
 
 //GET Items from todo list.Function getTodoList does the following:
 //Using Fetch API, GET table records from Airtable for the given tableName
-export const getTodoList = (setTodoList, setIsLoading, tableName) => {
-  fetch(
+export const getTodoList = async (setTodoList, setIsLoading, tableName) => {
+  await fetch(
     `${API_ENDPOINT}/${tableName}`,
     // ?sort[0][field]=Title&sort[0][direction]=asc`,
     // ?view=Grid%20view&sort[0][field]=done&sort[0][direction]=asc
     {
-      method: "GET",
+      method: 'GET',
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
-        "Cache-Control": "no-cache",
-        "Content-Type": "application/json",
-        SameSite: "None",
-        Secure: true,
+        // 'Cache-Control': 'no-cache',
+        'Content-Type': 'application/json',
+        // SameSite: 'None',
+        // Secure: true,
       },
     }
   )
@@ -35,7 +35,7 @@ export const getTodoList = (setTodoList, setIsLoading, tableName) => {
     })
     //If the request fails, the .catch() callback is called and logs the error to the console
     .catch((error) => {
-      console.error("Error:", error);
+      console.error('Error:', error);
       setIsLoading(false);
       throw error;
     });
@@ -49,7 +49,7 @@ getTodoList.propTypes = {
 
 //ADD Items to todo list. Function named addTodo that does the following:
 //Using Fetch API, POST new record to Airtable with the given title field value
-export const addTodo = (
+export const addTodo = async (
   newTodo,
   setIsLoading,
   todoList,
@@ -57,10 +57,10 @@ export const addTodo = (
   tableName
 ) => {
   setIsLoading(true);
-  fetch(`${API_ENDPOINT}/${tableName}`, {
-    method: "POST",
+  await fetch(`${API_ENDPOINT}/${tableName}`, {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
     },
     body: JSON.stringify({
@@ -87,7 +87,7 @@ export const addTodo = (
       setIsLoading(false);
     })
     .catch((error) => {
-      console.error("Error:", error);
+      console.error('Error:', error);
       setIsLoading(false);
     });
 };
@@ -101,14 +101,20 @@ addTodo.propTypes = {
 
 //DELETE Items from todo list. Function named removeTodo with parameter id that does the following:
 //Using Fetch API, Delete record from Airtable given id
-export const removeTodo = (id, isLoading, todoList, setTodoList, tableName) => {
+export const removeTodo = async (
+  id,
+  isLoading,
+  todoList,
+  setTodoList,
+  tableName
+) => {
   if (!isLoading) {
     const newTodoList = todoList.filter((todo) => todo.id !== id);
     //Set todoList state to new Array NOT containing the removed record
     setTodoList(newTodoList);
 
-    fetch(`${API_ENDPOINT}/${tableName}/${id}`, {
-      method: "DELETE",
+    await fetch(`${API_ENDPOINT}/${tableName}/${id}`, {
+      method: 'DELETE',
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
       },
@@ -116,7 +122,7 @@ export const removeTodo = (id, isLoading, todoList, setTodoList, tableName) => {
       //Response is being parsed as JSON using the response.json() method
       .then((response) => response.json())
       .catch((error) => {
-        console.error("Error:", error);
+        console.error('Error:', error);
       });
   }
 };
@@ -161,20 +167,20 @@ editTitleAndData.propTypes = {
   tableName: PropTypes.string,
 };
 //Function updateAirtableRecord updates the records in Airtable
-export const updateAirtableRecord = (id, fields, tableName) => {
-  if (typeof fields !== "object") {
-    console.error("Error: fields parameter must be an object");
+export const updateAirtableRecord = async (id, fields, tableName) => {
+  if (typeof fields !== 'object') {
+    console.error('Error: fields parameter must be an object');
     return;
   }
 
-  fetch(`${API_ENDPOINT}/${tableName}/${id}`, {
-    method: "PATCH",
+  await fetch(`${API_ENDPOINT}/${tableName}/${id}`, {
+    method: 'PATCH',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
-      "Cache-Control": "no-cache",
-      SameSite: "None",
-      Secure: true,
+      // 'Cache-Control': 'no-cache',
+      // SameSite: 'None',
+      // Secure: true,
     },
     body: JSON.stringify({
       fields,
@@ -185,7 +191,7 @@ export const updateAirtableRecord = (id, fields, tableName) => {
       return result;
     })
     .catch((error) => {
-      console.error("Error:", error);
+      console.error('Error:', error);
       throw error;
     });
 };
@@ -196,34 +202,35 @@ updateAirtableRecord.propTypes = {
 };
 
 //CREATE new table (new todo list)
-export const createNewTable = (
+export const createNewTable = async (
   newListName,
   setIsListsLoading,
   setCustomTodoLists,
   customTodoLists
 ) => {
   setIsListsLoading(true);
-  fetch(`${API_ENDPOINT_TABLES}`, {
-    method: "POST",
+  await fetch(`${API_ENDPOINT_TABLES}`, {
+    method: 'POST',
+    // mode: 'cors',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_PERSONAL_ACCESS_TOKEN_CREATE_TABLE}`,
     },
     body: JSON.stringify({
-      description: "A new todo list",
+      description: 'A new todo list',
       fields: [
         {
-          description: "Custom todo list",
-          name: "Title",
-          type: "multilineText",
+          description: 'Custom todo list',
+          name: 'Title',
+          type: 'multilineText',
         },
         {
-          name: "done",
+          name: 'done',
           options: {
-            color: "greenBright",
-            icon: "check",
+            color: 'greenBright',
+            icon: 'check',
           },
-          type: "checkbox",
+          type: 'checkbox',
         },
       ],
       name: newListName,
@@ -235,7 +242,7 @@ export const createNewTable = (
       setIsListsLoading(false);
     })
     .catch((error) => {
-      console.error("Error:", error);
+      console.error('Error:', error);
       setIsListsLoading(false);
     });
 };
@@ -248,15 +255,16 @@ createNewTable.propTypes = {
 };
 
 //GET table names (todo list names)
-export const getBaseSchema = (setCustomTodoLists, setIsListsLoading) => {
-  fetch(`${API_ENDPOINT_TABLES}`, {
-    method: "GET",
+export const getBaseSchema = async (setCustomTodoLists, setIsListsLoading) => {
+  await fetch(`${API_ENDPOINT_TABLES}`, {
+    method: 'GET',
+    // mode: 'cors',
     headers: {
       Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_PERSONAL_ACCESS_TOKEN_GET_DB_SCHEMA}`,
-      "Cache-Control": "no-cache",
-      "Content-Type": "application/json",
-      SameSite: "None",
-      Secure: true,
+      // 'Cache-Control': 'no-cache',
+      'Content-Type': 'application/json',
+      // SameSite: 'None',
+      // Secure: true,
     },
   })
     .then((response) => response.json())
@@ -265,7 +273,7 @@ export const getBaseSchema = (setCustomTodoLists, setIsListsLoading) => {
       setIsListsLoading(false);
     })
     .catch((error) => {
-      console.error("Error:", error);
+      console.error('Error:', error);
       setIsListsLoading(false);
       throw error;
     });
