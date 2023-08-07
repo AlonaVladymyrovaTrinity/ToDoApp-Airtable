@@ -46,7 +46,7 @@ Welcome to the "To-do List" application, where staying organized is made easy. T
 
 - **Navigation Menu:** Seamlessly navigate through different sections of the app using the intuitive navigation menu. Access your various custom lists, notes, and settings with ease.
 
-  <img src="src/images/Menu.png" alt="Menu" width="400" />
+  <img src="src/images/Menu.png" alt="Menu" width="400" hight="800"/>
 
 - **Notes Section:** Keep your thoughts and plans organized with a dedicated notes section, perfect for jotting down quick ideas or detailed plans. Add and delete notes as needed.
 
@@ -54,8 +54,7 @@ Welcome to the "To-do List" application, where staying organized is made easy. T
 
 - **Responsive Design:** Experience a consistent and optimal user interface across all devices, including desktops, phones, and tablets. Stay productive whether you're on the go or at your desk.
 
-  ![alt_text](src/images/About-1.png 'Responsive-Desktop-Design')
-  <img src="src/images/About-2.png" alt="Responsive-Tablet-Design" width="700" />
+  <img src="src/images/About-2.png" alt="Responsive-Tablet-Design" width="500" />
 
 - **Accessibility and Usability:** Our app is designed with accessibility in mind, following the Web Content Accessibility Guidelines (WCAG) and best practices. Users of all abilities can easily navigate, interact, and manage their tasks.
 
