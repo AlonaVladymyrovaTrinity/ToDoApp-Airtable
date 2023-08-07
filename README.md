@@ -46,7 +46,7 @@ Welcome to the "To-do List" application, where staying organized is made easy. T
 
 - **Navigation Menu:** Seamlessly navigate through different sections of the app using the intuitive navigation menu. Access your various custom lists, notes, and settings with ease.
 
-  <img src="src/images/Menu.png" alt="Menu" width="400" hight="700"/>
+  <img src="src/images/Menu.png" alt="Menu" width="300"/>
 
 - **Notes Section:** Keep your thoughts and plans organized with a dedicated notes section, perfect for jotting down quick ideas or detailed plans. Add and delete notes as needed.
 
