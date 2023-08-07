@@ -46,7 +46,7 @@ Welcome to the "To-do List" application, where staying organized is made easy. T
 
 - **Navigation Menu:** Seamlessly navigate through different sections of the app using the intuitive navigation menu. Access your various custom lists, notes, and settings with ease.
 
-  ![alt_text](src/images/Menu.png 'Menu')
+  <img src="src/images/Menu.png" alt="Menu" width="400" />
 
 - **Notes Section:** Keep your thoughts and plans organized with a dedicated notes section, perfect for jotting down quick ideas or detailed plans. Add and delete notes as needed.
 
@@ -55,18 +55,16 @@ Welcome to the "To-do List" application, where staying organized is made easy. T
 - **Responsive Design:** Experience a consistent and optimal user interface across all devices, including desktops, phones, and tablets. Stay productive whether you're on the go or at your desk.
 
   ![alt_text](src/images/About-1.png 'Responsive-Desktop-Design')
-  ![alt_text](src/images/About-2.png 'Responsive-Tablet-Design')
+  <img src="src/images/About-2.png" alt="Responsive-Tablet-Design" width="400" />
 
 - **Accessibility and Usability:** Our app is designed with accessibility in mind, following the Web Content Accessibility Guidelines (WCAG) and best practices. Users of all abilities can easily navigate, interact, and manage their tasks.
-
-  ![alt_text](src/images/WCAG-2-About-page.png 'WCAG-2-About-page')
-  ![alt_text](src/images/WCAG-2-Custom-Todo-Lists.png 'WCAG-2-Custom-Todo-Lists')
-  ![alt_text](src/images/WCAG-2-Todo-list-page.png 'WCAG-2-Todo-list-page')
-  ![alt_text](src/images/WCAG-2-Notes.png 'WCAG-2-Notes')
+  <img src="src/images/WCAG-2-About-page.png" alt="WCAG-2-About-page" width="400" />
+  <img src="src/images/WCAG-2-Custom-Todo-Lists.png" alt="WCAG-2-Custom-Todo-Lists" width="400" />
+  <img src="src/images/WCAG-2-Todo-list-page.png" alt="WCAG-2-Todo-list-page" width="400" />
+  <img src="src/images/WCAG-2-Notes.png" alt="WCAG-2-Notes" width="400" />
 
 - **404 Not Found Page:** If you ever find yourself on an unavailable page, our app provides a helpful 404 Not Found page to guide you back to the right path.
-
-  ![alt_text](src/images/404-Not-found.png '404-Not-found')
+  <img src="src/images/404-Not-found.png" alt="404-Not-found" width="400" />
 
   Whether you're managing work projects or personal tasks, the "To-do List" app is designed to optimize your task management experience, helping you boost productivity and stay on top of your goals.
 
