@@ -80,3 +80,7 @@ This app was built using the following technologies:
 - React
 - REST API
 - Airtable
+- React Router
+- HTML5
+- CSS3
+- JavaScript
