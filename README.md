@@ -9,7 +9,7 @@ To get started with this app, you'll need to do a few things:
 1. Clone this repository to your local machine
 2. Create a new Airtable account if you don't already have one
 3. Create a new Airtable base for your tasks
-4. Update the `.env` file with your Airtable API key and base ID
+4. Update the `.env` file with your Airtable Personal Access Tokens and base ID
 
 Once you've done that, you can run the app locally using the following commands:
 
