@@ -14,7 +14,8 @@ export const getTodoList = async (setTodoList, setIsLoading, tableName) => {
     {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+        //Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+        Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_PERSONAL_ACCESS_TOKEN_GET_DATA_FROM_TABLE}`,
         // 'Cache-Control': 'no-cache',
         'Content-Type': 'application/json',
         // SameSite: 'None',
@@ -61,7 +62,8 @@ export const addTodo = async (
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+      //Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+      Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_PERSONAL_ACCESS_TOKEN_CREATE_EDIT_DELETE_DATA_FROM_TABLE}`,
     },
     body: JSON.stringify({
       records: [
@@ -116,7 +118,8 @@ export const removeTodo = async (
     await fetch(`${API_ENDPOINT}/${tableName}/${id}`, {
       method: 'DELETE',
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+        // Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+        Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_PERSONAL_ACCESS_TOKEN_CREATE_EDIT_DELETE_DATA_FROM_TABLE}`,
       },
     })
       //Response is being parsed as JSON using the response.json() method
@@ -177,7 +180,8 @@ export const updateAirtableRecord = async (id, fields, tableName) => {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+      // Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+      Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_PERSONAL_ACCESS_TOKEN_CREATE_EDIT_DELETE_DATA_FROM_TABLE}`,
       // 'Cache-Control': 'no-cache',
       // SameSite: 'None',
       // Secure: true,
